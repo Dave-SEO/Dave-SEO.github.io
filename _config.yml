@@ -81,3 +81,6 @@ deploy:
    type: git
    repo: https://github.com/Dave-SEO/Dave-SEO.github.io.git
    branch: master
+# Extensions
+## Plugins: http://hexo.io/plugins/
+plugins: hexo-generate-feed
