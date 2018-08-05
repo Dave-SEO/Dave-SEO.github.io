@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>永无止境</title>
+  
+  <subtitle>奋斗不息</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://myzhangning.top/"/>
+  <updated>2018-03-05T03:28:00.000Z</updated>
+  <id>http://myzhangning.top/</id>
+  
+  <author>
+    <name>Dave-SEO</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mongoDB配置</title>
+    <link href="http://myzhangning.top/2018/03/05/mongoDB%E9%85%8D%E7%BD%AE/"/>
+    <id>http://myzhangning.top/2018/03/05/mongoDB配置/</id>
+    <published>2018-03-04T16:00:00.000Z</published>
+    <updated>2018-03-05T03:28:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>配置MongoDB<br>a.在c:\MongoDB（可随意起）下面建一个data文件夹 c:\MongoDB\data<br>b.在c:\MongoDB（可随意起）下面建一个logs文件夹 c:\MongoDB\logs ，在里面建一个文件mongo.log<br>c.在c:\MongoDB（可随意起）下面建一个etc(随意起，放配置文件)文件夹 c:\MongoDB\etc ,在里面建一个文件mongo.conf<br>d.打开mongo.conf文件，修改如下：<br> <!-- #数据库路径 --><br>dbpath=c:\MongoDB\data\<br><!-- #日志输出文件路径 --><br>logpath=c:\MongoDB\logs\mongodb.log<br><!-- #错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件 --><br>logappend=true<br><!-- #启用日志文件，默认启用 --><br>journal=true<br><!-- #这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false --><br>quiet=false<br><!-- #端口号 默认为27017 --><br>port=27017<br><!-- #指定存储引擎（默认先不加此引擎，如果报错了，大家在加进去） --><br>storageEngine=mmapv1<br>完成以上操作后，我们就可以启动我们的mongo数据库了。</p><!-- # 在服务中写入 --><p>mongod –config c:\MongoDB\etc\mongo.conf –install –serviceName “MongoDB”</p><!-- 在环境变量path中配置MongoDB --><p>c:\Program Files\MongoDB\Server\3.4\bin</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;配置MongoDB&lt;br&gt;a.在c:\MongoDB（可随意起）下面建一个data文件夹 c:\MongoDB\data&lt;br&gt;b.在c:\MongoDB（可随意起）下面建一个logs文件夹 c:\MongoDB\logs ，在里面建一个文件mongo.log&lt;br&gt;c.在
+      
+    
+    </summary>
+    
+      <category term="mongoDB" scheme="http://myzhangning.top/categories/mongoDB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodemailer+(node-schedule)+phantom 实现定时发送邮件截图</title>
+    <link href="http://myzhangning.top/2018/01/16/nodemailer/"/>
+    <id>http://myzhangning.top/2018/01/16/nodemailer/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T07:02:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="nodemailer"><a href="#nodemailer" class="headerlink" title="nodemailer"></a>nodemailer</h1><pre><code>近来研究了下phantomjs,只是初涉，还谈不上深入研究，首先介绍下什么是phantomjs。</code></pre><p>官网上的介绍是：”PhantomJS is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.”翻译过来就是：”PhantomJS 是一个基于 WebKit 的服务器端 JavaScript API。它全面支持web而不需浏览器支持，其快速，原生支持各种Web标准： DOM 处理, CSS 选择器, JSON, Canvas, 和 SVG。 ”   PhantomJS 可以用于页面自动化，网络监测，网页截屏，以及无界面测试等。<br>nodemailer：为了实现这个功能，你首先要有一个邮箱；由于需要使用SMTP方式发送，你还需要开启相关功能。<br>node-schedule：作为定时用</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 截图</span></span><br><span class="line"><span class="keyword">const</span> phantom = <span class="built_in">require</span>(<span class="string">'phantom'</span>);</span><br><span class="line"><span class="comment">// 邮件发送</span></span><br><span class="line"><span class="keyword">const</span> nodemailer = <span class="built_in">require</span>(<span class="string">'nodemailer'</span>);</span><br><span class="line"><span class="comment">// 定时</span></span><br><span class="line"><span class="keyword">const</span> schedule = <span class="built_in">require</span>(<span class="string">"node-schedule"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendMails</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        (<span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">const</span> instance = <span class="keyword">await</span> phantom.create();</span><br><span class="line">            <span class="keyword">const</span> page = <span class="keyword">await</span> instance.createPage();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">await</span> page.property(<span class="string">'viewportSize'</span>, &#123;&#125;);</span><br><span class="line">            <span class="comment">// console.log(url)</span></span><br><span class="line">            <span class="comment">// console.log("url打开了");</span></span><br><span class="line">            <span class="keyword">const</span> status = <span class="keyword">await</span> page.open(url);</span><br><span class="line"></span><br><span class="line">            page.property(<span class="string">'clipRect'</span>, &#123;</span><br><span class="line">                top: <span class="number">50</span>,</span><br><span class="line">                left: <span class="number">160</span>,</span><br><span class="line">                width: <span class="number">1400</span>,</span><br><span class="line">                height: <span class="number">4000</span></span><br><span class="line">            &#125;);</span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// console.log("开始截图了");</span></span><br><span class="line">                page.render(<span class="string">'./public/emaiimg/stackoverflow.png'</span>);</span><br><span class="line"></span><br><span class="line">            &#125;, <span class="number">55000</span>);</span><br><span class="line">            <span class="comment">// console.log("截图完成了");</span></span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                instance.exit();</span><br><span class="line">                <span class="keyword">const</span> config_email = &#123;</span><br><span class="line">                    host: <span class="string">'smtp.exmail.qq.com'</span>,</span><br><span class="line">                    post: <span class="number">465</span>, <span class="comment">// SMTP 端口</span></span><br><span class="line">                    <span class="comment">//secureConnection: true, // 使用 SSL</span></span><br><span class="line">                    auth: &#123;</span><br><span class="line">                        user: <span class="string">'zhangning@zumainfo.com'</span>,</span><br><span class="line">                        <span class="comment">//这里密码不是qq密码，是你设置的smtp密码</span></span><br><span class="line">                        pass: <span class="string">'Zhangning0408'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                <span class="keyword">var</span> transporter = nodemailer.createTransport(config_email);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> data = &#123;</span><br><span class="line">                    <span class="keyword">from</span>: <span class="string">'zhangning@zumainfo.com'</span>, <span class="comment">// 发件地址</span></span><br><span class="line">                    <span class="comment">//to: dat[0].receivers, // 收件列表</span></span><br><span class="line">                    to: <span class="string">'980090631@qq.com'</span>, <span class="comment">// 收件列表</span></span><br><span class="line">                    subject: dat[<span class="number">0</span>].title, <span class="comment">// 标题</span></span><br><span class="line">                    <span class="comment">//text: 'Hello world feng' // 标题 //text和html两者只支持一种</span></span><br><span class="line">                    <span class="comment">// html: "测试", // html 内容</span></span><br><span class="line">                    attachments: [</span><br><span class="line">                        &#123;</span><br><span class="line">                            filename: <span class="string">'stackoverflow.png'</span>,</span><br><span class="line">                            path: <span class="string">'./public/emaiimg/stackoverflow.png'</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    ]</span><br><span class="line">                &#125;;</span><br><span class="line">                transporter.sendMail(data, <span class="function"><span class="keyword">function</span> (<span class="params">err, info</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="built_in">console</span>.log(err);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'Message sent: '</span> + info.response);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;, <span class="number">60000</span>);</span><br><span class="line">        &#125;)();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rule = <span class="keyword">new</span> schedule.RecurrenceRule();</span><br><span class="line">rule.dayOfWeek = [<span class="number">0</span>, <span class="keyword">new</span> schedule.Range(<span class="number">1</span>, <span class="number">6</span>)];</span><br><span class="line">rule.hour = <span class="string">'16'</span>;</span><br><span class="line">rule.minute = <span class="string">'6'</span>;</span><br><span class="line"><span class="keyword">var</span> j = schedule.scheduleJob(rule, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    sendMails();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;nodemailer&quot;&gt;&lt;a href=&quot;#nodemailer&quot; class=&quot;headerlink&quot; title=&quot;nodemailer&quot;&gt;&lt;/a&gt;nodemailer&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;近来研究了下phantomjs,只是初涉，还谈不上深入研究，
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python</title>
+    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
+    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T08:28:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mongoDB在node中的使用</title>
+    <link href="http://myzhangning.top/2018/01/04/mongoDB/"/>
+    <id>http://myzhangning.top/2018/01/04/mongoDB/</id>
+    <published>2018-01-03T16:00:00.000Z</published>
+    <updated>2018-01-17T07:07:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="mongoose"><a href="#mongoose" class="headerlink" title="mongoose"></a>mongoose</h1><pre><code>NodeJS有专门的模块连接MongoDB操作数据库，但是从数据验证，定义Schema数据模式，以及model处理增删改查等方面，Mongoose都有过之无不及，极大的提升开发效率Mongoose是MongoDB的一个对象模型工具，是基于node-mongodb-native开发的MongoDB nodejs驱动，可以在异步的环境下执行。同时它也是针对MongoDB操作的一个对象模型库，封装了MongoDB对文档的的一些增删改查等常用方法，让NodeJS操作Mongodb数据库变得更加灵活简单。Schema ： 一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力Model ： 由Schema发布生成的模型，具有抽象属性和行为的数据库操作对</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"><span class="comment">// 链接MongoDB</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/react'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否链接成功</span></span><br><span class="line">mongoose.connection.on(<span class="string">'connected'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'mongoDB connect success !'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 类似mysql的表 mongo有文档，字段的概念 新建模型</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'user'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    user: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">require</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">    age: &#123; <span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">require</span>: <span class="literal">true</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line">User.create(&#123;</span><br><span class="line">    user: <span class="string">'xiao'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 查询</span></span><br><span class="line"><span class="comment">//findOne 查找一条</span></span><br><span class="line">User.find(&#123;<span class="string">'user'</span>:<span class="string">'xiaoming'</span>&#125;,(error,data)=&gt;&#123;&#125;);</span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line">User.remove(&#123;<span class="attr">age</span>:<span class="number">18</span>&#125;,(error,data)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 更新</span></span><br><span class="line">User.update(&#123;<span class="string">'user'</span>:<span class="string">'xiaoming'</span>&#125;,&#123;<span class="string">'$set'</span>:&#123;<span class="attr">age</span>:<span class="number">26</span>&#125;&#125;,(error,data)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;mongoose&quot;&gt;&lt;a href=&quot;#mongoose&quot; class=&quot;headerlink&quot; title=&quot;mongoose&quot;&gt;&lt;/a&gt;mongoose&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;NodeJS有专门的模块连接MongoDB操作数据库，但是从数据验证，定义S
+      
+    
+    </summary>
+    
+      <category term="mongoDB" scheme="http://myzhangning.top/categories/mongoDB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs项目部署之vue</title>
+    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-01T07:47:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ant Design的配置</title>
+    <link href="http://myzhangning.top/2018/01/03/design/"/>
+    <id>http://myzhangning.top/2018/01/03/design/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-02T02:31:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>npm install babel-plugin-import 安装babel插件，在package.json中配置babel</li></ol><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   "babel": &#123;</span><br><span class="line">  "plugins": [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"import"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"libraryName"</span>: <span class="string">"antd-mobile"</span>,</span><br><span class="line">        <span class="attr">"style"</span>: <span class="string">"css"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 然后只需从 antd 引入模块即可<br>    import { DatePicker } from ‘antd’;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs excel导出</title>
+    <link href="http://myzhangning.top/2018/01/03/nodejsExcel%E5%AF%BC%E5%87%BA/"/>
+    <id>http://myzhangning.top/2018/01/03/nodejsExcel导出/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-02T02:02:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了</p><ol><li>ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 <a href="https://www.npmjs.com/package/ejsexcel" target="_blank" rel="noopener">https://www.npmjs.com/package/ejsexcel</a></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  ejsExcel.renderExcel(exlBuf_search, attr_box).then(<span class="function"><span class="keyword">function</span> (<span class="params">exlBuf2</span>) </span>&#123;</span><br><span class="line">               fs.writeFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>), exlBuf2);</span><br><span class="line">               <span class="keyword">var</span> newsExcel = fs.readFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>));</span><br><span class="line">               res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/vnd.openxmlformats; charset=utf-8'</span>);</span><br><span class="line">               res.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=spcode.xlsx"</span>);</span><br><span class="line">               res.end(newsExcel);</span><br><span class="line">           &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.error(<span class="string">'error'</span>, err);</span><br><span class="line">           &#125;);</span><br><span class="line"><span class="comment">// 其中 exlBuf_search为模板文件，attr_box为数据源（必须为二维数组）</span></span><br></pre></td></tr></table></figure><ol start="2"><li>excel-export 不支持合并单元格,需要xml文件</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 &lt;a href=&quot;https://www.npmjs.com/package/ejsexcel&quot; targ
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redux-devTools的使用</title>
+    <link href="http://myzhangning.top/2017/12/29/redux-devTools/"/>
+    <id>http://myzhangning.top/2017/12/29/redux-devTools/</id>
+    <published>2017-12-28T16:00:00.000Z</published>
+    <updated>2018-01-02T07:30:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="redux-devTools的使用"><a href="#redux-devTools的使用" class="headerlink" title="redux-devTools的使用"></a>redux-devTools的使用</h1><ol><li>谷歌搜索 redux</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = createStore(counter,compose(applyMiddleware(thunk),<span class="built_in">window</span>.devToolsExtension?<span class="built_in">window</span>.devToolsExtension():<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;</span><br><span class="line">));</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;redux-devTools的使用&quot;&gt;&lt;a href=&quot;#redux-devTools的使用&quot; class=&quot;headerlink&quot; title=&quot;redux-devTools的使用&quot;&gt;&lt;/a&gt;redux-devTools的使用&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;谷歌搜索
+      
+    
+    </summary>
+    
+      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redux</title>
+    <link href="http://myzhangning.top/2017/12/28/redux/"/>
+    <id>http://myzhangning.top/2017/12/28/redux/</id>
+    <published>2017-12-27T16:00:00.000Z</published>
+    <updated>2018-01-17T07:09:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="redux是专注于状态管理的库，和react解耦-单一状态"><a href="#redux是专注于状态管理的库，和react解耦-单一状态" class="headerlink" title="redux是专注于状态管理的库，和react解耦,单一状态"></a>redux是专注于状态管理的库，和react解耦,单一状态</h1><p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。<br>可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试。不仅于此，它还提供 超爽的开发体验，比如有一个时间旅行调试器可以编辑后实时预览。<br>Redux 除了和 React 一起用外，还支持其它界面库。<br>它体小精悍（只有2kB）且没有任何依赖。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单向数据流,核心概念:store，state，action，reducer</span></span><br><span class="line"><span class="comment">//  新建store,通过reducer 简历,根据老的state和action 生成新的state</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state=<span class="number">0</span>,action</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">return</span> state + <span class="number">1</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'minus'</span>:</span><br><span class="line">            <span class="keyword">return</span> state - <span class="number">1</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  新建store</span></span><br><span class="line"><span class="keyword">const</span> store = creatStore(counter);</span><br><span class="line"><span class="comment">//  获取状态</span></span><br><span class="line"><span class="keyword">const</span> init = store.getState();</span><br><span class="line"><span class="comment">// 3.监听变化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listener</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> current = store.getState();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`现在有<span class="subst">$&#123;current&#125;</span>把`</span>);</span><br><span class="line">&#125;</span><br><span class="line">store.subscribe(listener);</span><br><span class="line"><span class="comment">//  派发事件 传递action</span></span><br><span class="line">store.dispatch(&#123;<span class="attr">type</span>:<span class="string">'add'</span>&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;redux是专注于状态管理的库，和react解耦-单一状态&quot;&gt;&lt;a href=&quot;#redux是专注于状态管理的库，和react解耦-单一状态&quot; class=&quot;headerlink&quot; title=&quot;redux是专注于状态管理的库，和react解耦,单一状态&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>react-redux的使用</title>
+    <link href="http://myzhangning.top/2017/12/28/react-redux/"/>
+    <id>http://myzhangning.top/2017/12/28/react-redux/</id>
+    <published>2017-12-27T16:00:00.000Z</published>
+    <updated>2018-01-02T09:31:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Provider&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line">ReactDOM.render((&lt;Provider store=&#123;store&#125;&gt;&lt;App /&gt;&lt;/Provider&gt;),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure><h2 id="其它页面使用"><a href="#其它页面使用" class="headerlink" title="其它页面使用"></a>其它页面使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;connect&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="comment">// es7 提案装饰器，需babel配置</span></span><br><span class="line">@connect(</span><br><span class="line">  <span class="comment">// 你要state什么属性放到props里</span></span><br><span class="line">  state=&gt;(&#123;<span class="attr">num</span>:state&#125;),</span><br><span class="line">  <span class="comment">//你要什么方法放到props里，自动dispath</span></span><br><span class="line">  &#123;addNum,subtr,addNumAsync&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 装饰器插件安装 修饰器（Decorator）是一个函数，用来修改类的行为</span></span><br><span class="line">cnpm install babel-plugin-transform-decorators-legacy --save-dev</span><br><span class="line"><span class="comment">// package.json中配置</span></span><br><span class="line"> <span class="string">"plugins"</span>: [</span><br><span class="line">      [</span><br><span class="line">        <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">      ]</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;index-js&quot;&gt;&lt;a href=&quot;#index-js&quot; class=&quot;headerlink&quot; title=&quot;index.js&quot;&gt;&lt;/a&gt;index.js&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>es6</title>
+    <link href="http://myzhangning.top/2017/12/25/es6/"/>
+    <id>http://myzhangning.top/2017/12/25/es6/</id>
+    <published>2017-12-24T16:00:00.000Z</published>
+    <updated>2018-01-02T09:32:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="映射新数组"><a href="#映射新数组" class="headerlink" title="映射新数组"></a>映射新数组</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr= [1,2,3]=map(v=&gt;v*2);</span><br><span class="line">// [2,4,6]</span><br></pre></td></tr></table></figure><h6 id="所有元素是否通过测试"><a href="#所有元素是否通过测试" class="headerlink" title="所有元素是否通过测试"></a>所有元素是否通过测试</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = [1,2,3].every(v=&gt;v&gt;2);</span><br><span class="line">// false</span><br></pre></td></tr></table></figure><h6 id="是否有元素通过测试"><a href="#是否有元素通过测试" class="headerlink" title="是否有元素通过测试"></a>是否有元素通过测试</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr =[1,2,3].some(v=&gt;v&gt;2);</span><br><span class="line">//true</span><br></pre></td></tr></table></figure><h6 id="过滤数组"><a href="#过滤数组" class="headerlink" title="过滤数组"></a>过滤数组</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr =[1,2,3].filter(v=&gt;v&gt;2);</span><br><span class="line">// [3]</span><br></pre></td></tr></table></figure><h6 id="查找索引"><a href="#查找索引" class="headerlink" title="查找索引"></a>查找索引</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr =[1,2,3].indexOf(3);</span><br><span class="line">// 返回元素的索引值 2</span><br></pre></td></tr></table></figure><h6 id="连接数组"><a href="#连接数组" class="headerlink" title="连接数组"></a>连接数组</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arr1=[1,2,3];</span><br><span class="line">const arr2=[4,5,6];</span><br><span class="line">const arr3=[...arr1,...arr2]</span><br></pre></td></tr></table></figure><h6 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr=[1,2,2,3];</span><br><span class="line">[...new Set(arr)];</span><br></pre></td></tr></table></figure><h6 id="获取对象的key"><a href="#获取对象的key" class="headerlink" title="获取对象的key"></a>获取对象的key</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.keys(&#123;name:&apos;san&apos;,age:1&#125;);</span><br></pre></td></tr></table></figure><h6 id="获取对象里数据的数量"><a href="#获取对象里数据的数量" class="headerlink" title="获取对象里数据的数量"></a>获取对象里数据的数量</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.keys(&#123;name:&apos;san&apos;,age:1&#125;).length;</span><br></pre></td></tr></table></figure><h6 id="把对象变为数组"><a href="#把对象变为数组" class="headerlink" title="把对象变为数组"></a>把对象变为数组</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.entries(&#123;name:&apos;san&apos;,age:1&#125;);</span><br></pre></td></tr></table></figure><h6 id="对象合并"><a href="#对象合并" class="headerlink" title="对象合并"></a>对象合并</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr =&#123;name:&apos;san&apos;,age:1&#125;;</span><br><span class="line">const newArr=&#123;...arr,dex:&apos;1&apos;,add:&apos;6&apos;&#125;</span><br></pre></td></tr></table></figure><h6 id="获取列表的头和尾"><a href="#获取列表的头和尾" class="headerlink" title="获取列表的头和尾"></a>获取列表的头和尾</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const [head,...tail]=[1,2,3];</span><br><span class="line">const [last,...tail]=[1,2,3].reverse();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;映射新数组&quot;&gt;&lt;a href=&quot;#映射新数组&quot; class=&quot;headerlink&quot; title=&quot;映射新数组&quot;&gt;&lt;/a&gt;映射新数组&lt;/h6&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;
+      
+    
+    </summary>
+    
+      <category term="es6" scheme="http://myzhangning.top/categories/es6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Notification</title>
+    <link href="http://myzhangning.top/2017/11/21/Notification/"/>
+    <id>http://myzhangning.top/2017/11/21/Notification/</id>
+    <published>2017-11-20T16:00:00.000Z</published>
+    <updated>2017-11-21T08:26:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h5><p>想要向用户显示通知消息，需要获取用户权限，而相同的域名只需要获取一次权限。只有用户允许的权限下，Notification 才能起到作用，避免某些网站的广告滥用 Notification 或其它给用户造成影响<br>Notification.permission 该属性用于表明当前通知显示的授权状态，可能的值包括：</p><ol><li>default ：不知道用户的选择，默认。</li><li>granted ：用户允许。</li><li>denied ：用户拒绝。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(Notification.permission === &apos;granted&apos;)&#123;</span><br><span class="line">    console.log(&apos;用户允许通知&apos;);</span><br><span class="line">&#125;else if(Notification.permission === &apos;denied&apos;)&#123;</span><br><span class="line">    console.log(&apos;用户拒绝通知&apos;);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    console.log(&apos;用户还没选择，去向用户申请权限吧&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><h5 id="请求权限"><a href="#请求权限" class="headerlink" title="请求权限"></a>请求权限</h5><p>当用户还没选择的时候，我们需要向用户去请求权限。Notification 对象提供了 requestPermission() 方法请求用户当前来源的权限以显示通知。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Notification.requestPermission().then(function(permission) &#123;</span><br><span class="line">    if(permission === &apos;granted&apos;)&#123;</span><br><span class="line">        console.log(&apos;用户允许通知&apos;);</span><br><span class="line">    &#125;else if(permission === &apos;denied&apos;)&#123;</span><br><span class="line">        console.log(&apos;用户拒绝通知&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p><h5 id="推送通知"><a href="#推送通知" class="headerlink" title="推送通知"></a>推送通知</h5><p>获取用户授权之后，就可以推送通知了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var notification = new Notification(title, options);</span><br></pre></td></tr></table></figure></p><p>参数如下：</p><ol><li>title：通知的标题</li><li>options：通知的设置选项（可选）。<ul><li>body：通知的内容。</li><li>tag：代表通知的一个识别标签，相同tag时只会打开同一个通知窗口。</li><li>icon：要在通知中显示的图标的URL。</li><li>icon：要在通知中显示的图标的URL。</li><li>data：想要和通知关联的任务类型的数据。</li><li>requireInteraction：通知保持有效不自动关闭，默认为false。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var n = new Notification(&apos;状态更新提醒&apos;,&#123;</span><br><span class="line">    body: &apos;你的朋友圈有3条新状态，快去查看吧&apos;,</span><br><span class="line">    tag: &apos;linxin&apos;,</span><br><span class="line">    icon: &apos;http://blog.gdfengshuo.com/images/avatar.jpg&apos;,</span><br><span class="line">    requireInteraction: true</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li></ul></li></ol><h5 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h5><p>Notification 接口的 onclick属性指定一个事件侦听器来接收 click 事件。当点击通知窗口时会触发相应事件，比如打开一个网址，引导用户回到自己的网站去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var n = new Notification(&apos;状态更新提醒&apos;,&#123;</span><br><span class="line">    body: &apos;你的朋友圈有3条新状态，快去查看吧&apos;,</span><br><span class="line">    tag: &apos;linxin&apos;,</span><br><span class="line">    icon: &apos;http://blog.gdfengshuo.com/images/avatar.jpg&apos;,</span><br><span class="line">    requireInteraction: true,</span><br><span class="line">    data: &#123;</span><br><span class="line">        url: &apos;http://myzhangning.top&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">n.onclick = function()&#123;</span><br><span class="line">    window.open(n.data.url, &apos;_blank&apos;);      // 打开网址</span><br><span class="line">    n.close();                              // 并且关闭通知</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;用户权限&quot;&gt;&lt;a href=&quot;#用户权限&quot; class=&quot;headerlink&quot; title=&quot;用户权限&quot;&gt;&lt;/a&gt;用户权限&lt;/h5&gt;&lt;p&gt;想要向用户显示通知消息，需要获取用户权限，而相同的域名只需要获取一次权限。只有用户允许的权限下，Notification 才
+      
+    
+    </summary>
+    
+      <category term="HTML5" scheme="http://myzhangning.top/categories/HTML5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>socket.io</title>
+    <link href="http://myzhangning.top/2017/11/20/socket.io/"/>
+    <id>http://myzhangning.top/2017/11/20/socket.io/</id>
+    <published>2017-11-19T16:00:00.000Z</published>
+    <updated>2018-01-17T07:12:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="socket-io结合express实现推送数据到客户端"><a href="#socket-io结合express实现推送数据到客户端" class="headerlink" title="socket.io结合express实现推送数据到客户端"></a>socket.io结合express实现推送数据到客户端</h1><p>io.on(‘connection’,function(socket));//监听客户端连接,回调函数会传递本次连接的socket<br>io.sockets.emit(‘String’,data);//给所有客户端广播消息<br>io.sockets.socket(socketid).emit(‘String’, data);//给指定的客户端发送消息<br>socket.on(‘String’,function(data));//监听客户端发送的信息<br>socket.emit(‘String’, data);//给该socket的客户端发送消息</p><p> ####新建socket.io.js</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> socketio = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> socket_io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>);</span><br><span class="line"><span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'./util/db'</span>);</span><br><span class="line"><span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line"><span class="keyword">var</span> connectionsArray = [], POLLING_INTERVAL = <span class="number">1000</span>, pollingTimer;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取io</span></span><br><span class="line">socketio.getSocketio = <span class="function"><span class="keyword">function</span> (<span class="params">server</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pollingLoop = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询数据库</span></span><br><span class="line">    <span class="keyword">var</span> query = db.query(<span class="string">'select *from active_group'</span>),</span><br><span class="line">      articles = []; <span class="comment">// 用于保存查询结果</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询结果监听</span></span><br><span class="line">    query</span><br><span class="line">      .on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 查询出错处理</span></span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">        updateSockets(err);</span><br><span class="line">      &#125;)</span><br><span class="line">      .on(<span class="string">'result'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 加入查询到的结果到articles数组</span></span><br><span class="line">        articles.push(user);</span><br><span class="line">      &#125;)</span><br><span class="line">      .on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 检查是否有客户端连接，有连接就继续查询数据库</span></span><br><span class="line">        <span class="keyword">if</span> (connectionsArray.length) &#123;</span><br><span class="line">          pollingTimer = setTimeout(pollingLoop, POLLING_INTERVAL);</span><br><span class="line"></span><br><span class="line">          updateSockets(&#123;</span><br><span class="line">            articles: articles</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> io = socket_io.listen(server);</span><br><span class="line">  <span class="comment">// 创建一个websocket连接，实时更新数据</span></span><br><span class="line">  io.sockets.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'当前连接客户端数量:'</span> + connectionsArray.length);</span><br><span class="line">    <span class="comment">// 有客户端连接的时候才去查询，不然都是浪费资源</span></span><br><span class="line">    <span class="keyword">if</span> (!connectionsArray.length) &#123;</span><br><span class="line">      pollingLoop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    socket.on(<span class="string">'disconnect'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> socketIndex = connectionsArray.indexOf(socket);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'socket = '</span> + socketIndex + <span class="string">' disconnected'</span>);</span><br><span class="line">      <span class="keyword">if</span> (socketIndex &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        connectionsArray.splice(socketIndex, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    socket.on(<span class="string">'my other event'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'有新的客户端连接!'</span>);</span><br><span class="line">    connectionsArray.push(socket);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">updateSockets</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 加上最新的更新时间</span></span><br><span class="line">    data.time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="comment">// 推送最新的更新信息到所以连接到服务器的客户端</span></span><br><span class="line">    connectionsArray.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">tmpSocket</span>) </span>&#123;</span><br><span class="line">      tmpSocket.volatile.emit(<span class="string">'news'</span>, data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports = socketio;</span><br><span class="line"><span class="number">2.</span> bin/www 配置</span><br><span class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'../socketio'</span>);</span><br><span class="line"><span class="keyword">var</span> server = http.createServer(app); 下添加</span><br><span class="line">io.getSocketio(server);</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> ejs中添加</span><br><span class="line"></span><br><span class="line"> 引入cdn  &lt;script src=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">     &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> socket = io(<span class="string">'http://localhost:3000'</span>);<span class="comment">// 要监听的网址</span></span><br><span class="line">      socket.on(<span class="string">'news'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">        <span class="comment">// document.body.innerText += data.hello[0].spcode</span></span><br><span class="line">        socket.emit(<span class="string">'my other event'</span>, &#123; <span class="attr">my</span>: <span class="string">'data'</span> &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;socket-io结合express实现推送数据到客户端&quot;&gt;&lt;a href=&quot;#socket-io结合express实现推送数据到客户端&quot; class=&quot;headerlink&quot; title=&quot;socket.io结合express实现推送数据到客户端&quot;&gt;&lt;/a&gt;so
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>eslint</title>
+    <link href="http://myzhangning.top/2017/11/08/eslint/"/>
+    <id>http://myzhangning.top/2017/11/08/eslint/</id>
+    <published>2017-11-07T16:00:00.000Z</published>
+    <updated>2017-11-08T03:31:32.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="项目初始化及构建" scheme="http://myzhangning.top/categories/%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E6%9E%84%E5%BB%BA/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Buffer</title>
+    <link href="http://myzhangning.top/2017/11/03/buffer/"/>
+    <id>http://myzhangning.top/2017/11/03/buffer/</id>
+    <published>2017-11-02T16:00:00.000Z</published>
+    <updated>2018-08-05T15:26:33.182Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="from、alloc、allocUnsafe"><a href="#from、alloc、allocUnsafe" class="headerlink" title="from、alloc、allocUnsafe"></a>from、alloc、allocUnsafe</h1><ol><li>Buffer 用于处理二进制数据流</li><li>实例类似整数数组，大小固定</li><li>c++代码在v8堆外分配物理内存</li><li>Buffer 是全局的不需要require</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(Buffer.from([1,2,2,&apos;js&apos;]));</span><br><span class="line">console.log(Buffer.from(&apos;string&apos;,&apos;base64&apos;));</span><br><span class="line">console.log(Buffer.alloc(10));</span><br><span class="line">console.log(Buffer.alloc(10,15));</span><br><span class="line">//allocUnsafe 安全性差不会进行初始化一般不用</span><br><span class="line">console.log(Buffer.allocUnsafe(10));</span><br></pre></td></tr></table></figure><h6 id="byteLength、isBuffer"><a href="#byteLength、isBuffer" class="headerlink" title="byteLength、isBuffer"></a>byteLength、isBuffer</h6><ol><li>byteLength 字节的长度</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">console.log(Buffer.byteLength(&apos;test&apos;));</span><br><span class="line">// 输出4</span><br><span class="line">console.log(Buffer.byteLength(&apos;你好&apos;));</span><br><span class="line">// 输出6 一个中文占3个字节</span><br><span class="line">console.log(Buffer.isBuffer(&#123;&#125;));</span><br><span class="line">// 输出 false</span><br><span class="line">console.log(Buffer.isBuffer(Buffer.from([1,2])));</span><br><span class="line">// 输出 true</span><br></pre></td></tr></table></figure><h6 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h6><p> concat:拼接buffer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const buf1 = Buffer.from(&apos;this&apos;);</span><br><span class="line">const buf2 = Buffer.from(&apos;is&apos;);</span><br><span class="line">const buf3 = Buffer.from(&apos;dog&apos;);</span><br><span class="line">const concat1 = Buffer.concat([buf1,buf2,buf3]);</span><br><span class="line">console.log(concat1.toString());</span><br></pre></td></tr></table></figure></p><h6 id="Buffer-的实例方法"><a href="#Buffer-的实例方法" class="headerlink" title="Buffer 的实例方法"></a>Buffer 的实例方法</h6><ol><li><p>buf.length 申请空间的长度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const buf=Buffer.from(&apos;this is a test&apos;);</span><br><span class="line">console.log(buf.length);</span><br></pre></td></tr></table></figure></li><li><p>buf.toString(); </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const buf=Buffer.from(&apos;this is a test&apos;);</span><br><span class="line">console.log(buf.toString(&apos;base64&apos;));</span><br></pre></td></tr></table></figure></li><li><p>fill() 填充 参数：填充什么，从第几位到第几位;</p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const buffer1 = Buffer.allocUnsafe(10);</span><br><span class="line">buffer1.fill(10,2,6);</span><br></pre></td></tr></table></figure><ol start="4"><li><p>equals() 两个buffer内容是否相同</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const buf1=buffer.from(&apos;test&apos;);</span><br><span class="line">const buf2=buffer.from(&apos;test&apos;);</span><br><span class="line">const buf3=buffer.from(&apos;text&apos;);</span><br><span class="line">buf1.equals(buf2); // true</span><br><span class="line">buf1.equals(buf3); // false</span><br></pre></td></tr></table></figure></li><li><p>indexOf</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;from、alloc、allocUnsafe&quot;&gt;&lt;a href=&quot;#from、alloc、allocUnsafe&quot; class=&quot;headerlink&quot; title=&quot;from、alloc、allocUnsafe&quot;&gt;&lt;/a&gt;from、alloc、allocUnsa
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Async Await</title>
+    <link href="http://myzhangning.top/2017/11/03/async%20await/"/>
+    <id>http://myzhangning.top/2017/11/03/async await/</id>
+    <published>2017-11-02T16:00:00.000Z</published>
+    <updated>2018-01-17T07:24:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>async / await是ES7的重要特性之一，也是目前社区里公认的优秀异步解决方案。目前，async / await这个特性已经是stage 3的建议，本篇文章将分享async / await的例子<br>Async/await的主要益处是可以避免回调地狱（callback hell）问题。<br>基本概念：<br>async 表示这是一个async函数，await只能用在这个函数里面。<br>await 表示在这里等待promise返回结果了，再继续执行。<br>await 后面跟着的应该是一个promise对象</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name_pass</span>(<span class="params">user,pass</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"user:"</span>+user);</span><br><span class="line">        <span class="keyword">if</span>(user != pass)&#123;</span><br><span class="line">            resolve(<span class="string">'账号密码不正确'</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(user == pass)&#123;</span><br><span class="line">            resolve(<span class="string">'账号密码正确'</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            reject(err)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> start = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> namePassVal = <span class="keyword">await</span> name_pass(worldVal,worldVal);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'name_pass:'</span>+namePassVal);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'程序出错了'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">start();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;async / await是ES7的重要特性之一，也是目前社区里公认的优秀异步解决方案。目前，async / await这个特性已经是stage 3的建议，本篇文章将分享async / await的例子&lt;br&gt;Async/await的主要益处是可以避免回调地狱（callba
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫</title>
+    <link href="http://myzhangning.top/2017/11/03/%E7%88%AC%E8%99%AB/"/>
+    <id>http://myzhangning.top/2017/11/03/爬虫/</id>
+    <published>2017-11-02T16:00:00.000Z</published>
+    <updated>2017-11-08T03:06:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>######爬虫<br> 按照一定的规则自动抓取网络信息的数据</p><p>######反爬虫</p><ol><li>User-Agent、Referer、验证码</li><li>单位时间访问次数，访问量</li><li>关键信息图片混淆</li><li>异步加载<br>######puppeteer<br> git默认不会上传空文件可以建一个空文件.gitkeeper<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 模拟百度搜索</span><br><span class="line">const puppeteer = require(&apos;puppeteer&apos;);</span><br><span class="line">puppeteer.launch(&#123;executablePath:&quot;C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe&quot;,headless: false&#125;).then(async browser =&gt; &#123;</span><br><span class="line">    var page = await browser.newPage()</span><br><span class="line">    page.setViewport(&#123;width: 1200, height: 600&#125;)</span><br><span class="line">    try &#123;</span><br><span class="line">        await page.goto(&apos;https://www.baidu.com&apos;);// 打开网址</span><br><span class="line">        await page.keyboard.sendCharacter(&apos;狗&apos;);//输入内容</span><br><span class="line">        await page.waitFor(800);//等待800ms</span><br><span class="line">        var login = await page.$(&apos;#su&apos;); //获取按钮</span><br><span class="line">        await login.click(); // 点击搜索</span><br><span class="line">        await page.waitFor(800);</span><br><span class="line">        var tu = await page.$(&apos;#s_tab &gt; a:nth-child(6)&apos;);</span><br><span class="line">        await tu.click();</span><br><span class="line">    &#125; catch (e) &#123;</span><br><span class="line">        console.log(e);</span><br><span class="line">    &#125;</span><br><span class="line">    // await page.screenshot(&#123;path: &apos;./done.png&apos;, type: &apos;png&apos;&#125;);</span><br><span class="line">    // await page.close()</span><br><span class="line">    // browser.close()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;######爬虫&lt;br&gt; 按照一定的规则自动抓取网络信息的数据&lt;/p&gt;
+&lt;p&gt;######反爬虫&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;User-Agent、Referer、验证码&lt;/li&gt;
+&lt;li&gt;单位时间访问次数，访问量&lt;/li&gt;
+&lt;li&gt;关键信息图片混淆&lt;/li&gt;
+&lt;li&gt;异步加
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>path</title>
+    <link href="http://myzhangning.top/2017/11/02/path/"/>
+    <id>http://myzhangning.top/2017/11/02/path/</id>
+    <published>2017-11-01T16:00:00.000Z</published>
+    <updated>2017-11-03T06:55:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="normalize"><a href="#normalize" class="headerlink" title="normalize"></a>normalize</h6><pre><code>方法会规范化给定的 path，并解析 &apos;..&apos; 和 &apos;.&apos; 片段</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123;normalize&#125; = require(&apos;path&apos;);</span><br><span class="line">console.log(normalize(&apos;/user//local/bin&apos;));</span><br><span class="line">//输出 \user\local\bin</span><br><span class="line">console.log(normalize(&apos;/user//local/../bin&apos;));</span><br><span class="line">//输出 \user\bin</span><br></pre></td></tr></table></figure><h6 id="join"><a href="#join" class="headerlink" title="join"></a>join</h6><pre><code>拼接路径,也会规范化路径</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123;join&#125; = require(&apos;path&apos;);</span><br><span class="line">console.log(join(&apos;/user&apos;,&apos;local&apos;,&apos;bin/&apos;));</span><br><span class="line">//输出 \user\local\bin</span><br><span class="line">console.log(join(&apos;/user&apos;,&apos;../local&apos;,&apos;bin&apos;));</span><br><span class="line">// 输出 \local\bin</span><br></pre></td></tr></table></figure><h6 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h6><pre><code>一个相对路径的绝对路径</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123;resolve&#125; = require(&apos;path&apos;);</span><br><span class="line">console.log(resolve(&apos;./&apos;));</span><br></pre></td></tr></table></figure><h6 id="basename、dirname、extname"><a href="#basename、dirname、extname" class="headerlink" title="basename、dirname、extname"></a>basename、dirname、extname</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const &#123;basename,dirname,extname&#125; = require(&apos;path&apos;);</span><br><span class="line">const pathFile = &apos;/user/local/bin/red.txt&apos;;</span><br><span class="line">console.log(dirname(pathFile));</span><br><span class="line"> // 输出 /user/lcal/bin</span><br><span class="line">console.log(extname(pathFile));</span><br><span class="line"> // 输出 / .txt</span><br><span class="line">console.log(basename(pathFile));</span><br><span class="line"> // 输出red.txt</span><br></pre></td></tr></table></figure><h6 id="parse、format"><a href="#parse、format" class="headerlink" title="parse、format"></a>parse、format</h6><pre><code>1. 方法会从一个对象返回一个路径字符串。 与 path.parse() 相反。2.  方法返回一个对象，对象的属性表示 path 的元素 </code></pre><p>   dir <string><br>   root <string><br>   base <string><br>   name <string><br>   ext <string><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const &#123;parse,format&#125;=require(&apos;path&apos;);</span><br><span class="line">const pathFie = &apos;/user/local/bin/red.txt&apos;;</span><br><span class="line">const parseObj =parse(pathFile);</span><br><span class="line">console.log(parseObj);</span><br><span class="line"> // 输出 &#123; root: &apos;/&apos;,dir: &apos;/user/local/bin&apos;,base: &apos;red.txt&apos;,ext: &apos;.txt&apos;,name: &apos;red&apos; &#125;</span><br><span class="line">console.log(format(parseObj));</span><br><span class="line">// 输出 /user/local/bin/red.txt</span><br></pre></td></tr></table></figure></string></string></string></string></string></p><h6 id="sep、delimiter、win32、posix"><a href="#sep、delimiter、win32、posix" class="headerlink" title="sep、delimiter、win32、posix"></a>sep、delimiter、win32、posix</h6><pre><code>1. sep path路径的分隔符</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123;sep&#125; = require(&apos;path&apos;);</span><br><span class="line">console.log(sep);</span><br></pre></td></tr></table></figure><pre><code>2. delimiter process.env.path上的分隔符</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const &#123;delimiter&#125; = require(&apos;path&apos;);</span><br><span class="line">console.log(&apos;path&apos;,process.env.path);</span><br><span class="line">console.log(&apos;delimiter&apos;,delimiter);</span><br></pre></td></tr></table></figure><pre><code>3. win32属性提供了 path 方法针对 Windows 的实现4.posix 属性提供了 path 方法针对 Windows 的实现</code></pre><h6 id="dirname、filename总是返回文件的绝对路径"><a href="#dirname、filename总是返回文件的绝对路径" class="headerlink" title="__dirname、filename总是返回文件的绝对路径"></a>__dirname、filename总是返回文件的绝对路径</h6><h6 id="process-cwd-总是返回执行node命令所在的文件夹"><a href="#process-cwd-总是返回执行node命令所在的文件夹" class="headerlink" title="process.cwd()总是返回执行node命令所在的文件夹"></a>process.cwd()总是返回执行node命令所在的文件夹</h6><h6 id="在require方法中总是相对当前文件所在的文件夹"><a href="#在require方法中总是相对当前文件所在的文件夹" class="headerlink" title="在require方法中总是相对当前文件所在的文件夹"></a>在require方法中总是相对当前文件所在的文件夹</h6><h6 id="在其他地方和process-cwd-一样，相对于node启动的文件夹"><a href="#在其他地方和process-cwd-一样，相对于node启动的文件夹" class="headerlink" title="在其他地方和process.cwd()一样，相对于node启动的文件夹"></a>在其他地方和process.cwd()一样，相对于node启动的文件夹</h6>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;normalize&quot;&gt;&lt;a href=&quot;#normalize&quot; class=&quot;headerlink&quot; title=&quot;normalize&quot;&gt;&lt;/a&gt;normalize&lt;/h6&gt;&lt;pre&gt;&lt;code&gt;方法会规范化给定的 path，并解析 &amp;apos;..&amp;apos; 
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+</feed>
