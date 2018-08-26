@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="永无止境">
 <meta property="og:description" content="安装nginx brew tap denji/homebrew-nginx brew install nginx-full –with-rtmp-module 安装ffmpeg brew install ffmpeg 找到nginx 安装目录修改配置配置Nginx,支持http协议拉流 123456789location /hls &amp;#123;    #Serve HLS config    t">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-26T10:07:14.659Z">
+<meta property="og:updated_time" content="2018-08-26T10:11:02.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="直播源的制作">
 <meta name="twitter:description" content="安装nginx brew tap denji/homebrew-nginx brew install nginx-full –with-rtmp-module 安装ffmpeg brew install ffmpeg 找到nginx 安装目录修改配置配置Nginx,支持http协议拉流 123456789location /hls &amp;#123;    #Serve HLS config    t">
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2018-08-26 17:40:00 / 修改时间：18:07:14" itemprop="dateCreated datePublished" datetime="2018-08-26T17:40:00+08:00">2018-08-26</time>
+              <time title="创建时间：2018-08-26 17:40:00 / 修改时间：18:11:02" itemprop="dateCreated datePublished" datetime="2018-08-26T17:40:00+08:00">2018-08-26</time>
             
 
             
@@ -438,6 +438,7 @@
 </code></pre></li>
 <li>推流至HLS到服务器<br> ffmpeg -re -i test-2.mp4 -vcodec libx264 -acodec aac -f flv rtmp://localhost:1935/hls/strem<br> 测试： <pre><code>打开safari浏览器输入 localhost:1935/hls/strem.m3u8
 </code></pre></li>
+<li>提示<br> 所有操作均在mac下</li>
 </ol>
 
       
