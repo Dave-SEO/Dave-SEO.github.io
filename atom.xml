@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2018-08-26T10:11:02.137Z</updated>
+  <updated>2018-08-26T12:14:33.631Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>直播源的制作</title>
-    <link href="http://myzhangning.top/2018/08/26/%E7%9B%B4%E6%92%AD%E6%BA%90%E7%9A%84%E5%88%B6%E4%BD%9C/"/>
-    <id>http://myzhangning.top/2018/08/26/直播源的制作/</id>
+    <link href="http://myzhangning.top/2018/08/26/makeLive/"/>
+    <id>http://myzhangning.top/2018/08/26/makeLive/</id>
     <published>2018-08-26T09:40:00.000Z</published>
-    <updated>2018-08-26T10:11:02.137Z</updated>
+    <updated>2018-08-26T12:14:33.631Z</updated>
     
     <content type="html"><![CDATA[<ol><li>安装nginx<br> brew tap denji/homebrew-nginx<br> brew install nginx-full –with-rtmp-module</li><li>安装ffmpeg<br> brew install ffmpeg</li><li><p>找到nginx 安装目录修改配置<br>配置Nginx,支持http协议拉流</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location /hls &#123;</span><br><span class="line">    #Serve HLS config</span><br><span class="line">    types &#123;</span><br><span class="line">        application/vnd.apple.mpegurl    m3u8;</span><br><span class="line">        video/mp2t ts;</span><br><span class="line">    &#125;</span><br><span class="line">    root /usr/local/var/www;</span><br><span class="line">    add_header Cache-Control    no-cache;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 配置Nginx，支持rtmp协议推流</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    rtmp &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 1935;</span><br><span class="line">        application rtmplive &#123;</span><br><span class="line">            live on;</span><br><span class="line">            max_connections 1024;</span><br><span class="line">        &#125;</span><br><span class="line">        application hls&#123;</span><br><span class="line">            live on;</span><br><span class="line">            hls on;</span><br><span class="line">            hls_path /usr/local/var/www/hls;</span><br><span class="line">            hls_fragment 1s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>找测试源<br> cd test.mp4</p></li><li>启动nginx<br>nginx</li><li>推流至RTMP到服务器<br> ffmpeg -re -i test-2.mp4 -vcodec libx264 -acodec aac -f flv rtmp://localhost:1935/rtmplive/rtmp<br> 测试：<pre><code>下载vlc file=》open network 输入rtmp://localhost:1935/rtmplive/rtmp</code></pre></li><li>推流至HLS到服务器<br> ffmpeg -re -i test-2.mp4 -vcodec libx264 -acodec aac -f flv rtmp://localhost:1935/hls/strem<br> 测试： <pre><code>打开safari浏览器输入 localhost:1935/hls/strem.m3u8</code></pre></li><li>提示<br> 所有操作均在mac下</li></ol>]]></content>
     
@@ -159,9 +159,9 @@
     <link href="http://myzhangning.top/2018/08/08/%E7%9B%B4%E6%92%AD%E6%80%BB%E7%BB%93/"/>
     <id>http://myzhangning.top/2018/08/08/直播总结/</id>
     <published>2018-08-07T16:09:49.000Z</published>
-    <updated>2018-08-07T17:01:52.000Z</updated>
+    <updated>2018-08-26T12:13:38.655Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>如果采集用客户端来做，通常使用RTMP协议（后端对TCP比较了解）</li><li>对于低延时的场景使用RTMP协议或者HTTP-FLV,对于延时要求不高的     可以使用HLS不需要考虑并发</li><li>video 标签中的地址为blob时，用的是虚拟地址（防止视频被下载）<br> 如：src=’blob:https://…..’</li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li>如果采集用客户端来做，通常使用RTMP协议（后端对TCP比较了解）</li><li>对于低延时的场景使用RTMP协议或者HTTP-FLV,对于延时要求不高的     可以使用HLS不需要考虑并发</li><li>video 标签中的地址为blob时，用的是虚拟地址（防止视频被下载）<br> 如：src=’blob:https://…..’</li></ol><p>xx</p>]]></content>
     
     <summary type="html">
     
@@ -175,7 +175,7 @@
     
     </summary>
     
-      <category term="h5直播" scheme="http://myzhangning.top/categories/h5%E7%9B%B4%E6%92%AD/"/>
+      <category term="h5直播xx x" scheme="http://myzhangning.top/categories/h5%E7%9B%B4%E6%92%ADxx-x/"/>
     
     
       <category term="h5直播" scheme="http://myzhangning.top/tags/h5%E7%9B%B4%E6%92%AD/"/>
@@ -206,22 +206,6 @@
   </entry>
   
   <entry>
-    <title>python</title>
-    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
-    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2018-01-17T08:28:56.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>nodemailer+(node-schedule)+phantom 实现定时发送邮件截图</title>
     <link href="http://myzhangning.top/2018/01/16/nodemailer/"/>
     <id>http://myzhangning.top/2018/01/16/nodemailer/</id>
@@ -245,6 +229,22 @@
   </entry>
   
   <entry>
+    <title>python</title>
+    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
+    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T08:28:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>mongoDB在node中的使用</title>
     <link href="http://myzhangning.top/2018/01/04/mongoDB/"/>
     <id>http://myzhangning.top/2018/01/04/mongoDB/</id>
@@ -263,6 +263,32 @@
     </summary>
     
       <category term="mongoDB" scheme="http://myzhangning.top/categories/mongoDB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ant Design的配置</title>
+    <link href="http://myzhangning.top/2018/01/03/design/"/>
+    <id>http://myzhangning.top/2018/01/03/design/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-02T02:31:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>npm install babel-plugin-import 安装babel插件，在package.json中配置babel</li></ol><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   "babel": &#123;</span><br><span class="line">  "plugins": [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"import"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"libraryName"</span>: <span class="string">"antd-mobile"</span>,</span><br><span class="line">        <span class="attr">"style"</span>: <span class="string">"css"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 然后只需从 antd 引入模块即可<br>    import { DatePicker } from ‘antd’;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
     
     
   </entry>
@@ -316,32 +342,6 @@
   </entry>
   
   <entry>
-    <title>Ant Design的配置</title>
-    <link href="http://myzhangning.top/2018/01/03/design/"/>
-    <id>http://myzhangning.top/2018/01/03/design/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-02T02:31:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>npm install babel-plugin-import 安装babel插件，在package.json中配置babel</li></ol><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   "babel": &#123;</span><br><span class="line">  "plugins": [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"import"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"libraryName"</span>: <span class="string">"antd-mobile"</span>,</span><br><span class="line">        <span class="attr">"style"</span>: <span class="string">"css"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 然后只需从 antd 引入模块即可<br>    import { DatePicker } from ‘antd’;</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>redux-devTools的使用</title>
     <link href="http://myzhangning.top/2017/12/29/redux-devTools/"/>
     <id>http://myzhangning.top/2017/12/29/redux-devTools/</id>
@@ -366,29 +366,6 @@
   </entry>
   
   <entry>
-    <title>react-redux的使用</title>
-    <link href="http://myzhangning.top/2017/12/28/react-redux/"/>
-    <id>http://myzhangning.top/2017/12/28/react-redux/</id>
-    <published>2017-12-27T16:00:00.000Z</published>
-    <updated>2018-01-02T09:31:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Provider&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line">ReactDOM.render((&lt;Provider store=&#123;store&#125;&gt;&lt;App /&gt;&lt;/Provider&gt;),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure><h2 id="其它页面使用"><a href="#其它页面使用" class="headerlink" title="其它页面使用"></a>其它页面使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;connect&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="comment">// es7 提案装饰器，需babel配置</span></span><br><span class="line">@connect(</span><br><span class="line">  <span class="comment">// 你要state什么属性放到props里</span></span><br><span class="line">  state=&gt;(&#123;<span class="attr">num</span>:state&#125;),</span><br><span class="line">  <span class="comment">//你要什么方法放到props里，自动dispath</span></span><br><span class="line">  &#123;addNum,subtr,addNumAsync&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 装饰器插件安装 修饰器（Decorator）是一个函数，用来修改类的行为</span></span><br><span class="line">cnpm install babel-plugin-transform-decorators-legacy --save-dev</span><br><span class="line"><span class="comment">// package.json中配置</span></span><br><span class="line"> <span class="string">"plugins"</span>: [</span><br><span class="line">      [</span><br><span class="line">        <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">      ]</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;index-js&quot;&gt;&lt;a href=&quot;#index-js&quot; class=&quot;headerlink&quot; title=&quot;index.js&quot;&gt;&lt;/a&gt;index.js&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>redux</title>
     <link href="http://myzhangning.top/2017/12/28/redux/"/>
     <id>http://myzhangning.top/2017/12/28/redux/</id>
@@ -402,6 +379,29 @@
       
       
         &lt;h1 id=&quot;redux是专注于状态管理的库，和react解耦-单一状态&quot;&gt;&lt;a href=&quot;#redux是专注于状态管理的库，和react解耦-单一状态&quot; class=&quot;headerlink&quot; title=&quot;redux是专注于状态管理的库，和react解耦,单一状态&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>react-redux的使用</title>
+    <link href="http://myzhangning.top/2017/12/28/react-redux/"/>
+    <id>http://myzhangning.top/2017/12/28/react-redux/</id>
+    <published>2017-12-27T16:00:00.000Z</published>
+    <updated>2018-01-02T09:31:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Provider&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line">ReactDOM.render((&lt;Provider store=&#123;store&#125;&gt;&lt;App /&gt;&lt;/Provider&gt;),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure><h2 id="其它页面使用"><a href="#其它页面使用" class="headerlink" title="其它页面使用"></a>其它页面使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;connect&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="comment">// es7 提案装饰器，需babel配置</span></span><br><span class="line">@connect(</span><br><span class="line">  <span class="comment">// 你要state什么属性放到props里</span></span><br><span class="line">  state=&gt;(&#123;<span class="attr">num</span>:state&#125;),</span><br><span class="line">  <span class="comment">//你要什么方法放到props里，自动dispath</span></span><br><span class="line">  &#123;addNum,subtr,addNumAsync&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 装饰器插件安装 修饰器（Decorator）是一个函数，用来修改类的行为</span></span><br><span class="line">cnpm install babel-plugin-transform-decorators-legacy --save-dev</span><br><span class="line"><span class="comment">// package.json中配置</span></span><br><span class="line"> <span class="string">"plugins"</span>: [</span><br><span class="line">      [</span><br><span class="line">        <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">      ]</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;index-js&quot;&gt;&lt;a href=&quot;#index-js&quot; class=&quot;headerlink&quot; title=&quot;index.js&quot;&gt;&lt;/a&gt;index.js&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
       
     
     </summary>
