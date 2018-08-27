@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2018-08-26T12:14:33.631Z</updated>
+  <updated>2018-08-27T16:17:40.996Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>http协议历史</title>
+    <link href="http://myzhangning.top/2018/08/27/http-history/"/>
+    <id>http://myzhangning.top/2018/08/27/http-history/</id>
+    <published>2018-08-27T15:56:19.000Z</published>
+    <updated>2018-08-27T16:17:40.996Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="http-0-9"><a href="#http-0-9" class="headerlink" title="http/0.9"></a>http/0.9</h1><pre><code>只有一个命令GET,没有HEADER等描述数据的信息，服务器发送完数据，就关闭tcp连接tcp连接与http连接：    一个tcp连接可以对应几个http请求，一个http请求是在某一个tcp连接中进行发送</code></pre><h1 id="http-1-0"><a href="#http-1-0" class="headerlink" title="http/1.0"></a>http/1.0</h1><pre><code>增加了很多命令，增加status code 和header，多字符集支持，多部分发送，权限，缓存等</code></pre><h1 id="http-1-1"><a href="#http-1-1" class="headerlink" title="http/1.1"></a>http/1.1</h1><pre><code>持久连接，增加host和其他一些命令（host可以在同一台服务器建立多个web服务）</code></pre><h1 id="http2-主要解决http中性能问题"><a href="#http2-主要解决http中性能问题" class="headerlink" title="http2(主要解决http中性能问题)"></a>http2(主要解决http中性能问题)</h1><pre><code>一、所有数据以二进制传输（帧）二、同一个连接里发送多个请求不在需要按照顺序来（提高传输效率）三、头信息压缩（减小带宽使用）以及推送（服务端可以主动发起数据传输）等提高效率的功能例如：web页面都有html，css，js文件，需要先请求到html文本然后在浏览器中运行解析完成以后，我们才能发送css，js请求，有了推送这个功能以后，可以在请求html的同时，主动把css，js文件推送给客户端，这样是一个并行发送的关系，而不是串行的，整体传输效率、性能会很高</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;http-0-9&quot;&gt;&lt;a href=&quot;#http-0-9&quot; class=&quot;headerlink&quot; title=&quot;http/0.9&quot;&gt;&lt;/a&gt;http/0.9&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;只有一个命令GET,没有HEADER等描述数据的信息，服务器发送完数据，就关
+      
+    
+    </summary>
+    
+      <category term="http协议" scheme="http://myzhangning.top/categories/http%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+      <category term="http协议" scheme="http://myzhangning.top/tags/http%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>http协议基础及历史</title>
+    <link href="http://myzhangning.top/2018/08/27/http-protocol-and-history/"/>
+    <id>http://myzhangning.top/2018/08/27/http-protocol-and-history/</id>
+    <published>2018-08-27T15:41:02.000Z</published>
+    <updated>2018-08-27T15:54:51.666Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="五层协议"><a href="#五层协议" class="headerlink" title="五层协议"></a>五层协议</h1><img src="/2018/08/27/http-protocol-and-history/tcp-ip.png" title="五层协议示意图"><ol><li>物理层主要作用是定义物理设备如何传输数据（光缆）</li><li>数据链路层在通信的实体间建立数据链路连接</li><li>网络层为数据在结点之间传输创建逻辑链路</li><li>传输层向用户提供可靠的端到端（End-to-End）服务</li><li>传输层向高层屏蔽了下层数据通信的细节（例如：ajax post传输数据，这个数据大时一次性传输不完，如何进行传输，如何可靠的把信息传输给服务器，服务器返回的信息又如何可靠的被我们拿到，都是传输层实现的）</li><li>应用层为应用软件提供了很多服务，构建于tcp/ip协议之上屏蔽网络传输层相关细节</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;五层协议&quot;&gt;&lt;a href=&quot;#五层协议&quot; class=&quot;headerlink&quot; title=&quot;五层协议&quot;&gt;&lt;/a&gt;五层协议&lt;/h1&gt;&lt;img src=&quot;/2018/08/27/http-protocol-and-history/tcp-ip.png&quot; title
+      
+    
+    </summary>
+    
+      <category term="http协议" scheme="http://myzhangning.top/categories/http%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+      <category term="http协议" scheme="http://myzhangning.top/tags/http%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>直播源的制作</title>
@@ -50,16 +100,15 @@
     <published>2018-08-07T16:59:49.000Z</published>
     <updated>2018-08-07T16:54:12.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="直播原理"><a href="#直播原理" class="headerlink" title="直播原理"></a>直播原理</h1><ol><li>收集完是流的形式（原始二进制数据流）</li><li>原始的流是不可以进行播放的，必须采用协议做编码</li><li>H.264 视频编码，AAC 为音频编码</li></ol><h1 id="视频格式"><a href="#视频格式" class="headerlink" title="视频格式"></a>视频格式</h1><ol><li>mp4 兼容性好 IE,chrome,Firfox,safari 都支持</li><li>webm(yourtobe) chrome,Firfox 支持 IE,safari 不支持 webm是一种流式的视频格式</li><li>hls（.ts格式） Safari支持，苹果自己的协议</li><li>flv（.flv格式）早期flash视频格式 如：b站</li></ol><h1 id="直播协议"><a href="#直播协议" class="headerlink" title="直播协议"></a>直播协议</h1><ol><li>HLS 协议</li><li>RTMP 协议</li><li>HTTP-FLV协议</li></ol><h1 id="播放器分为"><a href="#播放器分为" class="headerlink" title="播放器分为"></a>播放器分为</h1><ol><li>点播：如优酷看视频</li><li>直播：b站,斗鱼（live）</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="直播原理"><a href="#直播原理" class="headerlink" title="直播原理"></a>直播原理</h1><img src="/2018/08/08/h5_1/yuanli.png" title="h5直播原理"><ol><li>收集完是流的形式（原始二进制数据流）</li><li>原始的流是不可以进行播放的，必须采用协议做编码</li><li>H.264 视频编码，AAC 为音频编码</li></ol><h1 id="视频格式"><a href="#视频格式" class="headerlink" title="视频格式"></a>视频格式</h1><img src="/2018/08/08/h5_1/视频格式.png" title="视频格式"><ol><li>mp4 兼容性好 IE,chrome,Firfox,safari 都支持</li><li>webm(yourtobe) chrome,Firfox 支持 IE,safari 不支持 webm是一种流式的视频格式</li><li>hls（.ts格式） Safari支持，苹果自己的协议</li><li>flv（.flv格式）早期flash视频格式 如：b站</li></ol><h1 id="直播协议"><a href="#直播协议" class="headerlink" title="直播协议"></a>直播协议</h1><ol><li>HLS 协议</li><li>RTMP 协议</li><li>HTTP-FLV协议</li></ol><h1 id="播放器分为"><a href="#播放器分为" class="headerlink" title="播放器分为"></a>播放器分为</h1><ol><li>点播：如优酷看视频</li><li>直播：b站,斗鱼（live）</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;直播原理&quot;&gt;&lt;a href=&quot;#直播原理&quot; class=&quot;headerlink&quot; title=&quot;直播原理&quot;&gt;&lt;/a&gt;直播原理&lt;/h1&gt;
+        &lt;h1 id=&quot;直播原理&quot;&gt;&lt;a href=&quot;#直播原理&quot; class=&quot;headerlink&quot; title=&quot;直播原理&quot;&gt;&lt;/a&gt;直播原理&lt;/h1&gt;&lt;img src=&quot;/2018/08/08/h5_1/yuanli.png&quot; title=&quot;h5直播原理&quot;&gt;
 &lt;ol&gt;
-&lt;li&gt;收集完是流的形式（原始二进制数据流）&lt;/li&gt;
-&lt;li&gt;原始的流是不可以进行播放的，必须采用协议做编码&lt;/li
+&lt;li&gt;收
       
     
     </summary>
@@ -78,16 +127,13 @@
     <published>2018-08-07T16:39:49.000Z</published>
     <updated>2018-08-07T16:51:08.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="hls-协议"><a href="#hls-协议" class="headerlink" title="hls 协议"></a>hls 协议</h1><ol><li>HLS协议是苹果提出的直播协议</li><li>M3U8的每一个片段就是直播流的一个分段<br>总结： HLS协议的直播来说它是先发送一个M3U8文件，M3U8文件会有很多索引告诉你有几个片段，这时就能播放</li></ol><h1 id="M3U8-文件的更新"><a href="#M3U8-文件的更新" class="headerlink" title="M3U8 文件的更新"></a>M3U8 文件的更新</h1><ol><li>video会在某个时间段内重新请求M3U8文件（浏览器自己的行为）, 这时服务器会返回新的M3U8文件</li><li>M3U8文件有很多索引对应TS文件</li><li>M3U8文件可以嵌套M3U8文件</li></ol><h1 id="M3U8-文件嵌套"><a href="#M3U8-文件嵌套" class="headerlink" title="M3U8 文件嵌套"></a>M3U8 文件嵌套</h1><h1 id="M3U8文件的细分"><a href="#M3U8文件的细分" class="headerlink" title="M3U8文件的细分"></a>M3U8文件的细分</h1><h1 id="M3U8-文件内容"><a href="#M3U8-文件内容" class="headerlink" title="M3U8 文件内容"></a>M3U8 文件内容</h1><ol><li>#EXTM3U  动态列表文件如下：</li><li>#EXT-X-VERSIOIV:6 版本 （默认为3）</li><li>#EXT-X-TARGETDURATION: 时长</li><li>#EXT-X-MEDIA-SEQUENCE: 26 序号</li><li>EXTINF: 9.901 下面时长为多少<br> <a href="http://media.example.om/wifi/segment26.ts" target="_blank" rel="noopener">http://media.example.om/wifi/segment26.ts</a></li></ol><h1 id="ts-文件和mp4，webm，flv之间的区别"><a href="#ts-文件和mp4，webm，flv之间的区别" class="headerlink" title="ts 文件和mp4，webm，flv之间的区别"></a>ts 文件和mp4，webm，flv之间的区别</h1><ol><li>RMT 会告诉哪个TS包是视频，哪些是音频</li><li>TS 文件先找PAT的包，PAT告诉PMT在哪里 PMT去找对应TS</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="hls-协议"><a href="#hls-协议" class="headerlink" title="hls 协议"></a>hls 协议</h1><img src="/2018/08/08/hls/HLS协议.png" title="video拿到m3u8文件解析过程"><ol><li>HLS协议是苹果提出的直播协议</li><li>M3U8的每一个片段就是直播流的一个分段<br>总结： HLS协议的直播来说它是先发送一个M3U8文件，M3U8文件会有很多索引告诉你有几个片段，这时就能播放</li></ol><h1 id="M3U8-文件的更新"><a href="#M3U8-文件的更新" class="headerlink" title="M3U8 文件的更新"></a>M3U8 文件的更新</h1><ol><li>video会在某个时间段内重新请求M3U8文件（浏览器自己的行为）, 这时服务器会返回新的M3U8文件</li><li>M3U8文件有很多索引对应TS文件</li><li>M3U8文件可以嵌套M3U8文件</li></ol><h1 id="M3U8-文件嵌套"><a href="#M3U8-文件嵌套" class="headerlink" title="M3U8 文件嵌套"></a>M3U8 文件嵌套</h1><img src="/2018/08/08/hls/M3U8文件嵌套.png" title="M3U8文件嵌套示意图"><h1 id="M3U8文件的细分"><a href="#M3U8文件的细分" class="headerlink" title="M3U8文件的细分"></a>M3U8文件的细分</h1><img src="/2018/08/08/hls/m3u8文件细分.png" title="m3u8文件细分"><h1 id="M3U8-文件内容"><a href="#M3U8-文件内容" class="headerlink" title="M3U8 文件内容"></a>M3U8 文件内容</h1><img src="/2018/08/08/hls/m3u8动态文件内容.png" title="m3u8动态文件内容"><ol><li>#EXTM3U  动态列表文件如下：</li><li>#EXT-X-VERSIOIV:6 版本 （默认为3）</li><li>#EXT-X-TARGETDURATION: 时长</li><li>#EXT-X-MEDIA-SEQUENCE: 26 序号</li><li>EXTINF: 9.901 下面时长为多少<br> <a href="http://media.example.om/wifi/segment26.ts" target="_blank" rel="noopener">http://media.example.om/wifi/segment26.ts</a></li></ol><h1 id="ts-文件和mp4，webm，flv之间的区别"><a href="#ts-文件和mp4，webm，flv之间的区别" class="headerlink" title="ts 文件和mp4，webm，flv之间的区别"></a>ts 文件和mp4，webm，flv之间的区别</h1><img src="/2018/08/08/hls/ts文件.png" title="ts文件"><ol><li>RMT 会告诉哪个TS包是视频，哪些是音频</li><li>TS 文件先找PAT的包，PAT告诉PMT在哪里 PMT去找对应TS</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;hls-协议&quot;&gt;&lt;a href=&quot;#hls-协议&quot; class=&quot;headerlink&quot; title=&quot;hls 协议&quot;&gt;&lt;/a&gt;hls 协议&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;HLS协议是苹果提出的直播协议&lt;/li&gt;
-&lt;li&gt;M3U8的每一个片段就是直播流的一个分段&lt;b
+        &lt;h1 id=&quot;hls-协议&quot;&gt;&lt;a href=&quot;#hls-协议&quot; class=&quot;headerlink&quot; title=&quot;hls 协议&quot;&gt;&lt;/a&gt;hls 协议&lt;/h1&gt;&lt;img src=&quot;/2018/08/08/hls/HLS协议.png&quot; title=&quot;video拿到m3u8文件
       
     
     </summary>
@@ -106,16 +152,13 @@
     <published>2018-08-07T16:29:49.000Z</published>
     <updated>2018-08-07T16:54:18.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="HTTP-FLV协议"><a href="#HTTP-FLV协议" class="headerlink" title="HTTP-FLV协议"></a>HTTP-FLV协议</h1><ol><li>低延时</li><li>传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCP<h1 id="HTTP-FLV协议的优势"><a href="#HTTP-FLV协议的优势" class="headerlink" title="HTTP-FLV协议的优势"></a>HTTP-FLV协议的优势</h1></li><li>可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过）</li><li>可以很好的兼容HTTP 302 跳转，做到灵活调度</li><li>可以使用HTTPS 做加密通道</li><li>很好的支持移动端（Android, ios）</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="HTTP-FLV协议"><a href="#HTTP-FLV协议" class="headerlink" title="HTTP-FLV协议"></a>HTTP-FLV协议</h1><img src="/2018/08/08/HTTP-FLV/HTTP-FLV协议.png" title="HTTP-FLV协议"><ol><li>低延时</li><li>传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCP<h1 id="HTTP-FLV协议的优势"><a href="#HTTP-FLV协议的优势" class="headerlink" title="HTTP-FLV协议的优势"></a>HTTP-FLV协议的优势</h1></li><li>可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过）</li><li>可以很好的兼容HTTP 302 跳转，做到灵活调度</li><li>可以使用HTTPS 做加密通道</li><li>很好的支持移动端（Android, ios）</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;HTTP-FLV协议&quot;&gt;&lt;a href=&quot;#HTTP-FLV协议&quot; class=&quot;headerlink&quot; title=&quot;HTTP-FLV协议&quot;&gt;&lt;/a&gt;HTTP-FLV协议&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;低延时&lt;/li&gt;
-&lt;li&gt;传输为flv格式与RTMP都是长连接
+        &lt;h1 id=&quot;HTTP-FLV协议&quot;&gt;&lt;a href=&quot;#HTTP-FLV协议&quot; class=&quot;headerlink&quot; title=&quot;HTTP-FLV协议&quot;&gt;&lt;/a&gt;HTTP-FLV协议&lt;/h1&gt;&lt;img src=&quot;/2018/08/08/HTTP-FLV/HTTP-FLV协议
       
     
     </summary>
@@ -134,15 +177,13 @@
     <published>2018-08-07T16:19:49.000Z</published>
     <updated>2018-08-07T16:57:28.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="RTMP协议概述"><a href="#RTMP协议概述" class="headerlink" title="RTMP协议概述"></a>RTMP协议概述</h1><ol><li>RTMP 协议使用相对复杂（实时消息传输协议）基于HTTP,主要用于flash，如果采集端是web端来做它的协议叫做webRTC</li><li>客户端为RTMP协议效率高一些</li></ol><h1 id="RTMP协议"><a href="#RTMP协议" class="headerlink" title="RTMP协议"></a>RTMP协议</h1><ol><li>RTMP 协议传输过程是flv视频格式的</li><li>RTMP –&gt; TCP HLS –&gt; HTTP</li><li>HLS 简单但实时性相对差，有延时（延时与M3U8文件的索引文件数量有关）</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="RTMP协议概述"><a href="#RTMP协议概述" class="headerlink" title="RTMP协议概述"></a>RTMP协议概述</h1><img src="/2018/08/08/RTMP/RTMP协议概述.png" title="RTMP协议概述"><ol><li>RTMP 协议使用相对复杂（实时消息传输协议）基于HTTP,主要用于flash，如果采集端是web端来做它的协议叫做webRTC</li><li>客户端为RTMP协议效率高一些</li></ol><h1 id="RTMP协议"><a href="#RTMP协议" class="headerlink" title="RTMP协议"></a>RTMP协议</h1><img src="/2018/08/08/RTMP/RTMP协议.png" title="RTMP协议"><ol><li>RTMP 协议传输过程是flv视频格式的</li><li>RTMP –&gt; TCP HLS –&gt; HTTP</li><li>HLS 简单但实时性相对差，有延时（延时与M3U8文件的索引文件数量有关）</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;RTMP协议概述&quot;&gt;&lt;a href=&quot;#RTMP协议概述&quot; class=&quot;headerlink&quot; title=&quot;RTMP协议概述&quot;&gt;&lt;/a&gt;RTMP协议概述&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;RTMP 协议使用相对复杂（实时消息传输协议）基于HTTP,主要用于flash
+        &lt;h1 id=&quot;RTMP协议概述&quot;&gt;&lt;a href=&quot;#RTMP协议概述&quot; class=&quot;headerlink&quot; title=&quot;RTMP协议概述&quot;&gt;&lt;/a&gt;RTMP协议概述&lt;/h1&gt;&lt;img src=&quot;/2018/08/08/RTMP/RTMP协议概述.png&quot; title=&quot;R
       
     
     </summary>
@@ -159,9 +200,9 @@
     <link href="http://myzhangning.top/2018/08/08/%E7%9B%B4%E6%92%AD%E6%80%BB%E7%BB%93/"/>
     <id>http://myzhangning.top/2018/08/08/直播总结/</id>
     <published>2018-08-07T16:09:49.000Z</published>
-    <updated>2018-08-26T12:13:38.655Z</updated>
+    <updated>2018-08-27T15:19:06.850Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>如果采集用客户端来做，通常使用RTMP协议（后端对TCP比较了解）</li><li>对于低延时的场景使用RTMP协议或者HTTP-FLV,对于延时要求不高的     可以使用HLS不需要考虑并发</li><li>video 标签中的地址为blob时，用的是虚拟地址（防止视频被下载）<br> 如：src=’blob:https://…..’</li></ol><p>xx</p>]]></content>
+    <content type="html"><![CDATA[<ol><li>如果采集用客户端来做，通常使用RTMP协议（后端对TCP比较了解）</li><li>对于低延时的场景使用RTMP协议或者HTTP-FLV,对于延时要求不高的     可以使用HLS不需要考虑并发</li><li>video 标签中的地址为blob时，用的是虚拟地址（防止视频被下载）<br> 如：src=’blob:https://…..’</li></ol>]]></content>
     
     <summary type="html">
     
@@ -175,7 +216,7 @@
     
     </summary>
     
-      <category term="h5直播xx x" scheme="http://myzhangning.top/categories/h5%E7%9B%B4%E6%92%ADxx-x/"/>
+      <category term="h5直播" scheme="http://myzhangning.top/categories/h5%E7%9B%B4%E6%92%AD/"/>
     
     
       <category term="h5直播" scheme="http://myzhangning.top/tags/h5%E7%9B%B4%E6%92%AD/"/>
@@ -206,6 +247,22 @@
   </entry>
   
   <entry>
+    <title>python</title>
+    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
+    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T08:28:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>nodemailer+(node-schedule)+phantom 实现定时发送邮件截图</title>
     <link href="http://myzhangning.top/2018/01/16/nodemailer/"/>
     <id>http://myzhangning.top/2018/01/16/nodemailer/</id>
@@ -229,22 +286,6 @@
   </entry>
   
   <entry>
-    <title>python</title>
-    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
-    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2018-01-17T08:28:56.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>mongoDB在node中的使用</title>
     <link href="http://myzhangning.top/2018/01/04/mongoDB/"/>
     <id>http://myzhangning.top/2018/01/04/mongoDB/</id>
@@ -263,32 +304,6 @@
     </summary>
     
       <category term="mongoDB" scheme="http://myzhangning.top/categories/mongoDB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Ant Design的配置</title>
-    <link href="http://myzhangning.top/2018/01/03/design/"/>
-    <id>http://myzhangning.top/2018/01/03/design/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-02T02:31:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>npm install babel-plugin-import 安装babel插件，在package.json中配置babel</li></ol><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   "babel": &#123;</span><br><span class="line">  "plugins": [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"import"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"libraryName"</span>: <span class="string">"antd-mobile"</span>,</span><br><span class="line">        <span class="attr">"style"</span>: <span class="string">"css"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 然后只需从 antd 引入模块即可<br>    import { DatePicker } from ‘antd’;</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
     
     
   </entry>
@@ -342,6 +357,32 @@
   </entry>
   
   <entry>
+    <title>Ant Design的配置</title>
+    <link href="http://myzhangning.top/2018/01/03/design/"/>
+    <id>http://myzhangning.top/2018/01/03/design/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-02T02:31:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>npm install babel-plugin-import 安装babel插件，在package.json中配置babel</li></ol><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   "babel": &#123;</span><br><span class="line">  "plugins": [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"import"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"libraryName"</span>: <span class="string">"antd-mobile"</span>,</span><br><span class="line">        <span class="attr">"style"</span>: <span class="string">"css"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 然后只需从 antd 引入模块即可<br>    import { DatePicker } from ‘antd’;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>redux-devTools的使用</title>
     <link href="http://myzhangning.top/2017/12/29/redux-devTools/"/>
     <id>http://myzhangning.top/2017/12/29/redux-devTools/</id>
@@ -366,29 +407,6 @@
   </entry>
   
   <entry>
-    <title>redux</title>
-    <link href="http://myzhangning.top/2017/12/28/redux/"/>
-    <id>http://myzhangning.top/2017/12/28/redux/</id>
-    <published>2017-12-27T16:00:00.000Z</published>
-    <updated>2018-01-17T07:09:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="redux是专注于状态管理的库，和react解耦-单一状态"><a href="#redux是专注于状态管理的库，和react解耦-单一状态" class="headerlink" title="redux是专注于状态管理的库，和react解耦,单一状态"></a>redux是专注于状态管理的库，和react解耦,单一状态</h1><p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。<br>可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试。不仅于此，它还提供 超爽的开发体验，比如有一个时间旅行调试器可以编辑后实时预览。<br>Redux 除了和 React 一起用外，还支持其它界面库。<br>它体小精悍（只有2kB）且没有任何依赖。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单向数据流,核心概念:store，state，action，reducer</span></span><br><span class="line"><span class="comment">//  新建store,通过reducer 简历,根据老的state和action 生成新的state</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state=<span class="number">0</span>,action</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">return</span> state + <span class="number">1</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'minus'</span>:</span><br><span class="line">            <span class="keyword">return</span> state - <span class="number">1</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  新建store</span></span><br><span class="line"><span class="keyword">const</span> store = creatStore(counter);</span><br><span class="line"><span class="comment">//  获取状态</span></span><br><span class="line"><span class="keyword">const</span> init = store.getState();</span><br><span class="line"><span class="comment">// 3.监听变化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listener</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> current = store.getState();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`现在有<span class="subst">$&#123;current&#125;</span>把`</span>);</span><br><span class="line">&#125;</span><br><span class="line">store.subscribe(listener);</span><br><span class="line"><span class="comment">//  派发事件 传递action</span></span><br><span class="line">store.dispatch(&#123;<span class="attr">type</span>:<span class="string">'add'</span>&#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;redux是专注于状态管理的库，和react解耦-单一状态&quot;&gt;&lt;a href=&quot;#redux是专注于状态管理的库，和react解耦-单一状态&quot; class=&quot;headerlink&quot; title=&quot;redux是专注于状态管理的库，和react解耦,单一状态&quot;&gt;&lt;/a
-      
-    
-    </summary>
-    
-      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>react-redux的使用</title>
     <link href="http://myzhangning.top/2017/12/28/react-redux/"/>
     <id>http://myzhangning.top/2017/12/28/react-redux/</id>
@@ -402,6 +420,29 @@
       
       
         &lt;h1 id=&quot;index-js&quot;&gt;&lt;a href=&quot;#index-js&quot; class=&quot;headerlink&quot; title=&quot;index.js&quot;&gt;&lt;/a&gt;index.js&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redux</title>
+    <link href="http://myzhangning.top/2017/12/28/redux/"/>
+    <id>http://myzhangning.top/2017/12/28/redux/</id>
+    <published>2017-12-27T16:00:00.000Z</published>
+    <updated>2018-01-17T07:09:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="redux是专注于状态管理的库，和react解耦-单一状态"><a href="#redux是专注于状态管理的库，和react解耦-单一状态" class="headerlink" title="redux是专注于状态管理的库，和react解耦,单一状态"></a>redux是专注于状态管理的库，和react解耦,单一状态</h1><p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。<br>可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试。不仅于此，它还提供 超爽的开发体验，比如有一个时间旅行调试器可以编辑后实时预览。<br>Redux 除了和 React 一起用外，还支持其它界面库。<br>它体小精悍（只有2kB）且没有任何依赖。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单向数据流,核心概念:store，state，action，reducer</span></span><br><span class="line"><span class="comment">//  新建store,通过reducer 简历,根据老的state和action 生成新的state</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state=<span class="number">0</span>,action</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">return</span> state + <span class="number">1</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'minus'</span>:</span><br><span class="line">            <span class="keyword">return</span> state - <span class="number">1</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  新建store</span></span><br><span class="line"><span class="keyword">const</span> store = creatStore(counter);</span><br><span class="line"><span class="comment">//  获取状态</span></span><br><span class="line"><span class="keyword">const</span> init = store.getState();</span><br><span class="line"><span class="comment">// 3.监听变化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listener</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> current = store.getState();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`现在有<span class="subst">$&#123;current&#125;</span>把`</span>);</span><br><span class="line">&#125;</span><br><span class="line">store.subscribe(listener);</span><br><span class="line"><span class="comment">//  派发事件 传递action</span></span><br><span class="line">store.dispatch(&#123;<span class="attr">type</span>:<span class="string">'add'</span>&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;redux是专注于状态管理的库，和react解耦-单一状态&quot;&gt;&lt;a href=&quot;#redux是专注于状态管理的库，和react解耦-单一状态&quot; class=&quot;headerlink&quot; title=&quot;redux是专注于状态管理的库，和react解耦,单一状态&quot;&gt;&lt;/a
       
     
     </summary>
@@ -453,45 +494,6 @@
     </summary>
     
       <category term="HTML5" scheme="http://myzhangning.top/categories/HTML5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>socket.io</title>
-    <link href="http://myzhangning.top/2017/11/20/socket.io/"/>
-    <id>http://myzhangning.top/2017/11/20/socket.io/</id>
-    <published>2017-11-19T16:00:00.000Z</published>
-    <updated>2018-01-17T07:12:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="socket-io结合express实现推送数据到客户端"><a href="#socket-io结合express实现推送数据到客户端" class="headerlink" title="socket.io结合express实现推送数据到客户端"></a>socket.io结合express实现推送数据到客户端</h1><p>io.on(‘connection’,function(socket));//监听客户端连接,回调函数会传递本次连接的socket<br>io.sockets.emit(‘String’,data);//给所有客户端广播消息<br>io.sockets.socket(socketid).emit(‘String’, data);//给指定的客户端发送消息<br>socket.on(‘String’,function(data));//监听客户端发送的信息<br>socket.emit(‘String’, data);//给该socket的客户端发送消息</p><p> ####新建socket.io.js</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> socketio = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> socket_io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>);</span><br><span class="line"><span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'./util/db'</span>);</span><br><span class="line"><span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line"><span class="keyword">var</span> connectionsArray = [], POLLING_INTERVAL = <span class="number">1000</span>, pollingTimer;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取io</span></span><br><span class="line">socketio.getSocketio = <span class="function"><span class="keyword">function</span> (<span class="params">server</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pollingLoop = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询数据库</span></span><br><span class="line">    <span class="keyword">var</span> query = db.query(<span class="string">'select *from active_group'</span>),</span><br><span class="line">      articles = []; <span class="comment">// 用于保存查询结果</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询结果监听</span></span><br><span class="line">    query</span><br><span class="line">      .on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 查询出错处理</span></span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">        updateSockets(err);</span><br><span class="line">      &#125;)</span><br><span class="line">      .on(<span class="string">'result'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 加入查询到的结果到articles数组</span></span><br><span class="line">        articles.push(user);</span><br><span class="line">      &#125;)</span><br><span class="line">      .on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 检查是否有客户端连接，有连接就继续查询数据库</span></span><br><span class="line">        <span class="keyword">if</span> (connectionsArray.length) &#123;</span><br><span class="line">          pollingTimer = setTimeout(pollingLoop, POLLING_INTERVAL);</span><br><span class="line"></span><br><span class="line">          updateSockets(&#123;</span><br><span class="line">            articles: articles</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> io = socket_io.listen(server);</span><br><span class="line">  <span class="comment">// 创建一个websocket连接，实时更新数据</span></span><br><span class="line">  io.sockets.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'当前连接客户端数量:'</span> + connectionsArray.length);</span><br><span class="line">    <span class="comment">// 有客户端连接的时候才去查询，不然都是浪费资源</span></span><br><span class="line">    <span class="keyword">if</span> (!connectionsArray.length) &#123;</span><br><span class="line">      pollingLoop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    socket.on(<span class="string">'disconnect'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> socketIndex = connectionsArray.indexOf(socket);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'socket = '</span> + socketIndex + <span class="string">' disconnected'</span>);</span><br><span class="line">      <span class="keyword">if</span> (socketIndex &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        connectionsArray.splice(socketIndex, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    socket.on(<span class="string">'my other event'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'有新的客户端连接!'</span>);</span><br><span class="line">    connectionsArray.push(socket);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">updateSockets</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 加上最新的更新时间</span></span><br><span class="line">    data.time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="comment">// 推送最新的更新信息到所以连接到服务器的客户端</span></span><br><span class="line">    connectionsArray.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">tmpSocket</span>) </span>&#123;</span><br><span class="line">      tmpSocket.volatile.emit(<span class="string">'news'</span>, data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports = socketio;</span><br><span class="line"><span class="number">2.</span> bin/www 配置</span><br><span class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'../socketio'</span>);</span><br><span class="line"><span class="keyword">var</span> server = http.createServer(app); 下添加</span><br><span class="line">io.getSocketio(server);</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> ejs中添加</span><br><span class="line"></span><br><span class="line"> 引入cdn  &lt;script src=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">     &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> socket = io(<span class="string">'http://localhost:3000'</span>);<span class="comment">// 要监听的网址</span></span><br><span class="line">      socket.on(<span class="string">'news'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">        <span class="comment">// document.body.innerText += data.hello[0].spcode</span></span><br><span class="line">        socket.emit(<span class="string">'my other event'</span>, &#123; <span class="attr">my</span>: <span class="string">'data'</span> &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;socket-io结合express实现推送数据到客户端&quot;&gt;&lt;a href=&quot;#socket-io结合express实现推送数据到客户端&quot; class=&quot;headerlink&quot; title=&quot;socket.io结合express实现推送数据到客户端&quot;&gt;&lt;/a&gt;so
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>eslint</title>
-    <link href="http://myzhangning.top/2017/11/08/eslint/"/>
-    <id>http://myzhangning.top/2017/11/08/eslint/</id>
-    <published>2017-11-07T16:00:00.000Z</published>
-    <updated>2017-11-08T03:31:32.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="项目初始化及构建" scheme="http://myzhangning.top/categories/%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E6%9E%84%E5%BB%BA/"/>
     
     
   </entry>

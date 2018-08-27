@@ -138,10 +138,16 @@
 <meta property="og:site_name" content="永无止境">
 <meta property="og:description" content="hls 协议  HLS协议是苹果提出的直播协议 M3U8的每一个片段就是直播流的一个分段总结： HLS协议的直播来说它是先发送一个M3U8文件，M3U8文件会有很多索引告诉你有几个片段，这时就能播放  M3U8 文件的更新 video会在某个时间段内重新请求M3U8文件（浏览器自己的行为）, 这时服务器会返回新的M3U8文件 M3U8文件有很多索引对应TS文件 M3U8文件可以嵌套M3U8文件">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://myzhangning.top/2018/08/08/hls/HLS协议.png">
+<meta property="og:image" content="http://myzhangning.top/2018/08/08/hls/M3U8文件嵌套.png">
+<meta property="og:image" content="http://myzhangning.top/2018/08/08/hls/m3u8文件细分.png">
+<meta property="og:image" content="http://myzhangning.top/2018/08/08/hls/m3u8动态文件内容.png">
+<meta property="og:image" content="http://myzhangning.top/2018/08/08/hls/ts文件.png">
 <meta property="og:updated_time" content="2018-08-07T16:51:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hls">
 <meta name="twitter:description" content="hls 协议  HLS协议是苹果提出的直播协议 M3U8的每一个片段就是直播流的一个分段总结： HLS协议的直播来说它是先发送一个M3U8文件，M3U8文件会有很多索引告诉你有几个片段，这时就能播放  M3U8 文件的更新 video会在某个时间段内重新请求M3U8文件（浏览器自己的行为）, 这时服务器会返回新的M3U8文件 M3U8文件有很多索引对应TS文件 M3U8文件可以嵌套M3U8文件">
+<meta name="twitter:image" content="http://myzhangning.top/2018/08/08/hls/HLS协议.png">
 
 
 
@@ -423,7 +429,7 @@
       
 
       
-        <h1 id="hls-协议"><a href="#hls-协议" class="headerlink" title="hls 协议"></a>hls 协议</h1>
+        <h1 id="hls-协议"><a href="#hls-协议" class="headerlink" title="hls 协议"></a>hls 协议</h1><img src="/2018/08/08/hls/HLS协议.png" title="video拿到m3u8文件解析过程">
 <ol>
 <li>HLS协议是苹果提出的直播协议</li>
 <li>M3U8的每一个片段就是直播流的一个分段<br>总结： HLS协议的直播来说它是先发送一个M3U8文件，M3U8文件会有很多索引告诉你有几个片段，这时就能播放</li>
@@ -433,9 +439,9 @@
 <li>M3U8文件有很多索引对应TS文件</li>
 <li>M3U8文件可以嵌套M3U8文件</li>
 </ol>
-<h1 id="M3U8-文件嵌套"><a href="#M3U8-文件嵌套" class="headerlink" title="M3U8 文件嵌套"></a>M3U8 文件嵌套</h1>
-<h1 id="M3U8文件的细分"><a href="#M3U8文件的细分" class="headerlink" title="M3U8文件的细分"></a>M3U8文件的细分</h1>
-<h1 id="M3U8-文件内容"><a href="#M3U8-文件内容" class="headerlink" title="M3U8 文件内容"></a>M3U8 文件内容</h1>
+<h1 id="M3U8-文件嵌套"><a href="#M3U8-文件嵌套" class="headerlink" title="M3U8 文件嵌套"></a>M3U8 文件嵌套</h1><img src="/2018/08/08/hls/M3U8文件嵌套.png" title="M3U8文件嵌套示意图">
+<h1 id="M3U8文件的细分"><a href="#M3U8文件的细分" class="headerlink" title="M3U8文件的细分"></a>M3U8文件的细分</h1><img src="/2018/08/08/hls/m3u8文件细分.png" title="m3u8文件细分">
+<h1 id="M3U8-文件内容"><a href="#M3U8-文件内容" class="headerlink" title="M3U8 文件内容"></a>M3U8 文件内容</h1><img src="/2018/08/08/hls/m3u8动态文件内容.png" title="m3u8动态文件内容">
 <ol>
 <li>#EXTM3U  动态列表文件如下：</li>
 <li>#EXT-X-VERSIOIV:6 版本 （默认为3）</li>
@@ -443,7 +449,7 @@
 <li>#EXT-X-MEDIA-SEQUENCE: 26 序号</li>
 <li>EXTINF: 9.901 下面时长为多少<br> <a href="http://media.example.om/wifi/segment26.ts" target="_blank" rel="noopener">http://media.example.om/wifi/segment26.ts</a></li>
 </ol>
-<h1 id="ts-文件和mp4，webm，flv之间的区别"><a href="#ts-文件和mp4，webm，flv之间的区别" class="headerlink" title="ts 文件和mp4，webm，flv之间的区别"></a>ts 文件和mp4，webm，flv之间的区别</h1>
+<h1 id="ts-文件和mp4，webm，flv之间的区别"><a href="#ts-文件和mp4，webm，flv之间的区别" class="headerlink" title="ts 文件和mp4，webm，flv之间的区别"></a>ts 文件和mp4，webm，flv之间的区别</h1><img src="/2018/08/08/hls/ts文件.png" title="ts文件">
 <ol>
 <li>RMT 会告诉哪个TS包是视频，哪些是音频</li>
 <li>TS 文件先找PAT的包，PAT告诉PMT在哪里 PMT去找对应TS</li>
@@ -606,7 +612,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -652,7 +658,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -783,7 +791,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.4k字</span>
+  <span class="post-count">博客全站共6.0k字</span>
 </div>
 
         

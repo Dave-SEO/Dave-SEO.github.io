@@ -130,18 +130,20 @@
 
 
 
-  <meta name="description" content="安装nginx brew tap denji/homebrew-nginx brew install nginx-full –with-rtmp-module 安装ffmpeg brew install ffmpeg 找到nginx 安装目录修改配置配置Nginx,支持http协议拉流 123456789location /hls &amp;#123;    #Serve HLS config    t">
-<meta name="keywords" content="h5直播">
+  <meta name="description" content="五层协议  物理层主要作用是定义物理设备如何传输数据（光缆） 数据链路层在通信的实体间建立数据链路连接 网络层为数据在结点之间传输创建逻辑链路 传输层向用户提供可靠的端到端（End-to-End）服务 传输层向高层屏蔽了下层数据通信的细节（例如：ajax post传输数据，这个数据大时一次性传输不完，如何进行传输，如何可靠的把信息传输给服务器，服务器返回的信息又如何可靠的被我们拿到，都是传输层实现">
+<meta name="keywords" content="http协议">
 <meta property="og:type" content="article">
-<meta property="og:title" content="直播源的制作">
-<meta property="og:url" content="http://myzhangning.top/2018/08/26/直播源的制作/index.html">
+<meta property="og:title" content="http协议基础及历史">
+<meta property="og:url" content="http://myzhangning.top/2018/08/27/http-protocol-and-history/index.html">
 <meta property="og:site_name" content="永无止境">
-<meta property="og:description" content="安装nginx brew tap denji/homebrew-nginx brew install nginx-full –with-rtmp-module 安装ffmpeg brew install ffmpeg 找到nginx 安装目录修改配置配置Nginx,支持http协议拉流 123456789location /hls &amp;#123;    #Serve HLS config    t">
+<meta property="og:description" content="五层协议  物理层主要作用是定义物理设备如何传输数据（光缆） 数据链路层在通信的实体间建立数据链路连接 网络层为数据在结点之间传输创建逻辑链路 传输层向用户提供可靠的端到端（End-to-End）服务 传输层向高层屏蔽了下层数据通信的细节（例如：ajax post传输数据，这个数据大时一次性传输不完，如何进行传输，如何可靠的把信息传输给服务器，服务器返回的信息又如何可靠的被我们拿到，都是传输层实现">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-26T10:11:02.137Z">
+<meta property="og:image" content="http://myzhangning.top/2018/08/27/http-protocol-and-history/tcp-ip.png">
+<meta property="og:updated_time" content="2018-08-27T15:54:51.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="直播源的制作">
-<meta name="twitter:description" content="安装nginx brew tap denji/homebrew-nginx brew install nginx-full –with-rtmp-module 安装ffmpeg brew install ffmpeg 找到nginx 安装目录修改配置配置Nginx,支持http协议拉流 123456789location /hls &amp;#123;    #Serve HLS config    t">
+<meta name="twitter:title" content="http协议基础及历史">
+<meta name="twitter:description" content="五层协议  物理层主要作用是定义物理设备如何传输数据（光缆） 数据链路层在通信的实体间建立数据链路连接 网络层为数据在结点之间传输创建逻辑链路 传输层向用户提供可靠的端到端（End-to-End）服务 传输层向高层屏蔽了下层数据通信的细节（例如：ajax post传输数据，这个数据大时一次性传输不完，如何进行传输，如何可靠的把信息传输给服务器，服务器返回的信息又如何可靠的被我们拿到，都是传输层实现">
+<meta name="twitter:image" content="http://myzhangning.top/2018/08/27/http-protocol-and-history/tcp-ip.png">
 
 
 
@@ -150,7 +152,7 @@
 
 
 
-  <link rel="canonical" href="http://myzhangning.top/2018/08/26/直播源的制作/"/>
+  <link rel="canonical" href="http://myzhangning.top/2018/08/27/http-protocol-and-history/"/>
 
 
 
@@ -160,7 +162,7 @@
   };
 </script>
 
-  <title>直播源的制作 | 永无止境</title>
+  <title>http协议基础及历史 | 永无止境</title>
   
 
 
@@ -325,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2018/08/26/直播源的制作/">
+    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2018/08/27/http-protocol-and-history/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dave-SEO">
@@ -342,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">直播源的制作
+          <h1 class="post-title" itemprop="name headline">http协议基础及历史
               
             
           </h1>
@@ -367,7 +369,7 @@
                 
               
 
-              <time title="创建时间：2018-08-26 17:40:00 / 修改时间：18:11:02" itemprop="dateCreated datePublished" datetime="2018-08-26T17:40:00+08:00">2018-08-26</time>
+              <time title="创建时间：2018-08-27 23:41:02 / 修改时间：23:54:51" itemprop="dateCreated datePublished" datetime="2018-08-27T23:41:02+08:00">2018-08-27</time>
             
 
             
@@ -389,7 +391,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/h5直播/" itemprop="url" rel="index"><span itemprop="name">h5直播</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/http协议/" itemprop="url" rel="index"><span itemprop="name">http协议</span></a></span>
 
                 
                 
@@ -423,22 +425,14 @@
       
 
       
-        <ol>
-<li>安装nginx<br> brew tap denji/homebrew-nginx<br> brew install nginx-full –with-rtmp-module</li>
-<li>安装ffmpeg<br> brew install ffmpeg</li>
-<li><p>找到nginx 安装目录修改配置<br>配置Nginx,支持http协议拉流</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location /hls &#123;</span><br><span class="line">    #Serve HLS config</span><br><span class="line">    types &#123;</span><br><span class="line">        application/vnd.apple.mpegurl    m3u8;</span><br><span class="line">        video/mp2t ts;</span><br><span class="line">    &#125;</span><br><span class="line">    root /usr/local/var/www;</span><br><span class="line">    add_header Cache-Control    no-cache;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 配置Nginx，支持rtmp协议推流</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    rtmp &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 1935;</span><br><span class="line">        application rtmplive &#123;</span><br><span class="line">            live on;</span><br><span class="line">            max_connections 1024;</span><br><span class="line">        &#125;</span><br><span class="line">        application hls&#123;</span><br><span class="line">            live on;</span><br><span class="line">            hls on;</span><br><span class="line">            hls_path /usr/local/var/www/hls;</span><br><span class="line">            hls_fragment 1s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>找测试源<br> cd test.mp4</p>
-</li>
-<li>启动nginx<br>nginx</li>
-<li>推流至RTMP到服务器<br> ffmpeg -re -i test-2.mp4 -vcodec libx264 -acodec aac -f flv rtmp://localhost:1935/rtmplive/rtmp<br> 测试：<pre><code>下载vlc file=》open network 输入rtmp://localhost:1935/rtmplive/rtmp
-</code></pre></li>
-<li>推流至HLS到服务器<br> ffmpeg -re -i test-2.mp4 -vcodec libx264 -acodec aac -f flv rtmp://localhost:1935/hls/strem<br> 测试： <pre><code>打开safari浏览器输入 localhost:1935/hls/strem.m3u8
-</code></pre></li>
-<li>提示<br> 所有操作均在mac下</li>
+        <h1 id="五层协议"><a href="#五层协议" class="headerlink" title="五层协议"></a>五层协议</h1><img src="/2018/08/27/http-protocol-and-history/tcp-ip.png" title="五层协议示意图">
+<ol>
+<li>物理层主要作用是定义物理设备如何传输数据（光缆）</li>
+<li>数据链路层在通信的实体间建立数据链路连接</li>
+<li>网络层为数据在结点之间传输创建逻辑链路</li>
+<li>传输层向用户提供可靠的端到端（End-to-End）服务</li>
+<li>传输层向高层屏蔽了下层数据通信的细节（例如：ajax post传输数据，这个数据大时一次性传输不完，如何进行传输，如何可靠的把信息传输给服务器，服务器返回的信息又如何可靠的被我们拿到，都是传输层实现的）</li>
+<li>应用层为应用软件提供了很多服务，构建于tcp/ip协议之上屏蔽网络传输层相关细节</li>
 </ol>
 
       
@@ -499,7 +493,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/h5直播/" rel="tag"> <i class="fa fa-tag"></i> h5直播</a>
+            <a href="/tags/http协议/" rel="tag"> <i class="fa fa-tag"></i> http协议</a>
           
         </div>
       
@@ -512,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/08/h5_1/" rel="next" title="h5直播">
-                <i class="fa fa-chevron-left"></i> h5直播
+              <a href="/2018/08/26/makeLive/" rel="next" title="直播源的制作">
+                <i class="fa fa-chevron-left"></i> 直播源的制作
               </a>
             
           </div>
@@ -521,6 +515,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/27/http-history/" rel="prev" title="http协议历史">
+                http协议历史 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -565,8 +563,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -585,7 +592,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -614,7 +621,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -629,7 +638,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -697,6 +708,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#五层协议"><span class="nav-number">1.</span> <span class="nav-text">五层协议</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -744,7 +771,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.4k字</span>
+  <span class="post-count">博客全站共6.0k字</span>
 </div>
 
         
