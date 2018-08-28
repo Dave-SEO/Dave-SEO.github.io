@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2018-08-27T16:17:40.996Z</updated>
+  <updated>2018-08-28T15:32:42.790Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>http三次握手</title>
+    <link href="http://myzhangning.top/2018/08/28/threeHands/"/>
+    <id>http://myzhangning.top/2018/08/28/threeHands/</id>
+    <published>2018-08-28T15:40:00.000Z</published>
+    <updated>2018-08-28T15:32:42.790Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="http-与-tcp之间的关系"><a href="#http-与-tcp之间的关系" class="headerlink" title="http 与 tcp之间的关系"></a>http 与 tcp之间的关系</h1><p>   user 通过（http）–&gt; tcp Connection –&gt; 服务端<br>   三次握手的主要原因是规避网络传输当中延时导致的一些服务器开销的问题</p><h1 id="三次握手时序图"><a href="#三次握手时序图" class="headerlink" title="三次握手时序图"></a>三次握手时序图</h1><img src="/2018/08/28/threeHands/hands.png" title="三次握手时序图">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;http-与-tcp之间的关系&quot;&gt;&lt;a href=&quot;#http-与-tcp之间的关系&quot; class=&quot;headerlink&quot; title=&quot;http 与 tcp之间的关系&quot;&gt;&lt;/a&gt;http 与 tcp之间的关系&lt;/h1&gt;&lt;p&gt;   user 通过（http）–&amp;
+      
+    
+    </summary>
+    
+      <category term="http协议" scheme="http://myzhangning.top/categories/http%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+      <category term="http协议" scheme="http://myzhangning.top/tags/http%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>http协议历史</title>
@@ -309,29 +334,6 @@
   </entry>
   
   <entry>
-    <title>nodejs项目部署之vue</title>
-    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
-    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-01T07:47:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>nodejs excel导出</title>
     <link href="http://myzhangning.top/2018/01/03/nodejsExcel%E5%AF%BC%E5%87%BA/"/>
     <id>http://myzhangning.top/2018/01/03/nodejsExcel导出/</id>
@@ -373,6 +375,29 @@
 &lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs项目部署之vue</title>
+    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-01T07:47:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
       
     
     </summary>
@@ -471,29 +496,6 @@
     </summary>
     
       <category term="es6" scheme="http://myzhangning.top/categories/es6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Notification</title>
-    <link href="http://myzhangning.top/2017/11/21/Notification/"/>
-    <id>http://myzhangning.top/2017/11/21/Notification/</id>
-    <published>2017-11-20T16:00:00.000Z</published>
-    <updated>2017-11-21T08:26:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h5><p>想要向用户显示通知消息，需要获取用户权限，而相同的域名只需要获取一次权限。只有用户允许的权限下，Notification 才能起到作用，避免某些网站的广告滥用 Notification 或其它给用户造成影响<br>Notification.permission 该属性用于表明当前通知显示的授权状态，可能的值包括：</p><ol><li>default ：不知道用户的选择，默认。</li><li>granted ：用户允许。</li><li>denied ：用户拒绝。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(Notification.permission === &apos;granted&apos;)&#123;</span><br><span class="line">    console.log(&apos;用户允许通知&apos;);</span><br><span class="line">&#125;else if(Notification.permission === &apos;denied&apos;)&#123;</span><br><span class="line">    console.log(&apos;用户拒绝通知&apos;);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    console.log(&apos;用户还没选择，去向用户申请权限吧&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><h5 id="请求权限"><a href="#请求权限" class="headerlink" title="请求权限"></a>请求权限</h5><p>当用户还没选择的时候，我们需要向用户去请求权限。Notification 对象提供了 requestPermission() 方法请求用户当前来源的权限以显示通知。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Notification.requestPermission().then(function(permission) &#123;</span><br><span class="line">    if(permission === &apos;granted&apos;)&#123;</span><br><span class="line">        console.log(&apos;用户允许通知&apos;);</span><br><span class="line">    &#125;else if(permission === &apos;denied&apos;)&#123;</span><br><span class="line">        console.log(&apos;用户拒绝通知&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p><h5 id="推送通知"><a href="#推送通知" class="headerlink" title="推送通知"></a>推送通知</h5><p>获取用户授权之后，就可以推送通知了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var notification = new Notification(title, options);</span><br></pre></td></tr></table></figure></p><p>参数如下：</p><ol><li>title：通知的标题</li><li>options：通知的设置选项（可选）。<ul><li>body：通知的内容。</li><li>tag：代表通知的一个识别标签，相同tag时只会打开同一个通知窗口。</li><li>icon：要在通知中显示的图标的URL。</li><li>icon：要在通知中显示的图标的URL。</li><li>data：想要和通知关联的任务类型的数据。</li><li>requireInteraction：通知保持有效不自动关闭，默认为false。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var n = new Notification(&apos;状态更新提醒&apos;,&#123;</span><br><span class="line">    body: &apos;你的朋友圈有3条新状态，快去查看吧&apos;,</span><br><span class="line">    tag: &apos;linxin&apos;,</span><br><span class="line">    icon: &apos;http://blog.gdfengshuo.com/images/avatar.jpg&apos;,</span><br><span class="line">    requireInteraction: true</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li></ul></li></ol><h5 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h5><p>Notification 接口的 onclick属性指定一个事件侦听器来接收 click 事件。当点击通知窗口时会触发相应事件，比如打开一个网址，引导用户回到自己的网站去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var n = new Notification(&apos;状态更新提醒&apos;,&#123;</span><br><span class="line">    body: &apos;你的朋友圈有3条新状态，快去查看吧&apos;,</span><br><span class="line">    tag: &apos;linxin&apos;,</span><br><span class="line">    icon: &apos;http://blog.gdfengshuo.com/images/avatar.jpg&apos;,</span><br><span class="line">    requireInteraction: true,</span><br><span class="line">    data: &#123;</span><br><span class="line">        url: &apos;http://myzhangning.top&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">n.onclick = function()&#123;</span><br><span class="line">    window.open(n.data.url, &apos;_blank&apos;);      // 打开网址</span><br><span class="line">    n.close();                              // 并且关闭通知</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h5 id=&quot;用户权限&quot;&gt;&lt;a href=&quot;#用户权限&quot; class=&quot;headerlink&quot; title=&quot;用户权限&quot;&gt;&lt;/a&gt;用户权限&lt;/h5&gt;&lt;p&gt;想要向用户显示通知消息，需要获取用户权限，而相同的域名只需要获取一次权限。只有用户允许的权限下，Notification 才
-      
-    
-    </summary>
-    
-      <category term="HTML5" scheme="http://myzhangning.top/categories/HTML5/"/>
     
     
   </entry>
