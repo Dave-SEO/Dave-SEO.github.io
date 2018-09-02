@@ -297,6 +297,22 @@
   </entry>
   
   <entry>
+    <title>python</title>
+    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
+    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T08:28:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>nodemailer+(node-schedule)+phantom 实现定时发送邮件截图</title>
     <link href="http://myzhangning.top/2018/01/16/nodemailer/"/>
     <id>http://myzhangning.top/2018/01/16/nodemailer/</id>
@@ -315,22 +331,6 @@
     </summary>
     
       <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python</title>
-    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
-    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2018-01-17T08:28:56.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
     
     
   </entry>
@@ -384,29 +384,6 @@
   </entry>
   
   <entry>
-    <title>nodejs项目部署之vue</title>
-    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
-    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-01T07:47:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Ant Design的配置</title>
     <link href="http://myzhangning.top/2018/01/03/design/"/>
     <id>http://myzhangning.top/2018/01/03/design/</id>
@@ -423,6 +400,29 @@
 &lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs项目部署之vue</title>
+    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-01T07:47:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
       
     
     </summary>
