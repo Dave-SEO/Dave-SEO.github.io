@@ -359,6 +359,31 @@
   </entry>
   
   <entry>
+    <title>nodejs excel导出</title>
+    <link href="http://myzhangning.top/2018/01/03/nodejsExcel%E5%AF%BC%E5%87%BA/"/>
+    <id>http://myzhangning.top/2018/01/03/nodejsExcel导出/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-02T02:02:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了</p><ol><li>ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 <a href="https://www.npmjs.com/package/ejsexcel" target="_blank" rel="noopener">https://www.npmjs.com/package/ejsexcel</a></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  ejsExcel.renderExcel(exlBuf_search, attr_box).then(<span class="function"><span class="keyword">function</span> (<span class="params">exlBuf2</span>) </span>&#123;</span><br><span class="line">               fs.writeFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>), exlBuf2);</span><br><span class="line">               <span class="keyword">var</span> newsExcel = fs.readFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>));</span><br><span class="line">               res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/vnd.openxmlformats; charset=utf-8'</span>);</span><br><span class="line">               res.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=spcode.xlsx"</span>);</span><br><span class="line">               res.end(newsExcel);</span><br><span class="line">           &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.error(<span class="string">'error'</span>, err);</span><br><span class="line">           &#125;);</span><br><span class="line"><span class="comment">// 其中 exlBuf_search为模板文件，attr_box为数据源（必须为二维数组）</span></span><br></pre></td></tr></table></figure><ol start="2"><li>excel-export 不支持合并单元格,需要xml文件</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 &lt;a href=&quot;https://www.npmjs.com/package/ejsexcel&quot; targ
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Ant Design的配置</title>
     <link href="http://myzhangning.top/2018/01/03/design/"/>
     <id>http://myzhangning.top/2018/01/03/design/</id>
@@ -375,31 +400,6 @@
 &lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nodejs excel导出</title>
-    <link href="http://myzhangning.top/2018/01/03/nodejsExcel%E5%AF%BC%E5%87%BA/"/>
-    <id>http://myzhangning.top/2018/01/03/nodejsExcel导出/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-02T02:02:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了</p><ol><li>ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 <a href="https://www.npmjs.com/package/ejsexcel" target="_blank" rel="noopener">https://www.npmjs.com/package/ejsexcel</a></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  ejsExcel.renderExcel(exlBuf_search, attr_box).then(<span class="function"><span class="keyword">function</span> (<span class="params">exlBuf2</span>) </span>&#123;</span><br><span class="line">               fs.writeFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>), exlBuf2);</span><br><span class="line">               <span class="keyword">var</span> newsExcel = fs.readFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>));</span><br><span class="line">               res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/vnd.openxmlformats; charset=utf-8'</span>);</span><br><span class="line">               res.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=spcode.xlsx"</span>);</span><br><span class="line">               res.end(newsExcel);</span><br><span class="line">           &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.error(<span class="string">'error'</span>, err);</span><br><span class="line">           &#125;);</span><br><span class="line"><span class="comment">// 其中 exlBuf_search为模板文件，attr_box为数据源（必须为二维数组）</span></span><br></pre></td></tr></table></figure><ol start="2"><li>excel-export 不支持合并单元格,需要xml文件</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 &lt;a href=&quot;https://www.npmjs.com/package/ejsexcel&quot; targ
       
     
     </summary>
