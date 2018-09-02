@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2018-08-28T15:32:42.790Z</updated>
+  <updated>2018-09-02T09:15:47.307Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>http2优势</title>
+    <link href="http://myzhangning.top/2018/09/02/http2/"/>
+    <id>http://myzhangning.top/2018/09/02/http2/</id>
+    <published>2018-09-02T08:30:00.000Z</published>
+    <updated>2018-09-02T09:15:47.307Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h1><h1 id="分帧传输"><a href="#分帧传输" class="headerlink" title="分帧传输"></a>分帧传输</h1><ol><li>http2的分帧传输，在同一个连接上面可以并发的发送不同的请求</li><li>传输的一个http数据并不需要一定按照连续的顺序进行发送，而是可以分成不同的帧，然后一起进行发送，如果中间部分先到服务器也没关系，最后会把数据接收完之后，根据一个帧信息里面包含的先后顺序，在进行组合，拿到一个真正的数据</li></ol><h1 id="server-push"><a href="#server-push" class="headerlink" title="server push"></a>server push</h1><ol><li>传统的http1.1中客户端是主动的，服务端是被动的</li><li>在http1.1中如果一个页面加载过来有很多资源，比如图片，css，js 这些请求是并发的去发送，并发的过程中需要创建并发的http连接，浏览器有并发限制，像Chrome中只有6个，如果一次并发超过6个剩下的一些需要等待前6个拿到服务器的返回之后，才能继续发送请求，所以这个时候就会变成相对串行的操作，效率就不是很高</li><li>建立不同的连接，如果有一起创建6个tcp连接，需要进行tcp的6次三次握手，创建连接的开销是比较大的，同时对于一个服务器来讲，他可以创建的tcp连接数是有一个上限的，所以每次都创建6个tcp连接，会导致服务器的tcp连接数很快的消耗完，所以在http1.1中受到很大的制约</li></ol><h1 id="为什么不能在一个tcp连接上面去发送请求呢？"><a href="#为什么不能在一个tcp连接上面去发送请求呢？" class="headerlink" title="为什么不能在一个tcp连接上面去发送请求呢？"></a>为什么不能在一个tcp连接上面去发送请求呢？</h1><ol><li>在http1.1中发送请求，在tcp连接上发送数据是必须要发送完一个请求后，在发送第二个请求，同时服务端返回也是要把前一个请求的数据全部返回之后，才能返回第二个数据，也就是第一个数据请求特别慢，第二个请求比他先执行完成，但还是会等第一个请求执行完成，才能返回，所以如果复用一个tcp连接，在http1.1中，其实是一个串行的过程，而不是一个并行的过程，所以效率比较低</li><li>在http2中得意于信道复用和分帧传输的好处，所以网站开启http2之后我们每个用户访问我们的网站他永远只需要创建一个tcp连接，因为在这个tcp连接上面，我们完全可以并发的发送，并发的返回，没有一个阻塞的过程，同时服务端还可以根据需求主动的响应用户推送一些消息</li><li>http2是由谷歌之前开发的spdy的一个协议演化而来的，spdy需要使用https，所以目前仅支持https</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;信道复用&quot;&gt;&lt;a href=&quot;#信道复用&quot; class=&quot;headerlink&quot; title=&quot;信道复用&quot;&gt;&lt;/a&gt;信道复用&lt;/h1&gt;&lt;h1 id=&quot;分帧传输&quot;&gt;&lt;a href=&quot;#分帧传输&quot; class=&quot;headerlink&quot; title=&quot;分帧传输&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="http协议" scheme="http://myzhangning.top/categories/http%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+      <category term="http协议" scheme="http://myzhangning.top/tags/http%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>http三次握手</title>
@@ -272,22 +297,6 @@
   </entry>
   
   <entry>
-    <title>python</title>
-    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
-    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2018-01-17T08:28:56.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>nodemailer+(node-schedule)+phantom 实现定时发送邮件截图</title>
     <link href="http://myzhangning.top/2018/01/16/nodemailer/"/>
     <id>http://myzhangning.top/2018/01/16/nodemailer/</id>
@@ -306,6 +315,22 @@
     </summary>
     
       <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python</title>
+    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
+    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T08:28:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
     
     
   </entry>
@@ -359,6 +384,29 @@
   </entry>
   
   <entry>
+    <title>nodejs项目部署之vue</title>
+    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-01T07:47:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Ant Design的配置</title>
     <link href="http://myzhangning.top/2018/01/03/design/"/>
     <id>http://myzhangning.top/2018/01/03/design/</id>
@@ -375,29 +423,6 @@
 &lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nodejs项目部署之vue</title>
-    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
-    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-01T07:47:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
       
     
     </summary>
@@ -473,29 +498,6 @@
     </summary>
     
       <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>es6</title>
-    <link href="http://myzhangning.top/2017/12/25/es6/"/>
-    <id>http://myzhangning.top/2017/12/25/es6/</id>
-    <published>2017-12-24T16:00:00.000Z</published>
-    <updated>2018-08-07T15:55:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h6 id="映射新数组"><a href="#映射新数组" class="headerlink" title="映射新数组"></a>映射新数组</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr= [1,2,3]=map(v=&gt;v*2);</span><br><span class="line">// [2,4,6]</span><br></pre></td></tr></table></figure><h6 id="所有元素是否通过测试"><a href="#所有元素是否通过测试" class="headerlink" title="所有元素是否通过测试"></a>所有元素是否通过测试</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = [1,2,3].every(v=&gt;v&gt;2);</span><br><span class="line">// false</span><br></pre></td></tr></table></figure><h6 id="是否有元素通过测试"><a href="#是否有元素通过测试" class="headerlink" title="是否有元素通过测试"></a>是否有元素通过测试</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr =[1,2,3].some(v=&gt;v&gt;2);</span><br><span class="line">//true</span><br></pre></td></tr></table></figure><h6 id="过滤数组"><a href="#过滤数组" class="headerlink" title="过滤数组"></a>过滤数组</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr =[1,2,3].filter(v=&gt;v&gt;2);</span><br><span class="line">// [3]</span><br></pre></td></tr></table></figure><h6 id="查找索引"><a href="#查找索引" class="headerlink" title="查找索引"></a>查找索引</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr =[1,2,3].indexOf(3);</span><br><span class="line">// 返回元素的索引值 2</span><br></pre></td></tr></table></figure><h6 id="连接数组"><a href="#连接数组" class="headerlink" title="连接数组"></a>连接数组</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arr1=[1,2,3];</span><br><span class="line">const arr2=[4,5,6];</span><br><span class="line">const arr3=[...arr1,...arr2]</span><br></pre></td></tr></table></figure><h6 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr=[1,2,2,3];</span><br><span class="line">[...new Set(arr)];</span><br></pre></td></tr></table></figure><h6 id="获取对象的key"><a href="#获取对象的key" class="headerlink" title="获取对象的key"></a>获取对象的key</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.keys(&#123;name:&apos;san&apos;,age:1&#125;);</span><br></pre></td></tr></table></figure><h6 id="获取对象里数据的数量"><a href="#获取对象里数据的数量" class="headerlink" title="获取对象里数据的数量"></a>获取对象里数据的数量</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.keys(&#123;name:&apos;san&apos;,age:1&#125;).length;</span><br></pre></td></tr></table></figure><h6 id="把对象变为数组"><a href="#把对象变为数组" class="headerlink" title="把对象变为数组"></a>把对象变为数组</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.entries(&#123;name:&apos;san&apos;,age:1&#125;);</span><br></pre></td></tr></table></figure><h6 id="对象合并"><a href="#对象合并" class="headerlink" title="对象合并"></a>对象合并</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr =&#123;name:&apos;san&apos;,age:1&#125;;</span><br><span class="line">const newArr=&#123;...arr,dex:&apos;1&apos;,add:&apos;6&apos;&#125;</span><br></pre></td></tr></table></figure><h6 id="获取列表的头和尾"><a href="#获取列表的头和尾" class="headerlink" title="获取列表的头和尾"></a>获取列表的头和尾</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const [head,...tail]=[1,2,3];</span><br><span class="line">const [last,...tail]=[1,2,3].reverse();</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h6 id=&quot;映射新数组&quot;&gt;&lt;a href=&quot;#映射新数组&quot; class=&quot;headerlink&quot; title=&quot;映射新数组&quot;&gt;&lt;/a&gt;映射新数组&lt;/h6&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;
-      
-    
-    </summary>
-    
-      <category term="es6" scheme="http://myzhangning.top/categories/es6/"/>
     
     
   </entry>
