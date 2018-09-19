@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://myzhangning.top/2018/09/19/h5debug/</loc>
-    <lastmod>2018-09-19T15:28:12.850Z</lastmod>
+    <lastmod>2018-09-19T15:31:39.087Z</lastmod>
+  </url>  <url>
+    <loc>http://myzhangning.top/2017/11/21/Notification/</loc>
+    <lastmod>2018-09-19T15:31:04.946Z</lastmod>
   </url>  <url>
     <loc>http://myzhangning.top/2018/09/18/videojs/</loc>
     <lastmod>2018-09-19T15:26:04.886Z</lastmod>
@@ -78,9 +81,6 @@
   </url>  <url>
     <loc>http://myzhangning.top/2017/12/29/redux-devTools/</loc>
     <lastmod>2018-01-02T07:30:16.000Z</lastmod>
-  </url>  <url>
-    <loc>http://myzhangning.top/2017/11/21/Notification/</loc>
-    <lastmod>2017-11-21T08:26:58.000Z</lastmod>
   </url>  <url>
     <loc>http://myzhangning.top/2017/11/08/eslint/</loc>
     <lastmod>2017-11-08T03:31:32.000Z</lastmod>
