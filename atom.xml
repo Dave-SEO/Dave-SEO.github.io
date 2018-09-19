@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2018-09-02T09:15:47.307Z</updated>
+  <updated>2018-09-19T15:28:12.850Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://myzhangning.top/2018/09/19/h5debug/"/>
+    <id>http://myzhangning.top/2018/09/19/h5debug/</id>
+    <published>2018-09-19T15:21:41.240Z</published>
+    <updated>2018-09-19T15:28:12.850Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title: h5页面在PC的chrome中调试<br>date:  2018-09-18 17:30<br>tags: h5<br>categories: h5<br>— </p><h4 id="Weinre"><a href="#Weinre" class="headerlink" title="Weinre"></a>Weinre</h4><ol><li>Weinre(Web Inspector Remote)是一款基于Web Inspector(Webkit)的远程调试工具， 它使用JS编写， 可以让我们在电脑上直接调试运行在手机上的远程页面。 与传统的Web Inspector的使用场景不同， 调试的页面在手机上， 调试工具在PC的chrome， 二者通过网络连接通信。<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4></li><li>Weinre是基于nodejs实现的， 使用它必须先安装node运行环境，如果你是Mac/Linux用户， 还需要在前面加入”sudo”:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[sudo] npm -g install weinre</span><br></pre></td></tr></table></figure></li></ol><h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weinre --httpPort 8082 --boundHost -all-</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;title: h5页面在PC的chrome中调试&lt;br&gt;date:  2018-09-18 17:30&lt;br&gt;tags: h5&lt;br&gt;categories: h5&lt;br&gt;— &lt;/p&gt;
+&lt;h4 id=&quot;Weinre&quot;&gt;&lt;a href=&quot;#Weinre&quot; class=
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>videojs 使用小结</title>
+    <link href="http://myzhangning.top/2018/09/18/videojs/"/>
+    <id>http://myzhangning.top/2018/09/18/videojs/</id>
+    <published>2018-09-18T08:24:00.000Z</published>
+    <updated>2018-09-19T15:26:04.886Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ol><li>videojs初始化完毕后，.vjs-tech 为DOM结构里的实际的video标签</li><li>videojs 的初始化参数有多重配置方式，建议以标签属性的方式来配置</li><li>x5 开头的标签只对腾讯 x5 内核的浏览器有效，即微信、QQ浏览器，所有的属性见 <a href="https://x5.tencent.com/tbs/guide/video.html" target="_blank" rel="noopener">H5同层播放器接入规范</a></li><li>不自动全屏播放设置 webkit-playsinline playsinline x5-playsinline</li><li>【安卓】启用H5同层播放器 x5-video-player-type=”h5” 启用后微信、QQ浏览器里，不会使用腾讯的默认播放器。这里如果不启用，则使用腾讯的播放器，videojs 控制不了，会显示播放控件，如果启用了，则使用          html5 默认行为来播放，videojs 可以控制，但一定会全屏播放</li><li><a href="https://videojs.com" target="_blank" rel="noopener">videojs官网</a> </li><li><a href="https://github.com/videojs" target="_blank" rel="noopener">videojs Github</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;videojs初始化完毕后，.vjs-tech 为DOM结构里的实际的video标签&lt;/li&gt;
+&lt;li&gt;videojs 的初始化
+      
+    
+    </summary>
+    
+      <category term="h5直播" scheme="http://myzhangning.top/categories/h5%E7%9B%B4%E6%92%AD/"/>
+    
+    
+      <category term="h5直播" scheme="http://myzhangning.top/tags/h5%E7%9B%B4%E6%92%AD/"/>
+    
+  </entry>
   
   <entry>
     <title>http2优势</title>
@@ -297,22 +347,6 @@
   </entry>
   
   <entry>
-    <title>python</title>
-    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
-    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2018-01-17T08:28:56.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>nodemailer+(node-schedule)+phantom 实现定时发送邮件截图</title>
     <link href="http://myzhangning.top/2018/01/16/nodemailer/"/>
     <id>http://myzhangning.top/2018/01/16/nodemailer/</id>
@@ -336,6 +370,22 @@
   </entry>
   
   <entry>
+    <title>python</title>
+    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
+    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T08:28:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>mongoDB在node中的使用</title>
     <link href="http://myzhangning.top/2018/01/04/mongoDB/"/>
     <id>http://myzhangning.top/2018/01/04/mongoDB/</id>
@@ -354,31 +404,6 @@
     </summary>
     
       <category term="mongoDB" scheme="http://myzhangning.top/categories/mongoDB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nodejs excel导出</title>
-    <link href="http://myzhangning.top/2018/01/03/nodejsExcel%E5%AF%BC%E5%87%BA/"/>
-    <id>http://myzhangning.top/2018/01/03/nodejsExcel导出/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-02T02:02:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了</p><ol><li>ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 <a href="https://www.npmjs.com/package/ejsexcel" target="_blank" rel="noopener">https://www.npmjs.com/package/ejsexcel</a></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  ejsExcel.renderExcel(exlBuf_search, attr_box).then(<span class="function"><span class="keyword">function</span> (<span class="params">exlBuf2</span>) </span>&#123;</span><br><span class="line">               fs.writeFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>), exlBuf2);</span><br><span class="line">               <span class="keyword">var</span> newsExcel = fs.readFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>));</span><br><span class="line">               res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/vnd.openxmlformats; charset=utf-8'</span>);</span><br><span class="line">               res.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=spcode.xlsx"</span>);</span><br><span class="line">               res.end(newsExcel);</span><br><span class="line">           &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.error(<span class="string">'error'</span>, err);</span><br><span class="line">           &#125;);</span><br><span class="line"><span class="comment">// 其中 exlBuf_search为模板文件，attr_box为数据源（必须为二维数组）</span></span><br></pre></td></tr></table></figure><ol start="2"><li>excel-export 不支持合并单元格,需要xml文件</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 &lt;a href=&quot;https://www.npmjs.com/package/ejsexcel&quot; targ
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
     
     
   </entry>
@@ -433,6 +458,31 @@
   </entry>
   
   <entry>
+    <title>nodejs excel导出</title>
+    <link href="http://myzhangning.top/2018/01/03/nodejsExcel%E5%AF%BC%E5%87%BA/"/>
+    <id>http://myzhangning.top/2018/01/03/nodejsExcel导出/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-02T02:02:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了</p><ol><li>ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 <a href="https://www.npmjs.com/package/ejsexcel" target="_blank" rel="noopener">https://www.npmjs.com/package/ejsexcel</a></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  ejsExcel.renderExcel(exlBuf_search, attr_box).then(<span class="function"><span class="keyword">function</span> (<span class="params">exlBuf2</span>) </span>&#123;</span><br><span class="line">               fs.writeFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>), exlBuf2);</span><br><span class="line">               <span class="keyword">var</span> newsExcel = fs.readFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>));</span><br><span class="line">               res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/vnd.openxmlformats; charset=utf-8'</span>);</span><br><span class="line">               res.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=spcode.xlsx"</span>);</span><br><span class="line">               res.end(newsExcel);</span><br><span class="line">           &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.error(<span class="string">'error'</span>, err);</span><br><span class="line">           &#125;);</span><br><span class="line"><span class="comment">// 其中 exlBuf_search为模板文件，attr_box为数据源（必须为二维数组）</span></span><br></pre></td></tr></table></figure><ol start="2"><li>excel-export 不支持合并单元格,需要xml文件</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 &lt;a href=&quot;https://www.npmjs.com/package/ejsexcel&quot; targ
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>redux-devTools的使用</title>
     <link href="http://myzhangning.top/2017/12/29/redux-devTools/"/>
     <id>http://myzhangning.top/2017/12/29/redux-devTools/</id>
@@ -447,52 +497,6 @@
       
         &lt;h1 id=&quot;redux-devTools的使用&quot;&gt;&lt;a href=&quot;#redux-devTools的使用&quot; class=&quot;headerlink&quot; title=&quot;redux-devTools的使用&quot;&gt;&lt;/a&gt;redux-devTools的使用&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;谷歌搜索
-      
-    
-    </summary>
-    
-      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>react-redux的使用</title>
-    <link href="http://myzhangning.top/2017/12/28/react-redux/"/>
-    <id>http://myzhangning.top/2017/12/28/react-redux/</id>
-    <published>2017-12-27T16:00:00.000Z</published>
-    <updated>2018-01-02T09:31:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Provider&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line">ReactDOM.render((&lt;Provider store=&#123;store&#125;&gt;&lt;App /&gt;&lt;/Provider&gt;),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure><h2 id="其它页面使用"><a href="#其它页面使用" class="headerlink" title="其它页面使用"></a>其它页面使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;connect&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="comment">// es7 提案装饰器，需babel配置</span></span><br><span class="line">@connect(</span><br><span class="line">  <span class="comment">// 你要state什么属性放到props里</span></span><br><span class="line">  state=&gt;(&#123;<span class="attr">num</span>:state&#125;),</span><br><span class="line">  <span class="comment">//你要什么方法放到props里，自动dispath</span></span><br><span class="line">  &#123;addNum,subtr,addNumAsync&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 装饰器插件安装 修饰器（Decorator）是一个函数，用来修改类的行为</span></span><br><span class="line">cnpm install babel-plugin-transform-decorators-legacy --save-dev</span><br><span class="line"><span class="comment">// package.json中配置</span></span><br><span class="line"> <span class="string">"plugins"</span>: [</span><br><span class="line">      [</span><br><span class="line">        <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">      ]</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;index-js&quot;&gt;&lt;a href=&quot;#index-js&quot; class=&quot;headerlink&quot; title=&quot;index.js&quot;&gt;&lt;/a&gt;index.js&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>redux</title>
-    <link href="http://myzhangning.top/2017/12/28/redux/"/>
-    <id>http://myzhangning.top/2017/12/28/redux/</id>
-    <published>2017-12-27T16:00:00.000Z</published>
-    <updated>2018-01-17T07:09:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="redux是专注于状态管理的库，和react解耦-单一状态"><a href="#redux是专注于状态管理的库，和react解耦-单一状态" class="headerlink" title="redux是专注于状态管理的库，和react解耦,单一状态"></a>redux是专注于状态管理的库，和react解耦,单一状态</h1><p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。<br>可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试。不仅于此，它还提供 超爽的开发体验，比如有一个时间旅行调试器可以编辑后实时预览。<br>Redux 除了和 React 一起用外，还支持其它界面库。<br>它体小精悍（只有2kB）且没有任何依赖。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单向数据流,核心概念:store，state，action，reducer</span></span><br><span class="line"><span class="comment">//  新建store,通过reducer 简历,根据老的state和action 生成新的state</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state=<span class="number">0</span>,action</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">return</span> state + <span class="number">1</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'minus'</span>:</span><br><span class="line">            <span class="keyword">return</span> state - <span class="number">1</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  新建store</span></span><br><span class="line"><span class="keyword">const</span> store = creatStore(counter);</span><br><span class="line"><span class="comment">//  获取状态</span></span><br><span class="line"><span class="keyword">const</span> init = store.getState();</span><br><span class="line"><span class="comment">// 3.监听变化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listener</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> current = store.getState();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`现在有<span class="subst">$&#123;current&#125;</span>把`</span>);</span><br><span class="line">&#125;</span><br><span class="line">store.subscribe(listener);</span><br><span class="line"><span class="comment">//  派发事件 传递action</span></span><br><span class="line">store.dispatch(&#123;<span class="attr">type</span>:<span class="string">'add'</span>&#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;redux是专注于状态管理的库，和react解耦-单一状态&quot;&gt;&lt;a href=&quot;#redux是专注于状态管理的库，和react解耦-单一状态&quot; class=&quot;headerlink&quot; title=&quot;redux是专注于状态管理的库，和react解耦,单一状态&quot;&gt;&lt;/a
       
     
     </summary>
