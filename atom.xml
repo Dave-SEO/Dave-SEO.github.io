@@ -297,6 +297,22 @@
   </entry>
   
   <entry>
+    <title>python</title>
+    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
+    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T08:28:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>nodemailer+(node-schedule)+phantom 实现定时发送邮件截图</title>
     <link href="http://myzhangning.top/2018/01/16/nodemailer/"/>
     <id>http://myzhangning.top/2018/01/16/nodemailer/</id>
@@ -315,22 +331,6 @@
     </summary>
     
       <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python</title>
-    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
-    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2018-01-17T08:28:56.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
     
     
   </entry>
@@ -384,29 +384,6 @@
   </entry>
   
   <entry>
-    <title>nodejs项目部署之vue</title>
-    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
-    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-01T07:47:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Ant Design的配置</title>
     <link href="http://myzhangning.top/2018/01/03/design/"/>
     <id>http://myzhangning.top/2018/01/03/design/</id>
@@ -423,6 +400,29 @@
 &lt;li&gt;npm install babel-plugin-import 安装babel插件，在package.json中配置babel&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs项目部署之vue</title>
+    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
+    <published>2018-01-02T16:00:00.000Z</published>
+    <updated>2018-03-01T07:47:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
       
     
     </summary>
@@ -457,29 +457,6 @@
   </entry>
   
   <entry>
-    <title>redux</title>
-    <link href="http://myzhangning.top/2017/12/28/redux/"/>
-    <id>http://myzhangning.top/2017/12/28/redux/</id>
-    <published>2017-12-27T16:00:00.000Z</published>
-    <updated>2018-01-17T07:09:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="redux是专注于状态管理的库，和react解耦-单一状态"><a href="#redux是专注于状态管理的库，和react解耦-单一状态" class="headerlink" title="redux是专注于状态管理的库，和react解耦,单一状态"></a>redux是专注于状态管理的库，和react解耦,单一状态</h1><p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。<br>可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试。不仅于此，它还提供 超爽的开发体验，比如有一个时间旅行调试器可以编辑后实时预览。<br>Redux 除了和 React 一起用外，还支持其它界面库。<br>它体小精悍（只有2kB）且没有任何依赖。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单向数据流,核心概念:store，state，action，reducer</span></span><br><span class="line"><span class="comment">//  新建store,通过reducer 简历,根据老的state和action 生成新的state</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state=<span class="number">0</span>,action</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">return</span> state + <span class="number">1</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'minus'</span>:</span><br><span class="line">            <span class="keyword">return</span> state - <span class="number">1</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  新建store</span></span><br><span class="line"><span class="keyword">const</span> store = creatStore(counter);</span><br><span class="line"><span class="comment">//  获取状态</span></span><br><span class="line"><span class="keyword">const</span> init = store.getState();</span><br><span class="line"><span class="comment">// 3.监听变化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listener</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> current = store.getState();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`现在有<span class="subst">$&#123;current&#125;</span>把`</span>);</span><br><span class="line">&#125;</span><br><span class="line">store.subscribe(listener);</span><br><span class="line"><span class="comment">//  派发事件 传递action</span></span><br><span class="line">store.dispatch(&#123;<span class="attr">type</span>:<span class="string">'add'</span>&#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;redux是专注于状态管理的库，和react解耦-单一状态&quot;&gt;&lt;a href=&quot;#redux是专注于状态管理的库，和react解耦-单一状态&quot; class=&quot;headerlink&quot; title=&quot;redux是专注于状态管理的库，和react解耦,单一状态&quot;&gt;&lt;/a
-      
-    
-    </summary>
-    
-      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>react-redux的使用</title>
     <link href="http://myzhangning.top/2017/12/28/react-redux/"/>
     <id>http://myzhangning.top/2017/12/28/react-redux/</id>
@@ -493,6 +470,29 @@
       
       
         &lt;h1 id=&quot;index-js&quot;&gt;&lt;a href=&quot;#index-js&quot; class=&quot;headerlink&quot; title=&quot;index.js&quot;&gt;&lt;/a&gt;index.js&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redux</title>
+    <link href="http://myzhangning.top/2017/12/28/redux/"/>
+    <id>http://myzhangning.top/2017/12/28/redux/</id>
+    <published>2017-12-27T16:00:00.000Z</published>
+    <updated>2018-01-17T07:09:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="redux是专注于状态管理的库，和react解耦-单一状态"><a href="#redux是专注于状态管理的库，和react解耦-单一状态" class="headerlink" title="redux是专注于状态管理的库，和react解耦,单一状态"></a>redux是专注于状态管理的库，和react解耦,单一状态</h1><p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。<br>可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试。不仅于此，它还提供 超爽的开发体验，比如有一个时间旅行调试器可以编辑后实时预览。<br>Redux 除了和 React 一起用外，还支持其它界面库。<br>它体小精悍（只有2kB）且没有任何依赖。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单向数据流,核心概念:store，state，action，reducer</span></span><br><span class="line"><span class="comment">//  新建store,通过reducer 简历,根据老的state和action 生成新的state</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state=<span class="number">0</span>,action</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">return</span> state + <span class="number">1</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'minus'</span>:</span><br><span class="line">            <span class="keyword">return</span> state - <span class="number">1</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  新建store</span></span><br><span class="line"><span class="keyword">const</span> store = creatStore(counter);</span><br><span class="line"><span class="comment">//  获取状态</span></span><br><span class="line"><span class="keyword">const</span> init = store.getState();</span><br><span class="line"><span class="comment">// 3.监听变化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listener</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> current = store.getState();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`现在有<span class="subst">$&#123;current&#125;</span>把`</span>);</span><br><span class="line">&#125;</span><br><span class="line">store.subscribe(listener);</span><br><span class="line"><span class="comment">//  派发事件 传递action</span></span><br><span class="line">store.dispatch(&#123;<span class="attr">type</span>:<span class="string">'add'</span>&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;redux是专注于状态管理的库，和react解耦-单一状态&quot;&gt;&lt;a href=&quot;#redux是专注于状态管理的库，和react解耦-单一状态&quot; class=&quot;headerlink&quot; title=&quot;redux是专注于状态管理的库，和react解耦,单一状态&quot;&gt;&lt;/a
       
     
     </summary>
