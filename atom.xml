@@ -457,29 +457,6 @@
   </entry>
   
   <entry>
-    <title>react-redux的使用</title>
-    <link href="http://myzhangning.top/2017/12/28/react-redux/"/>
-    <id>http://myzhangning.top/2017/12/28/react-redux/</id>
-    <published>2017-12-27T16:00:00.000Z</published>
-    <updated>2018-01-02T09:31:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Provider&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line">ReactDOM.render((&lt;Provider store=&#123;store&#125;&gt;&lt;App /&gt;&lt;/Provider&gt;),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure><h2 id="其它页面使用"><a href="#其它页面使用" class="headerlink" title="其它页面使用"></a>其它页面使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;connect&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="comment">// es7 提案装饰器，需babel配置</span></span><br><span class="line">@connect(</span><br><span class="line">  <span class="comment">// 你要state什么属性放到props里</span></span><br><span class="line">  state=&gt;(&#123;<span class="attr">num</span>:state&#125;),</span><br><span class="line">  <span class="comment">//你要什么方法放到props里，自动dispath</span></span><br><span class="line">  &#123;addNum,subtr,addNumAsync&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 装饰器插件安装 修饰器（Decorator）是一个函数，用来修改类的行为</span></span><br><span class="line">cnpm install babel-plugin-transform-decorators-legacy --save-dev</span><br><span class="line"><span class="comment">// package.json中配置</span></span><br><span class="line"> <span class="string">"plugins"</span>: [</span><br><span class="line">      [</span><br><span class="line">        <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">      ]</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;index-js&quot;&gt;&lt;a href=&quot;#index-js&quot; class=&quot;headerlink&quot; title=&quot;index.js&quot;&gt;&lt;/a&gt;index.js&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>redux</title>
     <link href="http://myzhangning.top/2017/12/28/redux/"/>
     <id>http://myzhangning.top/2017/12/28/redux/</id>
@@ -493,6 +470,29 @@
       
       
         &lt;h1 id=&quot;redux是专注于状态管理的库，和react解耦-单一状态&quot;&gt;&lt;a href=&quot;#redux是专注于状态管理的库，和react解耦-单一状态&quot; class=&quot;headerlink&quot; title=&quot;redux是专注于状态管理的库，和react解耦,单一状态&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="redux" scheme="http://myzhangning.top/categories/redux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>react-redux的使用</title>
+    <link href="http://myzhangning.top/2017/12/28/react-redux/"/>
+    <id>http://myzhangning.top/2017/12/28/react-redux/</id>
+    <published>2017-12-27T16:00:00.000Z</published>
+    <updated>2018-01-02T09:31:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Provider&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line">ReactDOM.render((&lt;Provider store=&#123;store&#125;&gt;&lt;App /&gt;&lt;/Provider&gt;),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure><h2 id="其它页面使用"><a href="#其它页面使用" class="headerlink" title="其它页面使用"></a>其它页面使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;connect&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="comment">// es7 提案装饰器，需babel配置</span></span><br><span class="line">@connect(</span><br><span class="line">  <span class="comment">// 你要state什么属性放到props里</span></span><br><span class="line">  state=&gt;(&#123;<span class="attr">num</span>:state&#125;),</span><br><span class="line">  <span class="comment">//你要什么方法放到props里，自动dispath</span></span><br><span class="line">  &#123;addNum,subtr,addNumAsync&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 装饰器插件安装 修饰器（Decorator）是一个函数，用来修改类的行为</span></span><br><span class="line">cnpm install babel-plugin-transform-decorators-legacy --save-dev</span><br><span class="line"><span class="comment">// package.json中配置</span></span><br><span class="line"> <span class="string">"plugins"</span>: [</span><br><span class="line">      [</span><br><span class="line">        <span class="string">"transform-decorators-legacy"</span></span><br><span class="line">      ]</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;index-js&quot;&gt;&lt;a href=&quot;#index-js&quot; class=&quot;headerlink&quot; title=&quot;index.js&quot;&gt;&lt;/a&gt;index.js&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
       
     
     </summary>
