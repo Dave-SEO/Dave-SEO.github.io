@@ -132,20 +132,18 @@
 
 
 
-  <meta name="description" content="HTTP-FLV协议  低延时 传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCPHTTP-FLV协议的优势 可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过） 可以很好的兼容HTTP 302 跳转，做到灵活调度 可以使用HTTPS 做加密通道 很好的支持移动端（Android, ios）">
-<meta name="keywords" content="h5直播">
+  <meta name="description" content="创建型 工厂模式 （工厂方法模式、抽象工厂模式、建造者模式–js并没有分那么清）   将new操作单独封装 遇到new时就要考虑是否使用工厂模式  使用场景:  JQuery()-$(‘div’) React.createElement vue异步组件  使用场景验证:  构造函数和创建者分离 符合开放封闭原则 单例模式   系统中被唯一使用 一个类只有一个实例   原型模式结构型 适配器模式 装">
+<meta name="keywords" content="Javascript设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP_FLV">
-<meta property="og:url" content="http://myzhangning.top/2018/08/08/HTTP-FLV/index.html">
+<meta property="og:title" content="23种设计模式介绍">
+<meta property="og:url" content="http://myzhangning.top/2018/10/16/23种设计模式介绍/index.html">
 <meta property="og:site_name" content="永无止境">
-<meta property="og:description" content="HTTP-FLV协议  低延时 传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCPHTTP-FLV协议的优势 可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过） 可以很好的兼容HTTP 302 跳转，做到灵活调度 可以使用HTTPS 做加密通道 很好的支持移动端（Android, ios）">
+<meta property="og:description" content="创建型 工厂模式 （工厂方法模式、抽象工厂模式、建造者模式–js并没有分那么清）   将new操作单独封装 遇到new时就要考虑是否使用工厂模式  使用场景:  JQuery()-$(‘div’) React.createElement vue异步组件  使用场景验证:  构造函数和创建者分离 符合开放封闭原则 单例模式   系统中被唯一使用 一个类只有一个实例   原型模式结构型 适配器模式 装">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://myzhangning.top/2018/08/08/HTTP-FLV/HTTP-FLV协议.png">
-<meta property="og:updated_time" content="2018-08-07T16:54:18.000Z">
+<meta property="og:updated_time" content="2018-10-18T15:58:17.465Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP_FLV">
-<meta name="twitter:description" content="HTTP-FLV协议  低延时 传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCPHTTP-FLV协议的优势 可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过） 可以很好的兼容HTTP 302 跳转，做到灵活调度 可以使用HTTPS 做加密通道 很好的支持移动端（Android, ios）">
-<meta name="twitter:image" content="http://myzhangning.top/2018/08/08/HTTP-FLV/HTTP-FLV协议.png">
+<meta name="twitter:title" content="23种设计模式介绍">
+<meta name="twitter:description" content="创建型 工厂模式 （工厂方法模式、抽象工厂模式、建造者模式–js并没有分那么清）   将new操作单独封装 遇到new时就要考虑是否使用工厂模式  使用场景:  JQuery()-$(‘div’) React.createElement vue异步组件  使用场景验证:  构造函数和创建者分离 符合开放封闭原则 单例模式   系统中被唯一使用 一个类只有一个实例   原型模式结构型 适配器模式 装">
 
 
 
@@ -154,7 +152,7 @@
 
 
 
-  <link rel="canonical" href="http://myzhangning.top/2018/08/08/HTTP-FLV/"/>
+  <link rel="canonical" href="http://myzhangning.top/2018/10/16/23种设计模式介绍/"/>
 
 
 
@@ -164,7 +162,7 @@
   };
 </script>
 
-  <title>HTTP_FLV | 永无止境</title>
+  <title>23种设计模式介绍 | 永无止境</title>
   
 
 
@@ -329,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2018/08/08/HTTP-FLV/">
+    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2018/10/16/23种设计模式介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dave-SEO">
@@ -346,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP_FLV
+          <h1 class="post-title" itemprop="name headline">23种设计模式介绍
               
             
           </h1>
@@ -371,34 +369,28 @@
                 
               
 
-              <time title="创建时间：2018-08-08 00:29:49 / 修改时间：00:54:18" itemprop="dateCreated datePublished" datetime="2018-08-08T00:29:49+08:00">2018-08-08</time>
+              <time title="创建时间：2018-10-16 17:00:00" itemprop="dateCreated datePublished" datetime="2018-10-16T17:00:00+08:00">2018-10-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-18 23:58:17" itemprop="dateModified" datetime="2018-10-18T23:58:17+08:00">2018-10-18</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/h5直播/" itemprop="url" rel="index"><span itemprop="name">h5直播</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -408,8 +400,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/08/HTTP-FLV/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/08/HTTP-FLV/" itemprop="commentCount"></span>
+                <a href="/2018/10/16/23种设计模式介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/16/23种设计模式介绍/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -437,15 +429,52 @@
       
 
       
-        <h1 id="HTTP-FLV协议"><a href="#HTTP-FLV协议" class="headerlink" title="HTTP-FLV协议"></a>HTTP-FLV协议</h1><img src="/2018/08/08/HTTP-FLV/HTTP-FLV协议.png" title="HTTP-FLV协议">
-<ol>
-<li>低延时</li>
-<li>传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCP<h1 id="HTTP-FLV协议的优势"><a href="#HTTP-FLV协议的优势" class="headerlink" title="HTTP-FLV协议的优势"></a>HTTP-FLV协议的优势</h1></li>
-<li>可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过）</li>
-<li>可以很好的兼容HTTP 302 跳转，做到灵活调度</li>
-<li>可以使用HTTPS 做加密通道</li>
-<li>很好的支持移动端（Android, ios）</li>
+        <h5 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h5><ol>
+<li>工厂模式 （工厂方法模式、抽象工厂模式、建造者模式–js并没有分那么清）</li>
 </ol>
+<ul>
+<li>将new操作单独封装</li>
+<li>遇到new时就要考虑是否使用工厂模式</li>
+</ul>
+<p>使用场景:</p>
+<ul>
+<li>JQuery()-$(‘div’)</li>
+<li>React.createElement</li>
+<li>vue异步组件</li>
+</ul>
+<p>使用场景验证:</p>
+<ul>
+<li>构造函数和创建者分离</li>
+<li>符合开放封闭原则<ol start="2">
+<li>单例模式</li>
+</ol>
+<ul>
+<li>系统中被唯一使用</li>
+<li>一个类只有一个实例</li>
+</ul>
+<ol start="3">
+<li>原型模式<h5 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h5></li>
+<li>适配器模式</li>
+<li>装饰器模式</li>
+<li>代理模式</li>
+<li>外观模式</li>
+<li>桥接模式</li>
+<li>组合模式</li>
+<li>享元模式<h5 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h5></li>
+<li>策略模式</li>
+<li>模板方法模式</li>
+<li>观察者模式</li>
+<li>迭代器模式</li>
+<li>职责链模式</li>
+<li>命令模式</li>
+<li>备忘录模式</li>
+<li>状态模式</li>
+<li>访问者模式</li>
+<li>中介者模式</li>
+<li>解释器模式</li>
+</ol>
+</li>
+</ul>
 
       
     </div>
@@ -505,7 +534,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/h5直播/" rel="tag"> <i class="fa fa-tag"></i> h5直播</a>
+            <a href="/tags/Javascript设计模式/" rel="tag"> <i class="fa fa-tag"></i> Javascript设计模式</a>
           
         </div>
       
@@ -518,8 +547,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/08/RTMP/" rel="next" title="RTMP">
-                <i class="fa fa-chevron-left"></i> RTMP
+              <a href="/2018/10/15/solid五大设计原则/" rel="next" title="SOLID五大设计原则">
+                <i class="fa fa-chevron-left"></i> SOLID五大设计原则
               </a>
             
           </div>
@@ -527,10 +556,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/08/hls/" rel="prev" title="hls">
-                hls <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -736,7 +761,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-FLV协议"><span class="nav-number">1.</span> <span class="nav-text">HTTP-FLV协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-FLV协议的优势"><span class="nav-number">2.</span> <span class="nav-text">HTTP-FLV协议的优势</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建型"><span class="nav-number">1.</span> <span class="nav-text">创建型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结构型"><span class="nav-number">2.</span> <span class="nav-text">结构型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行为型"><span class="nav-number">3.</span> <span class="nav-text">行为型</span></a></li></ol></div>
             
 
           </div>

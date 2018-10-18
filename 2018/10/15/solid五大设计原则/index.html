@@ -132,20 +132,18 @@
 
 
 
-  <meta name="description" content="HTTP-FLV协议  低延时 传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCPHTTP-FLV协议的优势 可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过） 可以很好的兼容HTTP 302 跳转，做到灵活调度 可以使用HTTPS 做加密通道 很好的支持移动端（Android, ios）">
-<meta name="keywords" content="h5直播">
+  <meta name="description" content="五大设计原则 S - 单一职责原则 The Single-Responsibility Principle (SRP)   一个程序只做好一件事 如果功能过于复杂就拆分开，每个部分保持独立   o - 开放封闭原则 The Open/Closed Principle (OCP)   对扩展开放，对修改封闭 增加需求时，扩展新代码，而非修改已有代码 这是软件设计的终极目标   L - 李氏置换原则">
+<meta name="keywords" content="Javascript设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP_FLV">
-<meta property="og:url" content="http://myzhangning.top/2018/08/08/HTTP-FLV/index.html">
+<meta property="og:title" content="SOLID五大设计原则">
+<meta property="og:url" content="http://myzhangning.top/2018/10/15/solid五大设计原则/index.html">
 <meta property="og:site_name" content="永无止境">
-<meta property="og:description" content="HTTP-FLV协议  低延时 传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCPHTTP-FLV协议的优势 可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过） 可以很好的兼容HTTP 302 跳转，做到灵活调度 可以使用HTTPS 做加密通道 很好的支持移动端（Android, ios）">
+<meta property="og:description" content="五大设计原则 S - 单一职责原则 The Single-Responsibility Principle (SRP)   一个程序只做好一件事 如果功能过于复杂就拆分开，每个部分保持独立   o - 开放封闭原则 The Open/Closed Principle (OCP)   对扩展开放，对修改封闭 增加需求时，扩展新代码，而非修改已有代码 这是软件设计的终极目标   L - 李氏置换原则">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://myzhangning.top/2018/08/08/HTTP-FLV/HTTP-FLV协议.png">
-<meta property="og:updated_time" content="2018-08-07T16:54:18.000Z">
+<meta property="og:updated_time" content="2018-10-18T15:58:31.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP_FLV">
-<meta name="twitter:description" content="HTTP-FLV协议  低延时 传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCPHTTP-FLV协议的优势 可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过） 可以很好的兼容HTTP 302 跳转，做到灵活调度 可以使用HTTPS 做加密通道 很好的支持移动端（Android, ios）">
-<meta name="twitter:image" content="http://myzhangning.top/2018/08/08/HTTP-FLV/HTTP-FLV协议.png">
+<meta name="twitter:title" content="SOLID五大设计原则">
+<meta name="twitter:description" content="五大设计原则 S - 单一职责原则 The Single-Responsibility Principle (SRP)   一个程序只做好一件事 如果功能过于复杂就拆分开，每个部分保持独立   o - 开放封闭原则 The Open/Closed Principle (OCP)   对扩展开放，对修改封闭 增加需求时，扩展新代码，而非修改已有代码 这是软件设计的终极目标   L - 李氏置换原则">
 
 
 
@@ -154,7 +152,7 @@
 
 
 
-  <link rel="canonical" href="http://myzhangning.top/2018/08/08/HTTP-FLV/"/>
+  <link rel="canonical" href="http://myzhangning.top/2018/10/15/solid五大设计原则/"/>
 
 
 
@@ -164,7 +162,7 @@
   };
 </script>
 
-  <title>HTTP_FLV | 永无止境</title>
+  <title>SOLID五大设计原则 | 永无止境</title>
   
 
 
@@ -329,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2018/08/08/HTTP-FLV/">
+    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2018/10/15/solid五大设计原则/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dave-SEO">
@@ -346,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP_FLV
+          <h1 class="post-title" itemprop="name headline">SOLID五大设计原则
               
             
           </h1>
@@ -371,34 +369,28 @@
                 
               
 
-              <time title="创建时间：2018-08-08 00:29:49 / 修改时间：00:54:18" itemprop="dateCreated datePublished" datetime="2018-08-08T00:29:49+08:00">2018-08-08</time>
+              <time title="创建时间：2018-10-15 15:00:00" itemprop="dateCreated datePublished" datetime="2018-10-15T15:00:00+08:00">2018-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-18 23:58:31" itemprop="dateModified" datetime="2018-10-18T23:58:31+08:00">2018-10-18</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/h5直播/" itemprop="url" rel="index"><span itemprop="name">h5直播</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -408,8 +400,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/08/HTTP-FLV/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/08/HTTP-FLV/" itemprop="commentCount"></span>
+                <a href="/2018/10/15/solid五大设计原则/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/15/solid五大设计原则/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -437,15 +429,45 @@
       
 
       
-        <h1 id="HTTP-FLV协议"><a href="#HTTP-FLV协议" class="headerlink" title="HTTP-FLV协议"></a>HTTP-FLV协议</h1><img src="/2018/08/08/HTTP-FLV/HTTP-FLV协议.png" title="HTTP-FLV协议">
-<ol>
-<li>低延时</li>
-<li>传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCP<h1 id="HTTP-FLV协议的优势"><a href="#HTTP-FLV协议的优势" class="headerlink" title="HTTP-FLV协议的优势"></a>HTTP-FLV协议的优势</h1></li>
-<li>可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过）</li>
-<li>可以很好的兼容HTTP 302 跳转，做到灵活调度</li>
-<li>可以使用HTTPS 做加密通道</li>
-<li>很好的支持移动端（Android, ios）</li>
+        <h5 id="五大设计原则"><a href="#五大设计原则" class="headerlink" title="五大设计原则"></a>五大设计原则</h5><ol>
+<li>S - 单一职责原则 The Single-Responsibility Principle (SRP)</li>
 </ol>
+<ul>
+<li>一个程序只做好一件事</li>
+<li>如果功能过于复杂就拆分开，每个部分保持独立</li>
+</ul>
+<ol start="2">
+<li>o - 开放封闭原则 The Open/Closed Principle (OCP)</li>
+</ol>
+<ul>
+<li>对扩展开放，对修改封闭</li>
+<li>增加需求时，扩展新代码，而非修改已有代码</li>
+<li>这是软件设计的终极目标</li>
+</ul>
+<ol start="3">
+<li>L - 李氏置换原则 The Liskov Substitution Principle (LSP)</li>
+</ol>
+<ul>
+<li>子类能覆盖父类</li>
+<li>父类能出现的地方子类就能出现</li>
+<li>js 中使用较少（弱类型 &amp; 继承使用较少）</li>
+</ul>
+<ol start="4">
+<li>I - 接口独立原则 The Interface Segregation Principle (ISP)</li>
+</ol>
+<ul>
+<li>保持接口的单一独立，避免出现“胖接口”</li>
+<li>js中没有接口（typescript例外），使用较少</li>
+<li>类似于单一职责原则，这里更关注接口</li>
+</ul>
+<ol start="5">
+<li>D - 依赖导致原则 The Dependency-Inversion Principle (DIP)</li>
+</ol>
+<ul>
+<li>面向接口编程，依赖于抽象而不依赖于具体</li>
+<li>使用方只关注接口而不关注具体类的实现</li>
+<li>js使用较少（没有接口 &amp; 弱类型）</li>
+</ul>
 
       
     </div>
@@ -505,7 +527,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/h5直播/" rel="tag"> <i class="fa fa-tag"></i> h5直播</a>
+            <a href="/tags/Javascript设计模式/" rel="tag"> <i class="fa fa-tag"></i> Javascript设计模式</a>
           
         </div>
       
@@ -518,8 +540,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/08/RTMP/" rel="next" title="RTMP">
-                <i class="fa fa-chevron-left"></i> RTMP
+              <a href="/2018/10/13/UML_leitu/" rel="next" title="UML类图">
+                <i class="fa fa-chevron-left"></i> UML类图
               </a>
             
           </div>
@@ -528,8 +550,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/08/hls/" rel="prev" title="hls">
-                hls <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/16/23种设计模式介绍/" rel="prev" title="23种设计模式介绍">
+                23种设计模式介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -736,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-FLV协议"><span class="nav-number">1.</span> <span class="nav-text">HTTP-FLV协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-FLV协议的优势"><span class="nav-number">2.</span> <span class="nav-text">HTTP-FLV协议的优势</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#五大设计原则"><span class="nav-number">1.</span> <span class="nav-text">五大设计原则</span></a></li></ol></div>
             
 
           </div>

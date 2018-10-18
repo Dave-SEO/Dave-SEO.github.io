@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2018-10-13T15:00:51.795Z</updated>
+  <updated>2018-10-18T15:58:17.465Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -17,25 +17,75 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>UML类图</title>
-    <link href="http://myzhangning.top/2018/10/13/%08UML_leitu/"/>
-    <id>http://myzhangning.top/2018/10/13/UML_leitu/</id>
-    <published>2018-10-13T15:00:00.000Z</published>
-    <updated>2018-10-13T15:00:51.795Z</updated>
+    <title>23种设计模式介绍</title>
+    <link href="http://myzhangning.top/2018/10/16/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://myzhangning.top/2018/10/16/23种设计模式介绍/</id>
+    <published>2018-10-16T09:00:00.000Z</published>
+    <updated>2018-10-18T15:58:17.465Z</updated>
     
-    <content type="html"><![CDATA[<p> Unified Modeling Language 统一建模语言</p>]]></content>
+    <content type="html"><![CDATA[<h5 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h5><ol><li>工厂模式 （工厂方法模式、抽象工厂模式、建造者模式–js并没有分那么清）</li></ol><ul><li>将new操作单独封装</li><li>遇到new时就要考虑是否使用工厂模式</li></ul><p>使用场景:</p><ul><li>JQuery()-$(‘div’)</li><li>React.createElement</li><li>vue异步组件</li></ul><p>使用场景验证:</p><ul><li>构造函数和创建者分离</li><li>符合开放封闭原则<ol start="2"><li>单例模式</li></ol><ul><li>系统中被唯一使用</li><li>一个类只有一个实例</li></ul><ol start="3"><li>原型模式<h5 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h5></li><li>适配器模式</li><li>装饰器模式</li><li>代理模式</li><li>外观模式</li><li>桥接模式</li><li>组合模式</li><li>享元模式<h5 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h5></li><li>策略模式</li><li>模板方法模式</li><li>观察者模式</li><li>迭代器模式</li><li>职责链模式</li><li>命令模式</li><li>备忘录模式</li><li>状态模式</li><li>访问者模式</li><li>中介者模式</li><li>解释器模式</li></ol></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt; Unified Modeling Language 统一建模语言&lt;/p&gt;
-
+        &lt;h5 id=&quot;创建型&quot;&gt;&lt;a href=&quot;#创建型&quot; class=&quot;headerlink&quot; title=&quot;创建型&quot;&gt;&lt;/a&gt;创建型&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;工厂模式 （工厂方法模式、抽象工厂模式、建造者模式–js并没有分那么清）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;将ne
       
     
     </summary>
     
-      <category term="JavaScript" scheme="http://myzhangning.top/categories/JavaScript/"/>
+    
+      <category term="Javascript设计模式" scheme="http://myzhangning.top/tags/Javascript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SOLID五大设计原则</title>
+    <link href="http://myzhangning.top/2018/10/15/solid%E4%BA%94%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
+    <id>http://myzhangning.top/2018/10/15/solid五大设计原则/</id>
+    <published>2018-10-15T07:00:00.000Z</published>
+    <updated>2018-10-18T15:58:31.087Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="五大设计原则"><a href="#五大设计原则" class="headerlink" title="五大设计原则"></a>五大设计原则</h5><ol><li>S - 单一职责原则 The Single-Responsibility Principle (SRP)</li></ol><ul><li>一个程序只做好一件事</li><li>如果功能过于复杂就拆分开，每个部分保持独立</li></ul><ol start="2"><li>o - 开放封闭原则 The Open/Closed Principle (OCP)</li></ol><ul><li>对扩展开放，对修改封闭</li><li>增加需求时，扩展新代码，而非修改已有代码</li><li>这是软件设计的终极目标</li></ul><ol start="3"><li>L - 李氏置换原则 The Liskov Substitution Principle (LSP)</li></ol><ul><li>子类能覆盖父类</li><li>父类能出现的地方子类就能出现</li><li>js 中使用较少（弱类型 &amp; 继承使用较少）</li></ul><ol start="4"><li>I - 接口独立原则 The Interface Segregation Principle (ISP)</li></ol><ul><li>保持接口的单一独立，避免出现“胖接口”</li><li>js中没有接口（typescript例外），使用较少</li><li>类似于单一职责原则，这里更关注接口</li></ul><ol start="5"><li>D - 依赖导致原则 The Dependency-Inversion Principle (DIP)</li></ol><ul><li>面向接口编程，依赖于抽象而不依赖于具体</li><li>使用方只关注接口而不关注具体类的实现</li><li>js使用较少（没有接口 &amp; 弱类型）</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;五大设计原则&quot;&gt;&lt;a href=&quot;#五大设计原则&quot; class=&quot;headerlink&quot; title=&quot;五大设计原则&quot;&gt;&lt;/a&gt;五大设计原则&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;S - 单一职责原则 The Single-Responsibility Principle (
+      
+    
+    </summary>
+    
+    
+      <category term="Javascript设计模式" scheme="http://myzhangning.top/tags/Javascript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UML类图</title>
+    <link href="http://myzhangning.top/2018/10/13/%08UML_leitu/"/>
+    <id>http://myzhangning.top/2018/10/13/UML_leitu/</id>
+    <published>2018-10-13T15:00:00.000Z</published>
+    <updated>2018-10-18T15:56:35.236Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Unified-Modeling-Language-统一建模语言"><a href="#Unified-Modeling-Language-统一建模语言" class="headerlink" title="Unified Modeling Language 统一建模语言"></a>Unified Modeling Language 统一建模语言</h4><h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><pre><code>名字-&gt;属性-&gt;方法</code></pre><h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><ol><li>泛化，表示继承</li><li>关联，表示引用</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;Unified-Modeling-Language-统一建模语言&quot;&gt;&lt;a href=&quot;#Unified-Modeling-Language-统一建模语言&quot; class=&quot;headerlink&quot; title=&quot;Unified Modeling Language 统一
+      
+    
+    </summary>
+    
+      <category term="JavaScript设计模式" scheme="http://myzhangning.top/categories/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -45,7 +95,7 @@
     <link href="http://myzhangning.top/2018/10/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     <id>http://myzhangning.top/2018/10/11/面向对象/</id>
     <published>2018-10-11T12:30:00.000Z</published>
-    <updated>2018-10-13T14:51:17.213Z</updated>
+    <updated>2018-10-18T15:56:08.778Z</updated>
     
     <content type="html"><![CDATA[<h3 id="面向对象三要素"><a href="#面向对象三要素" class="headerlink" title="面向对象三要素"></a>面向对象三要素</h3><ol><li>继承 – 子类继承父类</li><li>封装 – 数据的封装和保密 (继承可将公共方法抽离出来，提高复用，减少冗余，不该外漏的不外漏)<br> public 完全开放       protected 对子类开放<br> private 对自己开放，私有的<br> ES6 尚不支持，可以用typescript 演示</li><li>多态 – 同一接口不同实现<br> js 应用极少，需要结合Java 等语言的接口、重写、重载等功能<h3 id="为什么要使用面向对象"><a href="#为什么要使用面向对象" class="headerlink" title="为什么要使用面向对象"></a>为什么要使用面向对象</h3><ol><li>程序执行:顺序、判断、循环— 结构化</li><li>面向对象—-数据结构化</li><li>对于计算机，结构化的才是最简单的</li><li>编程应该 简单&amp;抽象</li></ol></li></ol>]]></content>
     
@@ -60,7 +110,7 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="http://myzhangning.top/categories/JavaScript/"/>
+      <category term="JavaScript设计模式" scheme="http://myzhangning.top/categories/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -397,6 +447,22 @@
   </entry>
   
   <entry>
+    <title>python</title>
+    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
+    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2018-01-17T08:28:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>nodemailer+(node-schedule)+phantom 实现定时发送邮件截图</title>
     <link href="http://myzhangning.top/2018/01/16/nodemailer/"/>
     <id>http://myzhangning.top/2018/01/16/nodemailer/</id>
@@ -420,22 +486,6 @@
   </entry>
   
   <entry>
-    <title>python</title>
-    <link href="http://myzhangning.top/2018/01/16/python3-data-type/"/>
-    <id>http://myzhangning.top/2018/01/16/python3-data-type/</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2018-01-17T08:28:56.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="python" scheme="http://myzhangning.top/categories/python/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>mongoDB在node中的使用</title>
     <link href="http://myzhangning.top/2018/01/04/mongoDB/"/>
     <id>http://myzhangning.top/2018/01/04/mongoDB/</id>
@@ -454,54 +504,6 @@
     </summary>
     
       <category term="mongoDB" scheme="http://myzhangning.top/categories/mongoDB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nodejs excel导出</title>
-    <link href="http://myzhangning.top/2018/01/03/nodejsExcel%E5%AF%BC%E5%87%BA/"/>
-    <id>http://myzhangning.top/2018/01/03/nodejsExcel导出/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-02T02:02:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了</p><ol><li>ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 <a href="https://www.npmjs.com/package/ejsexcel" target="_blank" rel="noopener">https://www.npmjs.com/package/ejsexcel</a></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  ejsExcel.renderExcel(exlBuf_search, attr_box).then(<span class="function"><span class="keyword">function</span> (<span class="params">exlBuf2</span>) </span>&#123;</span><br><span class="line">               fs.writeFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>), exlBuf2);</span><br><span class="line">               <span class="keyword">var</span> newsExcel = fs.readFileSync(path.join(__dirname, <span class="string">'../templetExcel/searchspcode.xlsx'</span>));</span><br><span class="line">               res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/vnd.openxmlformats; charset=utf-8'</span>);</span><br><span class="line">               res.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=spcode.xlsx"</span>);</span><br><span class="line">               res.end(newsExcel);</span><br><span class="line">           &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.error(<span class="string">'error'</span>, err);</span><br><span class="line">           &#125;);</span><br><span class="line"><span class="comment">// 其中 exlBuf_search为模板文件，attr_box为数据源（必须为二维数组）</span></span><br></pre></td></tr></table></figure><ol start="2"><li>excel-export 不支持合并单元格,需要xml文件</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 之前一直在用前端导出，但是当数据量过大，在一万条左右时就力不从心了&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;ejsexcel 可以合并单元格，动态输出等，就是需要有模板文件 详情 &lt;a href=&quot;https://www.npmjs.com/package/ejsexcel&quot; targ
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nodejs项目部署之vue</title>
-    <link href="http://myzhangning.top/2018/01/03/vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
-    <id>http://myzhangning.top/2018/01/03/vue项目部署/</id>
-    <published>2018-01-02T16:00:00.000Z</published>
-    <updated>2018-03-01T07:47:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动<br>首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来学习 <a href="https://github.com/Dave-SEO/ele" target="_blank" rel="noopener">https://github.com/Dave-SEO/ele</a><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 模拟数据，api服务</span></span><br><span class="line"><span class="keyword">var</span> appData = <span class="built_in">require</span>(<span class="string">'./data.json'</span>);</span><br><span class="line"><span class="keyword">var</span> seller = appData.seller;</span><br><span class="line"><span class="keyword">var</span> goods = appData.goods;</span><br><span class="line"><span class="keyword">var</span> ratings = appData.ratings;</span><br><span class="line"><span class="comment">// api接口</span></span><br><span class="line"><span class="keyword">var</span> apiRoutes = express.Router();</span><br><span class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: seller</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: goods</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        erron: <span class="number">0</span>,</span><br><span class="line">        data: ratings</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.use(<span class="string">'/api'</span>, apiRoutes);</span><br><span class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'./dist'</span>)))</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'./dist/index.html'</span>), <span class="string">'utf-8'</span>)</span><br><span class="line">    res.send(html)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8082</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 项目打包后dist目录就是要部署到线上的项目，然后新建app.js,然后ftp上传，用pm2 start app.js 启动&lt;br&gt;首先你要有一个已经能在本地跑的基于vuejs的项目,我就以之前写的仿饿了么的项目为例来部署，如果你还没有已经写好的项目，可以用我的这个项目来
-      
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
     
     
   </entry>
