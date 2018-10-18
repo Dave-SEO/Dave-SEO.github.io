@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2018-10-18T15:58:17.465Z</updated>
+  <updated>2018-10-18T16:05:31.446Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://myzhangning.top/2018/10/16/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D/"/>
     <id>http://myzhangning.top/2018/10/16/23种设计模式介绍/</id>
     <published>2018-10-16T09:00:00.000Z</published>
-    <updated>2018-10-18T15:58:17.465Z</updated>
+    <updated>2018-10-18T16:05:31.446Z</updated>
     
     <content type="html"><![CDATA[<h5 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h5><ol><li>工厂模式 （工厂方法模式、抽象工厂模式、建造者模式–js并没有分那么清）</li></ol><ul><li>将new操作单独封装</li><li>遇到new时就要考虑是否使用工厂模式</li></ul><p>使用场景:</p><ul><li>JQuery()-$(‘div’)</li><li>React.createElement</li><li>vue异步组件</li></ul><p>使用场景验证:</p><ul><li>构造函数和创建者分离</li><li>符合开放封闭原则<ol start="2"><li>单例模式</li></ol><ul><li>系统中被唯一使用</li><li>一个类只有一个实例</li></ul><ol start="3"><li>原型模式<h5 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h5></li><li>适配器模式</li><li>装饰器模式</li><li>代理模式</li><li>外观模式</li><li>桥接模式</li><li>组合模式</li><li>享元模式<h5 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h5></li><li>策略模式</li><li>模板方法模式</li><li>观察者模式</li><li>迭代器模式</li><li>职责链模式</li><li>命令模式</li><li>备忘录模式</li><li>状态模式</li><li>访问者模式</li><li>中介者模式</li><li>解释器模式</li></ol></li></ul>]]></content>
     
@@ -38,6 +38,8 @@
     
     </summary>
     
+      <category term="JavaScript设计模式" scheme="http://myzhangning.top/categories/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
     
       <category term="Javascript设计模式" scheme="http://myzhangning.top/tags/Javascript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
@@ -48,7 +50,7 @@
     <link href="http://myzhangning.top/2018/10/15/solid%E4%BA%94%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
     <id>http://myzhangning.top/2018/10/15/solid五大设计原则/</id>
     <published>2018-10-15T07:00:00.000Z</published>
-    <updated>2018-10-18T15:58:31.087Z</updated>
+    <updated>2018-10-18T16:05:15.744Z</updated>
     
     <content type="html"><![CDATA[<h5 id="五大设计原则"><a href="#五大设计原则" class="headerlink" title="五大设计原则"></a>五大设计原则</h5><ol><li>S - 单一职责原则 The Single-Responsibility Principle (SRP)</li></ol><ul><li>一个程序只做好一件事</li><li>如果功能过于复杂就拆分开，每个部分保持独立</li></ul><ol start="2"><li>o - 开放封闭原则 The Open/Closed Principle (OCP)</li></ol><ul><li>对扩展开放，对修改封闭</li><li>增加需求时，扩展新代码，而非修改已有代码</li><li>这是软件设计的终极目标</li></ul><ol start="3"><li>L - 李氏置换原则 The Liskov Substitution Principle (LSP)</li></ol><ul><li>子类能覆盖父类</li><li>父类能出现的地方子类就能出现</li><li>js 中使用较少（弱类型 &amp; 继承使用较少）</li></ul><ol start="4"><li>I - 接口独立原则 The Interface Segregation Principle (ISP)</li></ol><ul><li>保持接口的单一独立，避免出现“胖接口”</li><li>js中没有接口（typescript例外），使用较少</li><li>类似于单一职责原则，这里更关注接口</li></ul><ol start="5"><li>D - 依赖导致原则 The Dependency-Inversion Principle (DIP)</li></ol><ul><li>面向接口编程，依赖于抽象而不依赖于具体</li><li>使用方只关注接口而不关注具体类的实现</li><li>js使用较少（没有接口 &amp; 弱类型）</li></ul>]]></content>
     
@@ -61,6 +63,8 @@
       
     
     </summary>
+    
+      <category term="JavaScript设计模式" scheme="http://myzhangning.top/categories/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
       <category term="Javascript设计模式" scheme="http://myzhangning.top/tags/Javascript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
