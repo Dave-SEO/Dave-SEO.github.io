@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2018-10-25T13:48:20.415Z</updated>
+  <updated>2018-12-19T15:54:11.893Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue3.0</title>
+    <link href="http://myzhangning.top/2018/12/19/vue3/"/>
+    <id>http://myzhangning.top/2018/12/19/vue3/</id>
+    <published>2018-12-19T15:00:00.000Z</published>
+    <updated>2018-12-19T15:54:11.893Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h5><ol><li>npm install -g @vue/cli   # OR yarn global add @vue/cli<h5 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h5></li><li>vue -V<h5 id="创建vue项目"><a href="#创建vue项目" class="headerlink" title="创建vue项目"></a>创建vue项目</h5></li><li>vue create vue-style<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5></li><li>npm run serve<h5 id="路由安装与配置"><a href="#路由安装与配置" class="headerlink" title="路由安装与配置"></a>路由安装与配置</h5></li><li>npm i vue-router</li><li>src 下创建router.js<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="keyword">import</span> pageA <span class="keyword">from</span> <span class="string">'a.vue'</span></span><br><span class="line"><span class="keyword">import</span> pageB <span class="keyword">from</span> <span class="string">'b.vue'</span></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123;</span><br><span class="line">        path: <span class="string">'pageA'</span>,</span><br><span class="line">        component: pageA</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br><span class="line"><span class="comment">//main.js 中</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    router</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br><span class="line"><span class="comment">// 根目录下创建vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    runtimeCompiler: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// public/index.html</span></span><br><span class="line">   &lt;div id=<span class="string">'app'</span>&gt;</span><br><span class="line">       &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">   &lt;div&gt;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;环境搭建&quot;&gt;&lt;a href=&quot;#环境搭建&quot; class=&quot;headerlink&quot; title=&quot;环境搭建&quot;&gt;&lt;/a&gt;环境搭建&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;npm install -g @vue/cli   # OR yarn global add @vue/cli&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="vuejs" scheme="http://myzhangning.top/tags/vuejs/"/>
+    
+  </entry>
   
   <entry>
     <title>23种设计模式介绍</title>
@@ -483,29 +507,6 @@
     </summary>
     
       <category term="nodejs" scheme="http://myzhangning.top/categories/nodejs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>mongoDB在node中的使用</title>
-    <link href="http://myzhangning.top/2018/01/04/mongoDB/"/>
-    <id>http://myzhangning.top/2018/01/04/mongoDB/</id>
-    <published>2018-01-03T16:00:00.000Z</published>
-    <updated>2018-01-17T07:07:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="mongoose"><a href="#mongoose" class="headerlink" title="mongoose"></a>mongoose</h1><pre><code>NodeJS有专门的模块连接MongoDB操作数据库，但是从数据验证，定义Schema数据模式，以及model处理增删改查等方面，Mongoose都有过之无不及，极大的提升开发效率Mongoose是MongoDB的一个对象模型工具，是基于node-mongodb-native开发的MongoDB nodejs驱动，可以在异步的环境下执行。同时它也是针对MongoDB操作的一个对象模型库，封装了MongoDB对文档的的一些增删改查等常用方法，让NodeJS操作Mongodb数据库变得更加灵活简单。Schema ： 一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力Model ： 由Schema发布生成的模型，具有抽象属性和行为的数据库操作对</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"><span class="comment">// 链接MongoDB</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/react'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否链接成功</span></span><br><span class="line">mongoose.connection.on(<span class="string">'connected'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'mongoDB connect success !'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 类似mysql的表 mongo有文档，字段的概念 新建模型</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'user'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    user: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">require</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">    age: &#123; <span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">require</span>: <span class="literal">true</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line">User.create(&#123;</span><br><span class="line">    user: <span class="string">'xiao'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 查询</span></span><br><span class="line"><span class="comment">//findOne 查找一条</span></span><br><span class="line">User.find(&#123;<span class="string">'user'</span>:<span class="string">'xiaoming'</span>&#125;,(error,data)=&gt;&#123;&#125;);</span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line">User.remove(&#123;<span class="attr">age</span>:<span class="number">18</span>&#125;,(error,data)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 更新</span></span><br><span class="line">User.update(&#123;<span class="string">'user'</span>:<span class="string">'xiaoming'</span>&#125;,&#123;<span class="string">'$set'</span>:&#123;<span class="attr">age</span>:<span class="number">26</span>&#125;&#125;,(error,data)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;mongoose&quot;&gt;&lt;a href=&quot;#mongoose&quot; class=&quot;headerlink&quot; title=&quot;mongoose&quot;&gt;&lt;/a&gt;mongoose&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;NodeJS有专门的模块连接MongoDB操作数据库，但是从数据验证，定义S
-      
-    
-    </summary>
-    
-      <category term="mongoDB" scheme="http://myzhangning.top/categories/mongoDB/"/>
     
     
   </entry>
