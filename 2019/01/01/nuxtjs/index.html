@@ -132,18 +132,21 @@
 
 
 
-  <meta name="description" content="http/0.9只有一个命令GET,没有HEADER等描述数据的信息，服务器发送完数据，就关闭tcp连接 tcp连接与http连接：     一个tcp连接可以对应几个http请求，一个http请求是在某一个tcp连接中进行发送 http/1.0增加了很多命令，增加status code 和header，多字符集支持，多部分发送，权限，缓存等 http/1.1持久连接，增加host和其他一些命令（">
-<meta name="keywords" content="http协议">
+  <meta name="description" content="nuxt.js 工作流  Incoming Request 浏览器发起请求 nuxtServerInit 服务端接受请求检查nuxtServerInit配置项是否存在，Strore action 用来操作vuex middleware 中间件 validate() 配合高级路由做动态验证 例如页面是否可以跳转 asyncDate() &amp;amp; fetch() 用来获取数据 asyncDate()">
+<meta name="keywords" content="vuejs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http协议历史">
-<meta property="og:url" content="http://myzhangning.top/2018/08/27/http-history/index.html">
+<meta property="og:title" content="nuxtjs">
+<meta property="og:url" content="http://myzhangning.top/2019/01/01/nuxtjs/index.html">
 <meta property="og:site_name" content="永无止境">
-<meta property="og:description" content="http/0.9只有一个命令GET,没有HEADER等描述数据的信息，服务器发送完数据，就关闭tcp连接 tcp连接与http连接：     一个tcp连接可以对应几个http请求，一个http请求是在某一个tcp连接中进行发送 http/1.0增加了很多命令，增加status code 和header，多字符集支持，多部分发送，权限，缓存等 http/1.1持久连接，增加host和其他一些命令（">
+<meta property="og:description" content="nuxt.js 工作流  Incoming Request 浏览器发起请求 nuxtServerInit 服务端接受请求检查nuxtServerInit配置项是否存在，Strore action 用来操作vuex middleware 中间件 validate() 配合高级路由做动态验证 例如页面是否可以跳转 asyncDate() &amp;amp; fetch() 用来获取数据 asyncDate()">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-27T16:17:40.996Z">
+<meta property="og:image" content="http://myzhangning.top/2019/01/01/nuxtjs/nuxtjsyuanli.png">
+<meta property="og:image" content="http://myzhangning.top/2019/01/01/nuxtjs/directory.png">
+<meta property="og:updated_time" content="2019-01-01T14:52:35.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http协议历史">
-<meta name="twitter:description" content="http/0.9只有一个命令GET,没有HEADER等描述数据的信息，服务器发送完数据，就关闭tcp连接 tcp连接与http连接：     一个tcp连接可以对应几个http请求，一个http请求是在某一个tcp连接中进行发送 http/1.0增加了很多命令，增加status code 和header，多字符集支持，多部分发送，权限，缓存等 http/1.1持久连接，增加host和其他一些命令（">
+<meta name="twitter:title" content="nuxtjs">
+<meta name="twitter:description" content="nuxt.js 工作流  Incoming Request 浏览器发起请求 nuxtServerInit 服务端接受请求检查nuxtServerInit配置项是否存在，Strore action 用来操作vuex middleware 中间件 validate() 配合高级路由做动态验证 例如页面是否可以跳转 asyncDate() &amp;amp; fetch() 用来获取数据 asyncDate()">
+<meta name="twitter:image" content="http://myzhangning.top/2019/01/01/nuxtjs/nuxtjsyuanli.png">
 
 
 
@@ -152,7 +155,7 @@
 
 
 
-  <link rel="canonical" href="http://myzhangning.top/2018/08/27/http-history/"/>
+  <link rel="canonical" href="http://myzhangning.top/2019/01/01/nuxtjs/"/>
 
 
 
@@ -162,7 +165,7 @@
   };
 </script>
 
-  <title>http协议历史 | 永无止境</title>
+  <title>nuxtjs | 永无止境</title>
   
 
 
@@ -327,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2018/08/27/http-history/">
+    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2019/01/01/nuxtjs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dave-SEO">
@@ -344,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http协议历史
+          <h1 class="post-title" itemprop="name headline">nuxtjs
               
             
           </h1>
@@ -369,46 +372,16 @@
                 
               
 
-              <time title="创建时间：2018-08-27 23:56:19" itemprop="dateCreated datePublished" datetime="2018-08-27T23:56:19+08:00">2018-08-27</time>
+              <time title="创建时间：2019-01-01 21:35:01 / 修改时间：22:52:35" itemprop="dateCreated datePublished" datetime="2019-01-01T21:35:01+08:00">2019-01-01</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-28 00:17:40" itemprop="dateModified" datetime="2018-08-28T00:17:40+08:00">2018-08-28</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/http协议/" itemprop="url" rel="index"><span itemprop="name">http协议</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -418,8 +391,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/27/http-history/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/27/http-history/" itemprop="commentCount"></span>
+                <a href="/2019/01/01/nuxtjs/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/01/nuxtjs/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -447,16 +420,29 @@
       
 
       
-        <h1 id="http-0-9"><a href="#http-0-9" class="headerlink" title="http/0.9"></a>http/0.9</h1><pre><code>只有一个命令GET,没有HEADER等描述数据的信息，服务器发送完数据，就关闭tcp连接
-tcp连接与http连接：
-    一个tcp连接可以对应几个http请求，一个http请求是在某一个tcp连接中进行发送
-</code></pre><h1 id="http-1-0"><a href="#http-1-0" class="headerlink" title="http/1.0"></a>http/1.0</h1><pre><code>增加了很多命令，增加status code 和header，多字符集支持，多部分发送，权限，缓存等
-</code></pre><h1 id="http-1-1"><a href="#http-1-1" class="headerlink" title="http/1.1"></a>http/1.1</h1><pre><code>持久连接，增加host和其他一些命令（host可以在同一台服务器建立多个web服务）
-</code></pre><h1 id="http2-主要解决http中性能问题"><a href="#http2-主要解决http中性能问题" class="headerlink" title="http2(主要解决http中性能问题)"></a>http2(主要解决http中性能问题)</h1><pre><code>一、所有数据以二进制传输（帧）
-二、同一个连接里发送多个请求不在需要按照顺序来（提高传输效率）
-三、头信息压缩（减小带宽使用）以及推送（服务端可以主动发起数据传输）等提高效率的功能
-例如：web页面都有html，css，js文件，需要先请求到html文本然后在浏览器中运行解析完成以后，我们才能发送css，js请求，有了推送这个功能以后，可以在请求html的同时，主动把css，js文件推送给客户端，这样是一个并行发送的关系，而不是串行的，整体传输效率、性能会很高
-</code></pre>
+        <h5 id="nuxt-js-工作流"><a href="#nuxt-js-工作流" class="headerlink" title="nuxt.js 工作流"></a>nuxt.js 工作流</h5><img src="/2019/01/01/nuxtjs/nuxtjsyuanli.png" title="nuxtjs工作流">
+<ol>
+<li>Incoming Request 浏览器发起请求</li>
+<li>nuxtServerInit 服务端接受请求检查nuxtServerInit配置项是否存在，Strore action 用来操作vuex</li>
+<li>middleware 中间件</li>
+<li>validate() 配合高级路由做动态验证 例如页面是否可以跳转</li>
+<li>asyncDate() &amp; fetch() 用来获取数据<br> asyncDate() 获取的数据用于渲染vue组件<br> fetch() 用于修改vuex的</li>
+<li>Render 渲染</li>
+</ol>
+<h5 id="nuxtjs-安装-（Nuxt-js-with-Koa）"><a href="#nuxtjs-安装-（Nuxt-js-with-Koa）" class="headerlink" title="nuxtjs 安装 （Nuxt.js with Koa）"></a>nuxtjs 安装 （Nuxt.js with Koa）</h5><ol>
+<li>网址：<a href="https://github.com/nuxt-community/koa-template" target="_blank" rel="noopener">https://github.com/nuxt-community/koa-template</a></li>
+<li>vue init nuxt-community/koa-template nuxt-pro<h5 id="nuxtjs-目录"><a href="#nuxtjs-目录" class="headerlink" title="nuxtjs 目录"></a>nuxtjs 目录</h5><img src="/2019/01/01/nuxtjs/directory.png" title="nuxtjs目录"></li>
+<li>backpack.config.js 后端编译脚本</li>
+<li>build 编译完后的目录</li>
+<li>components 放置vue组件</li>
+<li>layouts 模版</li>
+<li>pages 页面入口</li>
+<li>server koa相关的程序</li>
+<li>stroe vuex目录，有这个目录就会默认启用vuex（创建即配置）</li>
+<li>npm install eslint-plugin-html@^3 (如eslint报错)</li>
+<li>路由：创建一个页面，文件名即是路由（创建即配置）</li>
+</ol>
+
       
     </div>
 
@@ -515,7 +501,7 @@ tcp连接与http连接：
       
         <div class="post-tags">
           
-            <a href="/tags/http协议/" rel="tag"> <i class="fa fa-tag"></i> http协议</a>
+            <a href="/tags/vuejs/" rel="tag"> <i class="fa fa-tag"></i> vuejs</a>
           
         </div>
       
@@ -528,8 +514,8 @@ tcp连接与http连接：
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/http-protocol-and-history/" rel="next" title="http协议基础及历史">
-                <i class="fa fa-chevron-left"></i> http协议基础及历史
+              <a href="/2018/12/19/vue3/" rel="next" title="vue3.0">
+                <i class="fa fa-chevron-left"></i> vue3.0
               </a>
             
           </div>
@@ -537,10 +523,6 @@ tcp连接与http连接：
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/28/threeHands/" rel="prev" title="http三次握手">
-                http三次握手 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -748,7 +730,7 @@ tcp连接与http连接：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#http-0-9"><span class="nav-number">1.</span> <span class="nav-text">http/0.9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http-1-0"><span class="nav-number">2.</span> <span class="nav-text">http/1.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http-1-1"><span class="nav-number">3.</span> <span class="nav-text">http/1.1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http2-主要解决http中性能问题"><span class="nav-number">4.</span> <span class="nav-text">http2(主要解决http中性能问题)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#nuxt-js-工作流"><span class="nav-number">1.</span> <span class="nav-text">nuxt.js 工作流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nuxtjs-安装-（Nuxt-js-with-Koa）"><span class="nav-number">2.</span> <span class="nav-text">nuxtjs 安装 （Nuxt.js with Koa）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nuxtjs-目录"><span class="nav-number">3.</span> <span class="nav-text">nuxtjs 目录</span></a></li></ol></div>
             
 
           </div>
