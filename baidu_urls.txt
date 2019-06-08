@@ -27,8 +27,8 @@ http://myzhangning.top/2018/01/03/design/
 http://myzhangning.top/2018/01/03/nodejsExcel导出/
 http://myzhangning.top/2018/01/03/vue项目部署/
 http://myzhangning.top/2017/12/29/redux-devTools/
-http://myzhangning.top/2017/12/28/redux/
 http://myzhangning.top/2017/12/28/react-redux/
+http://myzhangning.top/2017/12/28/redux/
 http://myzhangning.top/2017/12/25/es6/
 http://myzhangning.top/2017/11/21/Notification/
 http://myzhangning.top/2017/11/20/socket.io/
