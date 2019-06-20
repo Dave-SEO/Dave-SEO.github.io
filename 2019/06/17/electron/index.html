@@ -132,18 +132,18 @@
 
 
 
-  <meta name="description" content="信道复用分帧传输 http2的分帧传输，在同一个连接上面可以并发的发送不同的请求 传输的一个http数据并不需要一定按照连续的顺序进行发送，而是可以分成不同的帧，然后一起进行发送，如果中间部分先到服务器也没关系，最后会把数据接收完之后，根据一个帧信息里面包含的先后顺序，在进行组合，拿到一个真正的数据  server push 传统的http1.1中客户端是主动的，服务端是被动的 在http1.1中">
-<meta name="keywords" content="http协议">
+  <meta name="description" content="electron 简介 Electron是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将Chromium和Node.js合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。  主进程 Main Process 可以使用和系统对接的Electron API- 创建菜单，上传文件">
+<meta name="keywords" content="electron">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http2优势">
-<meta property="og:url" content="http://myzhangning.top/2018/09/02/http2/index.html">
+<meta property="og:title" content="electron">
+<meta property="og:url" content="http://myzhangning.top/2019/06/17/electron/index.html">
 <meta property="og:site_name" content="永无止境">
-<meta property="og:description" content="信道复用分帧传输 http2的分帧传输，在同一个连接上面可以并发的发送不同的请求 传输的一个http数据并不需要一定按照连续的顺序进行发送，而是可以分成不同的帧，然后一起进行发送，如果中间部分先到服务器也没关系，最后会把数据接收完之后，根据一个帧信息里面包含的先后顺序，在进行组合，拿到一个真正的数据  server push 传统的http1.1中客户端是主动的，服务端是被动的 在http1.1中">
+<meta property="og:description" content="electron 简介 Electron是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将Chromium和Node.js合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。  主进程 Main Process 可以使用和系统对接的Electron API- 创建菜单，上传文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-02T09:15:47.307Z">
+<meta property="og:updated_time" content="2019-06-20T16:05:19.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http2优势">
-<meta name="twitter:description" content="信道复用分帧传输 http2的分帧传输，在同一个连接上面可以并发的发送不同的请求 传输的一个http数据并不需要一定按照连续的顺序进行发送，而是可以分成不同的帧，然后一起进行发送，如果中间部分先到服务器也没关系，最后会把数据接收完之后，根据一个帧信息里面包含的先后顺序，在进行组合，拿到一个真正的数据  server push 传统的http1.1中客户端是主动的，服务端是被动的 在http1.1中">
+<meta name="twitter:title" content="electron">
+<meta name="twitter:description" content="electron 简介 Electron是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将Chromium和Node.js合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。  主进程 Main Process 可以使用和系统对接的Electron API- 创建菜单，上传文件">
 
 
 
@@ -152,7 +152,7 @@
 
 
 
-  <link rel="canonical" href="http://myzhangning.top/2018/09/02/http2/"/>
+  <link rel="canonical" href="http://myzhangning.top/2019/06/17/electron/"/>
 
 
 
@@ -162,7 +162,7 @@
   };
 </script>
 
-  <title>http2优势 | 永无止境</title>
+  <title>electron | 永无止境</title>
   
 
 
@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2018/09/02/http2/">
+    <link itemprop="mainEntityOfPage" href="http://myzhangning.top/2019/06/17/electron/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dave-SEO">
@@ -344,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http2优势
+          <h1 class="post-title" itemprop="name headline">electron
               
             
           </h1>
@@ -369,34 +369,28 @@
                 
               
 
-              <time title="创建时间：2018-09-02 16:30:00 / 修改时间：17:15:47" itemprop="dateCreated datePublished" datetime="2018-09-02T16:30:00+08:00">2018-09-02</time>
+              <time title="创建时间：2019-06-17 17:00:00" itemprop="dateCreated datePublished" datetime="2019-06-17T17:00:00+08:00">2019-06-17</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-21 00:05:19" itemprop="dateModified" datetime="2019-06-21T00:05:19+08:00">2019-06-21</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/http协议/" itemprop="url" rel="index"><span itemprop="name">http协议</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -406,8 +400,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/02/http2/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/09/02/http2/" itemprop="commentCount"></span>
+                <a href="/2019/06/17/electron/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/06/17/electron/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -435,19 +429,39 @@
       
 
       
-        <h1 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h1><h1 id="分帧传输"><a href="#分帧传输" class="headerlink" title="分帧传输"></a>分帧传输</h1><ol>
-<li>http2的分帧传输，在同一个连接上面可以并发的发送不同的请求</li>
-<li>传输的一个http数据并不需要一定按照连续的顺序进行发送，而是可以分成不同的帧，然后一起进行发送，如果中间部分先到服务器也没关系，最后会把数据接收完之后，根据一个帧信息里面包含的先后顺序，在进行组合，拿到一个真正的数据</li>
+        <h5 id="electron-简介"><a href="#electron-简介" class="headerlink" title="electron 简介"></a>electron 简介</h5><ol>
+<li>Electron是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。<br> Electron通过将Chromium和Node.js合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。</li>
 </ol>
-<h1 id="server-push"><a href="#server-push" class="headerlink" title="server push"></a>server push</h1><ol>
-<li>传统的http1.1中客户端是主动的，服务端是被动的</li>
-<li>在http1.1中如果一个页面加载过来有很多资源，比如图片，css，js 这些请求是并发的去发送，并发的过程中需要创建并发的http连接，浏览器有并发限制，像Chrome中只有6个，如果一次并发超过6个剩下的一些需要等待前6个拿到服务器的返回之后，才能继续发送请求，所以这个时候就会变成相对串行的操作，效率就不是很高</li>
-<li>建立不同的连接，如果有一起创建6个tcp连接，需要进行tcp的6次三次握手，创建连接的开销是比较大的，同时对于一个服务器来讲，他可以创建的tcp连接数是有一个上限的，所以每次都创建6个tcp连接，会导致服务器的tcp连接数很快的消耗完，所以在http1.1中受到很大的制约</li>
+<h5 id="主进程-Main-Process"><a href="#主进程-Main-Process" class="headerlink" title="主进程 Main Process"></a>主进程 Main Process</h5><ol>
+<li>可以使用和系统对接的Electron API- 创建菜单，上传文件等</li>
+<li>创建渲染进程 - Renderer Process</li>
+<li>全面支持nodejs</li>
+<li>只有一个，做为整个程序的入口点</li>
 </ol>
-<h1 id="为什么不能在一个tcp连接上面去发送请求呢？"><a href="#为什么不能在一个tcp连接上面去发送请求呢？" class="headerlink" title="为什么不能在一个tcp连接上面去发送请求呢？"></a>为什么不能在一个tcp连接上面去发送请求呢？</h1><ol>
-<li>在http1.1中发送请求，在tcp连接上发送数据是必须要发送完一个请求后，在发送第二个请求，同时服务端返回也是要把前一个请求的数据全部返回之后，才能返回第二个数据，也就是第一个数据请求特别慢，第二个请求比他先执行完成，但还是会等第一个请求执行完成，才能返回，所以如果复用一个tcp连接，在http1.1中，其实是一个串行的过程，而不是一个并行的过程，所以效率比较低</li>
-<li>在http2中得意于信道复用和分帧传输的好处，所以网站开启http2之后我们每个用户访问我们的网站他永远只需要创建一个tcp连接，因为在这个tcp连接上面，我们完全可以并发的发送，并发的返回，没有一个阻塞的过程，同时服务端还可以根据需求主动的响应用户推送一些消息</li>
-<li>http2是由谷歌之前开发的spdy的一个协议演化而来的，spdy需要使用https，所以目前仅支持https</li>
+<h5 id="渲染进程-Renderer-Process"><a href="#渲染进程-Renderer-Process" class="headerlink" title="渲染进程-Renderer Process"></a>渲染进程-Renderer Process</h5><ol>
+<li>可以有多个，每个对应一个窗口</li>
+<li>每个都是一个单独的进程</li>
+<li>全面支持nodejs和DOM API</li>
+<li>可以使用一部分Electron提供的API</li>
+</ol>
+<h5 id="创建一个简单的HelloWorld"><a href="#创建一个简单的HelloWorld" class="headerlink" title="创建一个简单的HelloWorld"></a>创建一个简单的HelloWorld</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;app,BrowserWindow&#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * BrowserWindow(创建和控制浏览器窗口)</span></span><br><span class="line"><span class="comment">  * app (控制你的应用程序的事件生命周期。)</span></span><br><span class="line"><span class="comment">    ready(当 Electron 完成初始化时被触发)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">app.on(<span class="string">'ready'</span>,()=&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> MainWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">      width: <span class="number">800</span>,</span><br><span class="line">      height:<span class="number">600</span>,</span><br><span class="line">      webPreferences:&#123;</span><br><span class="line">        <span class="comment">// 可以使用nodeAPI</span></span><br><span class="line">        nodeIntegration: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    MainWindow.loadFile(<span class="string">'index.html'</span>)</span><br><span class="line">    <span class="keyword">const</span> secondWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">      width: <span class="number">400</span>,</span><br><span class="line">      height: <span class="number">300</span>,</span><br><span class="line">      webPreferences: &#123;</span><br><span class="line">        nodeIntegration: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      parent: MainWindow</span><br><span class="line">    &#125;)</span><br><span class="line">    secondWindow.loadFile(<span class="string">'second.html'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="进程间的通讯方式"><a href="#进程间的通讯方式" class="headerlink" title="进程间的通讯方式"></a>进程间的通讯方式</h5><ol>
+<li>Electron 使用IPC(interprocess communication) 在进程之间进行通讯和Chromium 完全一致</li>
+</ol>
+<h5 id="ipcRenderer-ipcMain"><a href="#ipcRenderer-ipcMain" class="headerlink" title="ipcRenderer,ipcMain"></a>ipcRenderer,ipcMain</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>,()=&gt;&#123;</span><br><span class="line">  <span class="comment">// 发送</span></span><br><span class="line">    ipcRenderer.send(<span class="string">'message'</span>,<span class="string">'Hello-World'</span>)</span><br><span class="line">    <span class="comment">// 接收</span></span><br><span class="line">    ipcRenderer.on(<span class="string">'reply'</span>,(event,arg)=&gt;&#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'message'</span>).innerHTML = arg</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line">  ipcMain.on(<span class="string">'message'</span>,(event, arg)=&gt;&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(arg)</span><br><span class="line">      <span class="comment">// 收到消息通知子进程</span></span><br><span class="line">      event.sender.send(<span class="string">'reply'</span>,<span class="string">'hello from main'</span>)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="数据持久化的方式"><a href="#数据持久化的方式" class="headerlink" title="数据持久化的方式"></a>数据持久化的方式</h5><ol>
+<li>数据库</li>
+<li>H5本地存储</li>
+<li>使用本地文件 （electron中使用electron-store）</li>
+</ol>
+<h5 id="应用打包"><a href="#应用打包" class="headerlink" title="应用打包"></a>应用打包</h5><ol>
+<li>手动打包</li>
+<li>Electron packager</li>
+<li>Electron builder</li>
+</ol>
+<h5 id="demo地址"><a href="#demo地址" class="headerlink" title="demo地址"></a>demo地址</h5><ol>
+<li><a href="https://github.com/Dave-SEO/electron" target="_blank" rel="noopener">项目地址</a></li>
+<li>应用下载（复制到浏览器）：<a href="https://dave.myzhangning.top/package/electron-quick-start%20Setup%201.0.0.exe" target="_blank" rel="noopener">https://dave.myzhangning.top/package/electron-quick-start%20Setup%201.0.0.exe</a></li>
 </ol>
 
       
@@ -508,7 +522,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/http协议/" rel="tag"> <i class="fa fa-tag"></i> http协议</a>
+            <a href="/tags/electron/" rel="tag"> <i class="fa fa-tag"></i> electron</a>
           
         </div>
       
@@ -521,8 +535,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/28/threeHands/" rel="next" title="http三次握手">
-                <i class="fa fa-chevron-left"></i> http三次握手
+              <a href="/2019/06/08/ts/" rel="next" title="typescript">
+                <i class="fa fa-chevron-left"></i> typescript
               </a>
             
           </div>
@@ -530,10 +544,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/18/videojs/" rel="prev" title="videojs 使用小结">
-                videojs 使用小结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -751,7 +761,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信道复用"><span class="nav-number">1.</span> <span class="nav-text">信道复用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分帧传输"><span class="nav-number">2.</span> <span class="nav-text">分帧传输</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#server-push"><span class="nav-number">3.</span> <span class="nav-text">server push</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么不能在一个tcp连接上面去发送请求呢？"><span class="nav-number">4.</span> <span class="nav-text">为什么不能在一个tcp连接上面去发送请求呢？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#electron-简介"><span class="nav-number">1.</span> <span class="nav-text">electron 简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#主进程-Main-Process"><span class="nav-number">2.</span> <span class="nav-text">主进程 Main Process</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渲染进程-Renderer-Process"><span class="nav-number">3.</span> <span class="nav-text">渲染进程-Renderer Process</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建一个简单的HelloWorld"><span class="nav-number">4.</span> <span class="nav-text">创建一个简单的HelloWorld</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#进程间的通讯方式"><span class="nav-number">5.</span> <span class="nav-text">进程间的通讯方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ipcRenderer-ipcMain"><span class="nav-number">6.</span> <span class="nav-text">ipcRenderer,ipcMain</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据持久化的方式"><span class="nav-number">7.</span> <span class="nav-text">数据持久化的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用打包"><span class="nav-number">8.</span> <span class="nav-text">应用打包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#demo地址"><span class="nav-number">9.</span> <span class="nav-text">demo地址</span></a></li></ol></div>
             
 
           </div>

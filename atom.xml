@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2019-06-08T08:38:00.727Z</updated>
+  <updated>2019-06-20T16:05:19.162Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>electron</title>
+    <link href="http://myzhangning.top/2019/06/17/electron/"/>
+    <id>http://myzhangning.top/2019/06/17/electron/</id>
+    <published>2019-06-17T09:00:00.000Z</published>
+    <updated>2019-06-20T16:05:19.162Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="electron-简介"><a href="#electron-简介" class="headerlink" title="electron 简介"></a>electron 简介</h5><ol><li>Electron是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。<br> Electron通过将Chromium和Node.js合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。</li></ol><h5 id="主进程-Main-Process"><a href="#主进程-Main-Process" class="headerlink" title="主进程 Main Process"></a>主进程 Main Process</h5><ol><li>可以使用和系统对接的Electron API- 创建菜单，上传文件等</li><li>创建渲染进程 - Renderer Process</li><li>全面支持nodejs</li><li>只有一个，做为整个程序的入口点</li></ol><h5 id="渲染进程-Renderer-Process"><a href="#渲染进程-Renderer-Process" class="headerlink" title="渲染进程-Renderer Process"></a>渲染进程-Renderer Process</h5><ol><li>可以有多个，每个对应一个窗口</li><li>每个都是一个单独的进程</li><li>全面支持nodejs和DOM API</li><li>可以使用一部分Electron提供的API</li></ol><h5 id="创建一个简单的HelloWorld"><a href="#创建一个简单的HelloWorld" class="headerlink" title="创建一个简单的HelloWorld"></a>创建一个简单的HelloWorld</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;app,BrowserWindow&#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * BrowserWindow(创建和控制浏览器窗口)</span></span><br><span class="line"><span class="comment">  * app (控制你的应用程序的事件生命周期。)</span></span><br><span class="line"><span class="comment">    ready(当 Electron 完成初始化时被触发)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">app.on(<span class="string">'ready'</span>,()=&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> MainWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">      width: <span class="number">800</span>,</span><br><span class="line">      height:<span class="number">600</span>,</span><br><span class="line">      webPreferences:&#123;</span><br><span class="line">        <span class="comment">// 可以使用nodeAPI</span></span><br><span class="line">        nodeIntegration: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    MainWindow.loadFile(<span class="string">'index.html'</span>)</span><br><span class="line">    <span class="keyword">const</span> secondWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">      width: <span class="number">400</span>,</span><br><span class="line">      height: <span class="number">300</span>,</span><br><span class="line">      webPreferences: &#123;</span><br><span class="line">        nodeIntegration: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      parent: MainWindow</span><br><span class="line">    &#125;)</span><br><span class="line">    secondWindow.loadFile(<span class="string">'second.html'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h5 id="进程间的通讯方式"><a href="#进程间的通讯方式" class="headerlink" title="进程间的通讯方式"></a>进程间的通讯方式</h5><ol><li>Electron 使用IPC(interprocess communication) 在进程之间进行通讯和Chromium 完全一致</li></ol><h5 id="ipcRenderer-ipcMain"><a href="#ipcRenderer-ipcMain" class="headerlink" title="ipcRenderer,ipcMain"></a>ipcRenderer,ipcMain</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>,()=&gt;&#123;</span><br><span class="line">  <span class="comment">// 发送</span></span><br><span class="line">    ipcRenderer.send(<span class="string">'message'</span>,<span class="string">'Hello-World'</span>)</span><br><span class="line">    <span class="comment">// 接收</span></span><br><span class="line">    ipcRenderer.on(<span class="string">'reply'</span>,(event,arg)=&gt;&#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'message'</span>).innerHTML = arg</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line">  ipcMain.on(<span class="string">'message'</span>,(event, arg)=&gt;&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(arg)</span><br><span class="line">      <span class="comment">// 收到消息通知子进程</span></span><br><span class="line">      event.sender.send(<span class="string">'reply'</span>,<span class="string">'hello from main'</span>)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure><h5 id="数据持久化的方式"><a href="#数据持久化的方式" class="headerlink" title="数据持久化的方式"></a>数据持久化的方式</h5><ol><li>数据库</li><li>H5本地存储</li><li>使用本地文件 （electron中使用electron-store）</li></ol><h5 id="应用打包"><a href="#应用打包" class="headerlink" title="应用打包"></a>应用打包</h5><ol><li>手动打包</li><li>Electron packager</li><li>Electron builder</li></ol><h5 id="demo地址"><a href="#demo地址" class="headerlink" title="demo地址"></a>demo地址</h5><ol><li><a href="https://github.com/Dave-SEO/electron" target="_blank" rel="noopener">项目地址</a></li><li>应用下载（复制到浏览器）：<a href="https://dave.myzhangning.top/package/electron-quick-start%20Setup%201.0.0.exe" target="_blank" rel="noopener">https://dave.myzhangning.top/package/electron-quick-start%20Setup%201.0.0.exe</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;electron-简介&quot;&gt;&lt;a href=&quot;#electron-简介&quot; class=&quot;headerlink&quot; title=&quot;electron 简介&quot;&gt;&lt;/a&gt;electron 简介&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;Electron是由Github开发，用HTML，CSS
+      
+    
+    </summary>
+    
+    
+      <category term="electron" scheme="http://myzhangning.top/tags/electron/"/>
+    
+  </entry>
   
   <entry>
     <title>typescript</title>
@@ -482,31 +506,6 @@
       
       
         &lt;h1 id=&quot;HTTP-FLV协议&quot;&gt;&lt;a href=&quot;#HTTP-FLV协议&quot; class=&quot;headerlink&quot; title=&quot;HTTP-FLV协议&quot;&gt;&lt;/a&gt;HTTP-FLV协议&lt;/h1&gt;&lt;img src=&quot;/2018/08/08/HTTP-FLV/HTTP-FLV协议
-      
-    
-    </summary>
-    
-      <category term="h5直播" scheme="http://myzhangning.top/categories/h5%E7%9B%B4%E6%92%AD/"/>
-    
-    
-      <category term="h5直播" scheme="http://myzhangning.top/tags/h5%E7%9B%B4%E6%92%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RTMP</title>
-    <link href="http://myzhangning.top/2018/08/08/RTMP/"/>
-    <id>http://myzhangning.top/2018/08/08/RTMP/</id>
-    <published>2018-08-07T16:19:49.000Z</published>
-    <updated>2018-08-07T16:57:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="RTMP协议概述"><a href="#RTMP协议概述" class="headerlink" title="RTMP协议概述"></a>RTMP协议概述</h1><img src="/2018/08/08/RTMP/RTMP协议概述.png" title="RTMP协议概述"><ol><li>RTMP 协议使用相对复杂（实时消息传输协议）基于HTTP,主要用于flash，如果采集端是web端来做它的协议叫做webRTC</li><li>客户端为RTMP协议效率高一些</li></ol><h1 id="RTMP协议"><a href="#RTMP协议" class="headerlink" title="RTMP协议"></a>RTMP协议</h1><img src="/2018/08/08/RTMP/RTMP协议.png" title="RTMP协议"><ol><li>RTMP 协议传输过程是flv视频格式的</li><li>RTMP –&gt; TCP HLS –&gt; HTTP</li><li>HLS 简单但实时性相对差，有延时（延时与M3U8文件的索引文件数量有关）</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;RTMP协议概述&quot;&gt;&lt;a href=&quot;#RTMP协议概述&quot; class=&quot;headerlink&quot; title=&quot;RTMP协议概述&quot;&gt;&lt;/a&gt;RTMP协议概述&lt;/h1&gt;&lt;img src=&quot;/2018/08/08/RTMP/RTMP协议概述.png&quot; title=&quot;R
       
     
     </summary>
