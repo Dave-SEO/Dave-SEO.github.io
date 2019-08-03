@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://myzhangning.top/"/>
-  <updated>2019-06-20T16:33:18.717Z</updated>
+  <updated>2019-08-03T10:19:02.338Z</updated>
   <id>http://myzhangning.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue-cli3 + TS 项目搭建</title>
+    <link href="http://myzhangning.top/2019/08/03/vueTs/"/>
+    <id>http://myzhangning.top/2019/08/03/vueTs/</id>
+    <published>2019-08-03T09:40:32.000Z</published>
+    <updated>2019-08-03T10:19:02.338Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="安装vuecli"><a href="#安装vuecli" class="headerlink" title="安装vuecli"></a>安装vuecli</h5><ol><li>npm install -g @vue/cli  #OR yarn global add @vue/cli</li><li><p>vuecli 2 和 3同时安装的方法</p><ul><li>Vue CLI &gt;= 3 和旧版使用了相同的 vue 命令，所以 Vue CLI 2 (vue-cli) 被覆盖了。如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br><span class="line"> <span class="comment">//`vue init` 的运行效果将会跟 `vue-cli@2.x` 相同</span></span><br><span class="line">vue init webpack my-project</span><br></pre></td></tr></table></figure></li></ul></li><li><p>通过 vue ui 命令以图形化界面创建和管理项目</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    vue ui</span><br><span class="line">   <span class="comment">// 上述命令会打开一个浏览器窗口，并以图形化界面将你引导至项目创建的流程。</span></span><br><span class="line">  <span class="comment">// 选择要存放新项目的文件夹后，点击底部的“在此创建新项目”，然后进入配置流程，一共四个流</span></span><br><span class="line"><span class="comment">//   程：“详情” - “预设” - “功能” - “配置”，我们来逐个配置。</span></span><br></pre></td></tr></table></figure></li></ol><ul><li>详情<ol><li>填写项目名，这里我们写的是”vue-ts-project”，然后选择包管理器，我这里选的是npm，<br>如果你建了git仓库，你可以在git栏填写git的仓库地址。配置完成后点击“下一步”。</li></ol></li><li>预设</li></ul><ol><li>每次创建一次项目，你的功能配置都可以保存为预设，方便下次直接使用，这里我们先选择手动，<br>来手动配置项目。然后点击“下一步”。</li></ol><ul><li>功能–这里我们勾选这几项：</li></ul><ol><li>Babel：使用Babel可以将新特性语法转为低版本浏览器支持的语法；</li><li>TypeScript：这个肯定要勾选了，因为我们要使用TypeScript开发；</li><li>Router：我们要开发单页面SPA应用，所以页面间的跳转需要使用前端路由；</li><li>Vuex：多个页面直接或者组件之间的通信可以使用Vuex来做状态管理；</li><li>CSS Pre-processors：CSS预处理器，如果你使用Less或者Sass等CSS预处理器编写CSS样式，则勾选这项；</li><li>Linter/Formatter：代码规范或格式检查器，如果你需要使用TSLint对代码规范或格式进行检验，勾选这项；</li><li>使用配置文件：如果需要将一些插件的配置保存在各自的配置文件中，则需要勾选这项。</li><li>配置完成后点击“下一步”。</li></ol><ul><li>配置</li></ul><ol><li><p>Use class-style component syntax? （这项勾选上代表要在类风格的组件中使用@Component装饰器）</p></li><li><p>Use Babel alongside TypeScript for auto-detected polyfills?<br>（勾选这一项后，会同时使用Babel和TypeScript对新标准语法进行转义。）</p></li><li>Pick a CSS pre-processor （这里我选择的是Less，你可以根据自己习惯勾选。）</li><li>Pick a linter / formatter config<br>（这里是选择代码检查工具，我们使用TypeScript进行开发，所以选择TSLint。）</li><li>Lint on save （勾选这一项后，会在文件保存后进行代码风格和格式的检验。）</li></ol><ul><li>创建项目<br>Vue CLI会根据我们的配置生成配合文件，同时会帮我们安装好依赖。<h5 id="项目结构介绍"><a href="#项目结构介绍" class="headerlink" title="项目结构介绍"></a>项目结构介绍</h5></li><li>public文件夹</li></ul><ol><li>favicon.ico： 显示在浏览器标签栏标题前面的小图标</li><li>index.html： 编译html文件的模板</li></ol><ul><li>src</li></ul><ol><li>assets： 存放一些图片、字体等静态资源</li><li>components： 一些可以复用的组件存放在这里</li><li>views： 页面视图vue文件存放在这里</li><li>main.ts： 项目入口文件</li><li>router.ts： 前端路由配置文件</li><li>shims-tsx.d.ts： 增加对JSX语法的类型支持的声明文件</li><li>shims-vue.d.ts： 用于让编译器识别.vue后缀的文件</li><li>store.ts： 状态管理vuex配置文件</li><li>brwserslistrc： 配置编译后的代码需要支持的浏览器列表</li><li>.gitignore： 设置提交到git时需要忽略的文件</li><li>babel.config.js： babel的配置文件</li><li>package-lock.json： 锁定依赖版本号的文件</li><li>package.json： npm项目最基本的配置文件</li><li>postcss.config.js： postcss的配置文件</li><li>README.md： 项目介绍文件</li><li>tsconfig.json： 这个前面讲过了，TypeScript编译选项配置文件</li><li>tslint.json： TSLint配置文件</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;安装vuecli&quot;&gt;&lt;a href=&quot;#安装vuecli&quot; class=&quot;headerlink&quot; title=&quot;安装vuecli&quot;&gt;&lt;/a&gt;安装vuecli&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;npm install -g @vue/cli  #OR yarn global
+      
+    
+    </summary>
+    
+    
+      <category term="Vue + TS" scheme="http://myzhangning.top/tags/Vue-TS/"/>
+    
+  </entry>
   
   <entry>
     <title>electron</title>
@@ -481,31 +505,6 @@
       
       
         &lt;h1 id=&quot;hls-协议&quot;&gt;&lt;a href=&quot;#hls-协议&quot; class=&quot;headerlink&quot; title=&quot;hls 协议&quot;&gt;&lt;/a&gt;hls 协议&lt;/h1&gt;&lt;img src=&quot;/2018/08/08/hls/HLS协议.png&quot; title=&quot;video拿到m3u8文件
-      
-    
-    </summary>
-    
-      <category term="h5直播" scheme="http://myzhangning.top/categories/h5%E7%9B%B4%E6%92%AD/"/>
-    
-    
-      <category term="h5直播" scheme="http://myzhangning.top/tags/h5%E7%9B%B4%E6%92%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP_FLV</title>
-    <link href="http://myzhangning.top/2018/08/08/HTTP-FLV/"/>
-    <id>http://myzhangning.top/2018/08/08/HTTP-FLV/</id>
-    <published>2018-08-07T16:29:49.000Z</published>
-    <updated>2018-08-07T16:54:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="HTTP-FLV协议"><a href="#HTTP-FLV协议" class="headerlink" title="HTTP-FLV协议"></a>HTTP-FLV协议</h1><img src="/2018/08/08/HTTP-FLV/HTTP-FLV协议.png" title="HTTP-FLV协议"><ol><li>低延时</li><li>传输为flv格式与RTMP都是长连接，中间传输的都是flv，区别：播放器到CDN之间建立的连接是HTTP请求,而RTMP为TCP<h1 id="HTTP-FLV协议的优势"><a href="#HTTP-FLV协议的优势" class="headerlink" title="HTTP-FLV协议的优势"></a>HTTP-FLV协议的优势</h1></li><li>可以在一定程度上避免防火墙的干扰（如：有的机房只允许80端口通过）</li><li>可以很好的兼容HTTP 302 跳转，做到灵活调度</li><li>可以使用HTTPS 做加密通道</li><li>很好的支持移动端（Android, ios）</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;HTTP-FLV协议&quot;&gt;&lt;a href=&quot;#HTTP-FLV协议&quot; class=&quot;headerlink&quot; title=&quot;HTTP-FLV协议&quot;&gt;&lt;/a&gt;HTTP-FLV协议&lt;/h1&gt;&lt;img src=&quot;/2018/08/08/HTTP-FLV/HTTP-FLV协议
       
     
     </summary>
